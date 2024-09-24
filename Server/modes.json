@@ -1,0 +1,16 @@
+ [
+    {
+      "id": 0,
+      "name" : "FullRed",
+      "loop": 0,
+      "full": 1,
+      "color": [ 255, 0, 0 ]
+    },
+    {
+      "id": 1,
+      "name": "FullMagenta",
+      "loop": 0,
+      "full": 1,
+      "color": [ 255, 0, 255 ]
+    }
+  ]
