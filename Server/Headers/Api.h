@@ -14,4 +14,5 @@ private:
 
 	crow::response getInfo(crow::request req);
 	crow::response getModes(crow::request req);
+	crow::response setBrightness(crow::request req);
 };
