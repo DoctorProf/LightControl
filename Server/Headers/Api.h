@@ -1,9 +1,5 @@
 #pragma once
-#include <iostream>
-#include <nlohmann/json.hpp>
-#include <crow/app.h>
-
-using json = nlohmann::json;
+#include "Validator.h"
 
 class Api 
 {
@@ -15,4 +11,6 @@ private:
 	crow::response getInfo(crow::request req);
 	crow::response getModes(crow::request req);
 	crow::response setBrightness(crow::request req);
+	crow::response selectMode(crow::request req);
+	crow::response addMode(crow::request req);
 };

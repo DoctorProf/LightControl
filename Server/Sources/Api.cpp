@@ -18,57 +18,76 @@ void Api::registerRoutes(crow::SimpleApp& app)
         return getModes(req);
             });
     CROW_ROUTE(app, "/setBrightness")
-        .methods(crow::HTTPMethod::POST)
+        .methods(crow::HTTPMethod::GET)
         ([this](crow::request req) {
         return setBrightness(req);
+            });
+    CROW_ROUTE(app, "/selectMode")
+        .methods(crow::HTTPMethod::GET)
+        ([this](crow::request req) {
+        return selectMode(req);
+            });
+    CROW_ROUTE(app, "/addMode")
+        .methods(crow::HTTPMethod::POST)
+        ([this](crow::request req) {
+        return addMode(req);
             });
     
 }
 crow::response Api::getInfo(crow::request req)
 {
-    return crow::response(json::parse(std::ifstream("data.json")).dump(4));
+    json info = json::parse(std::ifstream("config.json"));
+    return crow::response(info["info"].dump(4));
 }
 crow::response Api::getModes(crow::request req)
 {
-    json json_modes;
+    json config;
     json json_response = json::array();
+    config = json::parse(std::ifstream("config.json"));
 
-    json_modes = json::parse(std::ifstream("modes.json"));
-
-    for (int i = 0; i < json_modes.size(); ++i)
+    for (int i = 0; i < config["modes"].size(); ++i)
     {
         json obj;
-        obj["id"] = json_modes[i]["id"];
-        obj["name"] = json_modes[i]["name"];
+        obj["id"] = config["modes"][i]["id"];
+        obj["name"] = config["modes"][i]["name"];
         json_response.push_back(obj);
     }
-
     return crow::response(json_response.dump(4));
 }
 crow::response Api::setBrightness(crow::request req) 
 {
+    json response;
     auto brightness = req.url_params.get("brightness");
-    if (!brightness) {
-        return crow::response(400, "Missing brightness parameter");
+
+    if (!validator::missingParameter(brightness)) 
+    {
+        response["ok"] = false;
+        response["description"] = "Missing parameter";
+        return crow::response(response.dump(4));
     }
 
-    int brightnessValue;
-    try {
-        brightnessValue = std::atoi(brightness);
+    response = validator::setParameter(brightness, "brightness", 0, 100);
+    return crow::response(response.dump(4));
+}
+crow::response Api::selectMode(crow::request req)
+{
+    json response;
+    auto mode_id = req.url_params.get("mode_id");
+
+    if (!validator::missingParameter(mode_id))
+    {
+        response["ok"] = false;
+        response["description"] = "Missing parameter";
+        return crow::response(response.dump(4));
     }
-    catch (const std::invalid_argument&) {
-        return crow::response(400, "Invalid brightness parameter");
-    }
-
-    std::ifstream input_file("data.json");
-    json data_json;
-
-    input_file >> data_json;
-    input_file.close();
-    data_json["brightness"] = brightnessValue;
-
-    std::ofstream output_file("data.json");
-    output_file << data_json.dump(4);
-
-    return crow::response("Brightness set to " + std::to_string(brightnessValue));
+    json modes = json::parse(std::ifstream("config.json"))["modes"];
+    int count_modes = modes.size();
+    response = validator::setParameter(mode_id, "mode_id", modes[0]["id"], modes[count_modes - 1]["id"]);
+    return crow::response(response.dump(4));
+}
+crow::response Api::addMode(crow::request req)
+{
+    json response;
+    response = validator::addMode(req);
+    return crow::response(response.dump(4));
 }

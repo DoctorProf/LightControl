@@ -1,0 +1,31 @@
+{
+    "info": {
+        "brightness": 5,
+        "enable": false,
+        "mode_id": 1
+    },
+    "modes": [
+        {
+            "color": [
+                255,
+                0,
+                0
+            ],
+            "dynamic": false,
+            "id": 0,
+            "name": "Red",
+            "static": true
+        },
+        {
+            "color": [
+                255,
+                0,
+                255
+            ],
+            "dynamic": false,
+            "id": 1,
+            "name": "Magenta",
+            "static": true
+        }
+    ]
+}

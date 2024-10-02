@@ -7,9 +7,10 @@ int main()
     Api api(app);
 
     bool run = true;
+    bool type_mode_static = true;
 
     app.port(8080).multithreaded().run();
-
+    
     while (run)
     {
 
