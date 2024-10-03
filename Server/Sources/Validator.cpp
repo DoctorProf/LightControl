@@ -93,7 +93,7 @@ json validator::addMode(crow::request req)
         return response;
     }
     json mode = json::parse(req.body);
-    if (!checkCorrectParameters(mode, { "color", "id", "dynamic", "static", "name" })) 
+    if (!checkCorrectParameters(mode, {"static", "name" })) 
     {
         response["ok"] = false;
         response["description"] = "Invalid parameters";
@@ -104,12 +104,15 @@ json validator::addMode(crow::request req)
     input_file >> config_json;
     input_file.close();
 
+    mode["id"] = config_json["modes"].size();
+
     config_json["modes"].push_back(mode);
 
     std::ofstream output_file("config.json");
     output_file << config_json.dump(4);
 
     response["ok"] = true;
-    response["description"] = "Mode added. id = " + mode["id"].dump();
+    response["description"] = "Mode added";
+    response["mode_id"] = mode["id"];
     return response;
 }

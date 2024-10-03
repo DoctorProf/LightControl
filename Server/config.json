@@ -1,18 +1,28 @@
 {
     "info": {
         "brightness": 5,
-        "enable": false,
-        "mode_id": 1
+        "led_count": 300,
+        "mode_id": 2,
+        "state": 0
     },
     "modes": [
+        {
+            "color": [
+                0,
+                0,
+                0
+            ],
+            "id": 0,
+            "name": "Off",
+            "static": true
+        },
         {
             "color": [
                 255,
                 0,
                 0
             ],
-            "dynamic": false,
-            "id": 0,
+            "id": 1,
             "name": "Red",
             "static": true
         },
@@ -22,8 +32,7 @@
                 0,
                 255
             ],
-            "dynamic": false,
-            "id": 1,
+            "id": 2,
             "name": "Magenta",
             "static": true
         }

@@ -6,6 +6,11 @@ Api::Api(crow::SimpleApp& app)
 }
 void Api::registerRoutes(crow::SimpleApp& app) 
 {
+    CROW_ROUTE(app, "/setState")
+        .methods(crow::HTTPMethod::GET)
+        ([this](crow::request req) {
+        return setState(req);
+            });
     CROW_ROUTE(app, "/getInfo")
         .methods(crow::HTTPMethod::GET)
         ([this](crow::request req) {
@@ -32,7 +37,28 @@ void Api::registerRoutes(crow::SimpleApp& app)
         ([this](crow::request req) {
         return addMode(req);
             });
+
+    CROW_ROUTE(app, "/setLedColors")
+        .methods(crow::HTTPMethod::POST)
+        ([this](crow::request req) {
+        return setLedColors(req);
+            });
     
+}
+crow::response Api::setState(crow::request req) 
+{
+    json response;
+    auto state = req.url_params.get("state");
+
+    if (!validator::missingParameter(state))
+    {
+        response["ok"] = false;
+        response["description"] = "Missing parameter";
+        return crow::response(response.dump(4));
+    }
+
+    response = validator::setParameter(state, "state", 0, 1);
+    return crow::response(response.dump(4));
 }
 crow::response Api::getInfo(crow::request req)
 {
@@ -41,18 +67,7 @@ crow::response Api::getInfo(crow::request req)
 }
 crow::response Api::getModes(crow::request req)
 {
-    json config;
-    json json_response = json::array();
-    config = json::parse(std::ifstream("config.json"));
-
-    for (int i = 0; i < config["modes"].size(); ++i)
-    {
-        json obj;
-        obj["id"] = config["modes"][i]["id"];
-        obj["name"] = config["modes"][i]["name"];
-        json_response.push_back(obj);
-    }
-    return crow::response(json_response.dump(4));
+    return crow::response(json::parse(std::ifstream("config.json"))["modes"].dump(4));
 }
 crow::response Api::setBrightness(crow::request req) 
 {
@@ -90,4 +105,9 @@ crow::response Api::addMode(crow::request req)
     json response;
     response = validator::addMode(req);
     return crow::response(response.dump(4));
+}
+
+crow::response Api::setLedColors(crow::request req)
+{
+    return crow::response(req.body);
 }
