@@ -22,17 +22,11 @@
 
 ---
 
-`toggle()` - Переключить ленту (устнановить выкл если сейчас вкл и наоборот)
-
 `setState(state)` - Установить ленту в режим вкл если 1 и выкл если 0
 
 ---
 
 `setBrightness(brightness)` - Установить яркость
-
-`setSpeed(speed)` - Установить скорость
-
-`getSpeed()` - Получить скорость
 
 ---
 
@@ -49,12 +43,6 @@
 `setLedColor(ledIndex, r, g, b)` - Установить цвет пикселя
 
 `setStripColor(r, g, b)` - Установить цвет всей ленты
-
-`setFade(ledIndex1, ledIndex2, r1, g1, b1, r2, g2, b2)` - Установить градиент для отрезка
-
-`setSegmentColor(ledIndex1, ledIndex2, r, g, b)` - Установить цвет для сегмента
-
-`setStepColor(step, offset, r1, g1, b1, r2, g2, b2)` - Установить чередование цветов
 
 # Server - controller request methods
 
