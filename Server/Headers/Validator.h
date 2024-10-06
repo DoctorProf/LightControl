@@ -1,10 +1,6 @@
 #pragma once
-#include <iostream>
-#include <fstream>
-#include <nlohmann/json.hpp>
 #include <crow/app.h>
-
-using json = nlohmann::json;
+#include "ConfigController.h"
 
 namespace validator 
 {

@@ -1,11 +1,16 @@
 #include "../Headers/Client.h"
 
-Client::Client(std::string baseUrl) : client(baseUrl){}
+Client::Client(std::string baseUrl) : client(baseUrl)
+{
+    //client.set_connection_timeout(0, 500000);
+    //client.set_read_timeout(1, 0);
+    //client.set_write_timeout(1, 0);
+}
 
 bool Client::setLedColors(std::vector<uint8_t> colors)
 {
     std::string color(colors.begin(), colors.end());
-    auto res = client.Post("/setLedColors", color, "application/octet-stream");
+    httplib::Result res = client.Post("/setLedColors", color, "application/octet-stream");
     if (res) 
     {
         std::cout << "Successful request" << std::endl;

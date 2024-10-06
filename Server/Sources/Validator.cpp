@@ -57,17 +57,8 @@ json validator::setParameter(char* parameter, std::string name_parameter, int mi
     int value = invalidParameter(parameter);
     if (value != -1 && checkRange(value, min, max)) 
     {
-        json config_json;
-        std::ifstream input_file("config.json");
-        input_file >> config_json;
-        input_file.close();
-        config_json["info"][name_parameter] = value;
-
-        std::ofstream output_file("config.json");
-        output_file << config_json.dump(4);
-
         response["ok"] = true;
-        response["description"] = "Parameter set to " + std::to_string(value);
+        response["description"] = "Parameter set to " + std::to_string(ConfigController::updateParameter(value, name_parameter));
         return response;
     }
     else 
@@ -99,20 +90,9 @@ json validator::addMode(crow::request req)
         response["description"] = "Invalid parameters";
         return response;
     }
-    json config_json;
-    std::ifstream input_file("config.json");
-    input_file >> config_json;
-    input_file.close();
-
-    mode["id"] = config_json["modes"].size();
-
-    config_json["modes"].push_back(mode);
-
-    std::ofstream output_file("config.json");
-    output_file << config_json.dump(4);
 
     response["ok"] = true;
     response["description"] = "Mode added";
-    response["mode_id"] = mode["id"];
+    response["mode_id"] = ConfigController::addMode(mode);
     return response;
 }

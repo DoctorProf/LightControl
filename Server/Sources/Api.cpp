@@ -62,12 +62,11 @@ crow::response Api::setState(crow::request req)
 }
 crow::response Api::getInfo(crow::request req)
 {
-    json info = json::parse(std::ifstream("config.json"));
-    return crow::response(info["info"].dump(4));
+    return crow::response(ConfigController::getInfo().dump(4));
 }
 crow::response Api::getModes(crow::request req)
 {
-    return crow::response(json::parse(std::ifstream("config.json"))["modes"].dump(4));
+    return crow::response(ConfigController::getModes().dump(4));
 }
 crow::response Api::setBrightness(crow::request req) 
 {
@@ -88,7 +87,6 @@ crow::response Api::selectMode(crow::request req)
 {
     json response;
     auto mode_id = req.url_params.get("mode_id");
-
     if (!validator::missingParameter(mode_id))
     {
         response["ok"] = false;
@@ -106,7 +104,6 @@ crow::response Api::addMode(crow::request req)
     response = validator::addMode(req);
     return crow::response(response.dump(4));
 }
-
 crow::response Api::setLedColors(crow::request req)
 {
     return crow::response(req.body);

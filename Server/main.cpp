@@ -2,14 +2,18 @@
 #include "Headers/Client.h"
 #include <thread>
 
+json ConfigController::config = json::object();
+bool ConfigController::is_updated = false;
+
 void apiThread(crow::SimpleApp& app) 
 {
     app.port(8080).multithreaded().run();
 }
 int main() 
 {
+    ConfigController::updateConfig();
     httplib::MultipartFormDataItems files;
-    Client client("http://localhost:10000");
+    Client client("http://127.0.0.1:10000");
     crow::SimpleApp app;
     Api api(app);
 
@@ -23,9 +27,8 @@ int main()
 
     while (run)
     {
-        std::ifstream file("config.json");
-        json config;
-        file >> config;
+        if (!ConfigController::isUpdated()) continue;
+        json config = ConfigController::getConfig();
         int mode_id = config["info"]["mode_id"];
 
         if (previous_mode_id != mode_id) 
@@ -39,13 +42,8 @@ int main()
         {
             std::vector<uint8_t> colors;
             json color = config["modes"][mode_id]["color"];
-            for (int i = 0; i < config["info"]["led_count"]; ++i) 
-            {
-                colors.push_back(color[0]);
-                colors.push_back(color[1]);
-                colors.push_back(color[2]);
-            }
-            if(!client.setLedColors(colors)) type_mode_static = true;
+            if (!client.setStripColor(color[0], color[1], color[2])) type_mode_static = true;
+            else type_mode_static = false;
         }
         else 
         {
