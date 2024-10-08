@@ -1,28 +1,18 @@
 {
     "info": {
-        "brightness": 50,
+        "brightness": 255,
         "led_count": 300,
         "mode_id": 2,
-        "state": 0
+        "state": 1
     },
     "modes": [
-        {
-            "color": [
-                0,
-                0,
-                0
-            ],
-            "id": 0,
-            "name": "Off",
-            "static": true
-        },
         {
             "color": [
                 255,
                 0,
                 0
             ],
-            "id": 1,
+            "id": 0,
             "name": "Red",
             "static": true
         },
@@ -32,7 +22,7 @@
                 255,
                 0
             ],
-            "id": 2,
+            "id": 1,
             "name": "Green",
             "static": true
         },
@@ -42,7 +32,7 @@
                 0,
                 255
             ],
-            "id": 3,
+            "id": 2,
             "name": "Blue",
             "static": true
         },
@@ -52,7 +42,7 @@
                 255,
                 0
             ],
-            "id": 4,
+            "id": 3,
             "name": "Yellow",
             "static": true
         },
@@ -62,7 +52,7 @@
                 0,
                 255
             ],
-            "id": 5,
+            "id": 4,
             "name": "Magenta",
             "static": true
         }

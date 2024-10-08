@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <mutex>
 #include <fstream>
 #include <nlohmann/json.hpp>
 
@@ -12,11 +13,10 @@ public:
 	static int addMode(json mode);
 	static int updateParameter(int value, std::string name_parameter);
 
-	static bool isUpdated();
 	static json getConfig();
 	static json getInfo();
 	static json getModes();
 private:
 	static json config;
-	static bool is_updated;
+	static std::mutex config_mutex;
 };
