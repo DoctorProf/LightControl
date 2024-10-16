@@ -4,6 +4,8 @@ SOURCES += \
         main.cpp \
         requesthandler.cpp
 
+CONFIG += c++17
+
 resources.files = main.qml
 resources.prefix = /$${TARGET}
 RESOURCES += resources

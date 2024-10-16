@@ -1,60 +1,45 @@
 {
     "info": {
         "brightness": 255,
-        "led_count": 300,
         "mode_id": 2,
         "state": 1
     },
     "modes": [
         {
-            "color": [
-                255,
-                0,
-                0
-            ],
             "id": 0,
             "name": "Red",
-            "static": true
+            "options": {
+                "color": [
+                    255,
+                    0,
+                    0
+                ],
+                "static": true
+            }
         },
         {
-            "color": [
-                0,
-                255,
-                0
-            ],
             "id": 1,
             "name": "Green",
-            "static": true
+            "options": {
+                "color": [
+                    0,
+                    255,
+                    0
+                ],
+                "static": true
+            }
         },
         {
-            "color": [
-                0,
-                0,
-                255
-            ],
             "id": 2,
             "name": "Blue",
-            "static": true
-        },
-        {
-            "color": [
-                255,
-                255,
-                0
-            ],
-            "id": 3,
-            "name": "Yellow",
-            "static": true
-        },
-        {
-            "color": [
-                255,
-                0,
-                255
-            ],
-            "id": 4,
-            "name": "Magenta",
-            "static": true
+            "options": {
+                "color": [
+                    0,
+                    0,
+                    255
+                ],
+                "static": true
+            }
         }
     ]
 }

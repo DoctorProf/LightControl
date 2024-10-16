@@ -84,7 +84,7 @@ json validator::addMode(crow::request req)
         return response;
     }
     json mode = json::parse(req.body);
-    if (!checkCorrectParameters(mode, {"static", "name" })) 
+    if (!checkCorrectParameters(mode, {"options", "name"})) 
     {
         response["ok"] = false;
         response["description"] = "Invalid parameters";

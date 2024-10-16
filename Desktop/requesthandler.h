@@ -8,22 +8,36 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QVariantList>
+#include <QUrlQuery>
 
 class RequestHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit RequestHandler(QObject *parent = nullptr);
+    RequestHandler(QObject *parent = nullptr);
+    Q_INVOKABLE void getInfo();
+    Q_INVOKABLE void getModes();
+    Q_INVOKABLE void selectMode(QString mode_id);
+    Q_INVOKABLE void setBrightness(QString brightness);
+    Q_INVOKABLE void setState(QString state);
 
-    void getModes();
 private slots:
     void onReplyFinished(QNetworkReply* reply);
 
 signals:
-    void modesReceived(QVariantList &modes);
+    void infoReceived(QJsonObject obj);
+    void modesReceived(QVariantList modes);
+    void modeSelected(bool success);
 
 private:
-    QNetworkAccessManager* manager;
+    QNetworkAccessManager* network_manager;
+    QString base_url;
+
+    void handleGetModesReply(QNetworkReply* reply);
+    void handleSelectModeReply(QNetworkReply* reply);
+    void handleGetInfoReply(QNetworkReply* reply);
+    void handleSetBrightnessReply(QNetworkReply* reply);
+    void handleSetStateReply(QNetworkReply* reply);
 };
 
 #endif // REQUESTHANDLER_H

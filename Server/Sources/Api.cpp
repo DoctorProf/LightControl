@@ -47,19 +47,19 @@ crow::response Api::setState(crow::request req)
     {
         response["ok"] = false;
         response["description"] = "Missing parameter";
-        return crow::response(response.dump(4));
+        return crow::response(response.dump());
     }
 
     response = validator::setParameter(state, "state", 0, 1);
-    return crow::response(response.dump(4));
+    return crow::response(response.dump());
 }
 crow::response Api::getInfo(crow::request req)
 {
-    return crow::response(ConfigController::getInfo().dump(4));
+    return crow::response(ConfigController::getInfo().dump());
 }
 crow::response Api::getModes(crow::request req)
 {
-    return crow::response(ConfigController::getModes().dump(4));
+    return crow::response(ConfigController::getModes().dump());
 }
 crow::response Api::setBrightness(crow::request req) 
 {
@@ -70,10 +70,10 @@ crow::response Api::setBrightness(crow::request req)
     {
         response["ok"] = false;
         response["description"] = "Missing parameter";
-        return crow::response(response.dump(4));
+        return crow::response(response.dump());
     }
     response = validator::setParameter(brightness, "brightness", 0, 255);
-    return crow::response(response.dump(4));
+    return crow::response(response.dump());
 }
 crow::response Api::selectMode(crow::request req)
 {
@@ -83,16 +83,16 @@ crow::response Api::selectMode(crow::request req)
     {
         response["ok"] = false;
         response["description"] = "Missing parameter";
-        return crow::response(response.dump(4));
+        return crow::response(response.dump());
     }
     json modes = ConfigController::getModes();
     int count_modes = modes.size();
     response = validator::setParameter(mode_id, "mode_id", modes[0]["id"], modes[count_modes - 1]["id"]);
-    return crow::response(response.dump(4));
+    return crow::response(response.dump());
 }
 crow::response Api::addMode(crow::request req)
 {
     json response;
     response = validator::addMode(req);
-    return crow::response(response.dump(4));
+    return crow::response(response.dump());
 }
