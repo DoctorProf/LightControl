@@ -44,7 +44,6 @@ int main()
         }
         if ((mode["options"]["static"] || !state) && type_mode_static)
         {
-            //std::vector<uint8_t> colors;
             brightness /= 255.f;
             if (!state) color = { 0, 0, 0 };
             int r = color[0];

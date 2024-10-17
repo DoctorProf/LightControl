@@ -33,6 +33,9 @@ Window {
             font.family: "Arial"
             font.pixelSize: 18
             font.bold: true
+            onClicked: {
+                request_handler.getInfo()
+            }
         }
 
         ComboBox {

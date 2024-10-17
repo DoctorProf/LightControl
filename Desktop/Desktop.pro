@@ -2,7 +2,8 @@ QT += quick network
 
 SOURCES += \
         main.cpp \
-        requesthandler.cpp
+        requesthandler.cpp \
+        syncworker.cpp
 
 CONFIG += c++17
 
@@ -24,4 +25,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES +=
 
 HEADERS += \
-    requesthandler.h
+    requesthandler.h \
+    syncworker.h
