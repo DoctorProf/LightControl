@@ -20,6 +20,7 @@ public:
     Q_INVOKABLE void selectMode(QString mode_id);
     Q_INVOKABLE void setBrightness(QString brightness);
     Q_INVOKABLE void setState(QString state);
+    Q_INVOKABLE void setModeColor(QString r, QString g, QString b);
 
 private slots:
     void onReplyFinished(QNetworkReply* reply);
@@ -38,6 +39,7 @@ private:
     void handleGetInfoReply(QNetworkReply* reply);
     void handleSetBrightnessReply(QNetworkReply* reply);
     void handleSetStateReply(QNetworkReply* reply);
+    void handleSetModeColorReply(QNetworkReply* reply);
 };
 
 #endif // REQUESTHANDLER_H

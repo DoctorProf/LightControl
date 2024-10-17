@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Controls.Material
+import QtQuick.Dialogs
 
 Window {
     width: 600
@@ -13,6 +14,7 @@ Window {
     minimumWidth: width
     visible: true
     title: qsTr("LightControl")
+    Material.theme: Material.Light
 
     ColumnLayout {
         anchors.left: parent.left
@@ -45,13 +47,18 @@ Window {
             font.pixelSize: 18
             font.bold: true
             model: ListModel {
-                id: modesModel
-            }
-            onCurrentIndexChanged: {
-                request_handler.selectMode(modes_box.currentIndex);
+                id: modes_model
             }
             textRole: "text"
             valueRole: "value"
+            onCurrentIndexChanged: {
+                var obj = modes_model.get(currentIndex)
+                request_handler.selectMode(obj.value.id)
+                if("color" in obj.value.options) {
+                    color_picker_button.visible = true
+                }
+            }
+
         }
         Slider{
             id: brightness_slider
@@ -96,10 +103,41 @@ Window {
     }
 
     ColumnLayout {
+        id: column_layout
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: parent.width / 2
+        Button {
+            id: color_picker_button
+            Layout.preferredWidth: 150
+            Layout.preferredHeight: 40
+            Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+            Layout.topMargin: 10
+            Material.background: "#b1f4ff"
+            Material.accent: "#1b5eff"
+            text: "ColorPicker"
+            font.family: "Arial"
+            font.pixelSize: 18
+            font.bold: true
+            onClicked: {
+                color_dialog.open()
+            }
+        }
+
+        ColorDialog {
+            id: color_dialog
+            title: "Color"
+            onAccepted: {
+                var r = (selectedColor.r * 255).toFixed().toString()
+                var g = (selectedColor.g * 255).toFixed().toString()
+                var b = (selectedColor.b * 255).toFixed().toString()
+                request_handler.setModeColor(r, g, b)
+            }
+            onRejected: {
+                console.log("Color dialog rejected")
+            }
+        }
     }
 
     Connections {
@@ -107,16 +145,15 @@ Window {
 
         function onModesReceived(modes)
         {
-            modesModel.clear()
+            modes_model.clear()
             for (var i = 0; i < modes.length; i++) {
                 console.log(modes[i].name, modes[i].id);
-                modesModel.append({
-                    "text": modes[i].name,
-                    "value": modes[i].id
-                })
+                modes_model.append({
+                                       "text": modes[i].name,
+                                       "value": modes[i]
+                                   })
             }
         }
-
         function onModeSelected(success) {
             if (success) {
                 console.log("Mode selected successfully.")

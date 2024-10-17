@@ -46,6 +46,17 @@ void RequestHandler::setState(QString state)
     QNetworkRequest request(url);
     network_manager->get(request);
 }
+void RequestHandler::setModeColor(QString r, QString g, QString b)
+{
+    QUrl url(base_url + "/setModeColor");
+    QUrlQuery query;
+    query.addQueryItem("r", r);
+    query.addQueryItem("g", g);
+    query.addQueryItem("b", b);
+    url.setQuery(query);
+    QNetworkRequest request(url);
+    network_manager->get(request);
+}
 void RequestHandler::onReplyFinished(QNetworkReply *reply)
 {
     QUrl url = reply->url();
@@ -68,6 +79,10 @@ void RequestHandler::onReplyFinished(QNetworkReply *reply)
     else if (url.path() == "/setState")
     {
         handleSetStateReply(reply);
+    }
+    else if (url.path() == "/setModeColor")
+    {
+        handleSetModeColorReply(reply);
     }
     reply->deleteLater();
 }
@@ -137,5 +152,16 @@ void RequestHandler::handleSetStateReply(QNetworkReply* reply)
     else
     {
         qDebug() << "Failed to set state:" << reply->errorString();
+    }
+}
+void RequestHandler::handleSetModeColorReply(QNetworkReply* reply)
+{
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        qDebug() << "Color set";
+    }
+    else
+    {
+        qDebug() << "Failed to set color:" << reply->errorString();
     }
 }

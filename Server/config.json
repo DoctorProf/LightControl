@@ -1,42 +1,18 @@
 {
     "info": {
-        "brightness": 255,
-        "mode_id": 2,
+        "brightness": 109,
+        "mode_id": 0,
         "state": 1
     },
     "modes": [
         {
             "id": 0,
-            "name": "Red",
+            "name": "STATIC",
             "options": {
                 "color": [
-                    255,
-                    0,
-                    0
-                ],
-                "static": true
-            }
-        },
-        {
-            "id": 1,
-            "name": "Green",
-            "options": {
-                "color": [
-                    0,
-                    255,
-                    0
-                ],
-                "static": true
-            }
-        },
-        {
-            "id": 2,
-            "name": "Blue",
-            "options": {
-                "color": [
-                    0,
-                    0,
-                    255
+                    240,
+                    138,
+                    30
                 ],
                 "static": true
             }

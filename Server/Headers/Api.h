@@ -14,4 +14,5 @@ private:
 	crow::response setBrightness(crow::request req);
 	crow::response selectMode(crow::request req);
 	crow::response addMode(crow::request req);
+	crow::response setModeColor(crow::request req);
 };
