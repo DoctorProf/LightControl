@@ -1,5 +1,4 @@
-#ifndef REQUESTHANDLER_H
-#define REQUESTHANDLER_H
+#pragma once
 
 #include <QObject>
 #include <QNetworkAccessManager>
@@ -9,6 +8,12 @@
 #include <QJsonArray>
 #include <QVariantList>
 #include <QUrlQuery>
+#include <map>
+#include <functional>
+
+//template <typename... Args>
+
+using function = std::function<void(QNetworkReply*)>;
 
 class RequestHandler : public QObject
 {
@@ -33,6 +38,7 @@ signals:
 private:
     QNetworkAccessManager* network_manager;
     QString base_url;
+    std::map<QString, function> endpoints;
 
     void handleGetModesReply(QNetworkReply* reply);
     void handleSelectModeReply(QNetworkReply* reply);
@@ -41,5 +47,3 @@ private:
     void handleSetStateReply(QNetworkReply* reply);
     void handleSetModeColorReply(QNetworkReply* reply);
 };
-
-#endif // REQUESTHANDLER_H

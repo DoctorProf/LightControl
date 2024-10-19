@@ -1,12 +1,19 @@
 #include "../Headers/ConfigController.h"
 
 json ConfigController::config;
-//json ConfigController::current_mode;
-//int ConfigController::mode_id;
-//int ConfigController::brightness;
-//int ConfigController::state;
+json ConfigController::current_mode;
+int ConfigController::mode_id;
+int ConfigController::brightness;
+int ConfigController::state;
 std::mutex ConfigController::config_mutex;
 
+void ConfigController::updateParameters() 
+{
+	mode_id = config["info"]["mode_id"];
+	current_mode = config["modes"][mode_id];
+	brightness = config["info"]["brightness"];
+	state = config["info"]["state"];
+}
 int ConfigController::ConfigController::addMode(json mode) 
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
@@ -21,6 +28,7 @@ int ConfigController::updateParameter(int value, std::string name_parameter)
 	std::lock_guard<std::mutex> lock(config_mutex);
 	config["info"][name_parameter] = value;
 	ConfigController::saveConfigFile("config.json");
+	updateParameters();
 	return value;
 }
 void ConfigController::readConfigFile(std::string file_name)
@@ -50,19 +58,23 @@ json ConfigController::getModes()
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return config["modes"];
 }
-//int ConfigController::getBrightness() 
-//{
-//	return brightness;
-//}
-//int ConfigController::getCurrentModeId() 
-//{
-//	return mode_id;
-//}
-//json ConfigController::getCurrentMode() 
-//{
-//	return current_mode;
-//}
-//int ConfigController::getState() 
-//{
-//	return state;
-//}
+int ConfigController::getBrightness() 
+{
+	std::lock_guard<std::mutex> lock(config_mutex);
+	return brightness;
+}
+int ConfigController::getCurrentModeId() 
+{
+	std::lock_guard<std::mutex> lock(config_mutex);
+	return mode_id;
+}
+json ConfigController::getCurrentMode() 
+{
+	std::lock_guard<std::mutex> lock(config_mutex);
+	return current_mode;
+}
+int ConfigController::getState() 
+{
+	std::lock_guard<std::mutex> lock(config_mutex);
+	return state;
+}

@@ -1,4 +1,4 @@
-#include "syncworker.h"
+#include "Headers/syncworker.h"
 
 SyncWorker::SyncWorker(RequestHandler *handler)
     : handler(handler)

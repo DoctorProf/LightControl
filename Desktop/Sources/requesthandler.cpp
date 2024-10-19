@@ -1,4 +1,4 @@
-#include "requesthandler.h"
+#include "Headers/requesthandler.h"
 
 RequestHandler::RequestHandler(QObject *parent)
     : QObject(parent)
@@ -6,6 +6,14 @@ RequestHandler::RequestHandler(QObject *parent)
     network_manager = new QNetworkAccessManager(this);
     base_url = "http://127.0.0.1:8080";
     connect(network_manager, &QNetworkAccessManager::finished, this, &RequestHandler::onReplyFinished);
+    endpoints = {
+        {"/getInfo", handleGetInfoReply},
+        {"/getModes", handleGetModesReply},
+        {"/selectMode", handleSelectModeReply},
+        {"/setBrightness", handleSetBrightnessReply},
+        {"/setState", handleSetStateReply},
+        {"/setModeColor", handleSetModeColorReply}
+    };
 }
 void RequestHandler::getInfo()
 {
@@ -60,29 +68,9 @@ void RequestHandler::setModeColor(QString r, QString g, QString b)
 void RequestHandler::onReplyFinished(QNetworkReply *reply)
 {
     QUrl url = reply->url();
-    if(url.path() == "/getInfo")
+    if(endpoints.find(url.path()) != endpoints.end())
     {
-        handleGetInfoReply(reply);
-    }
-    else if (url.path() == "/getModes")
-    {
-        handleGetModesReply(reply);
-    }
-    else if (url.path() == "/selectMode")
-    {
-        handleSelectModeReply(reply);
-    }
-    else if (url.path() == "/setBrightness")
-    {
-        handleSetBrightnessReply(reply);
-    }
-    else if (url.path() == "/setState")
-    {
-        handleSetStateReply(reply);
-    }
-    else if (url.path() == "/setModeColor")
-    {
-        handleSetModeColorReply(reply);
+        endpoints[url.path()].second;
     }
     reply->deleteLater();
 }

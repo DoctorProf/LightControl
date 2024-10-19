@@ -1,10 +1,9 @@
-#ifndef SYNCWORKER_H
-#define SYNCWORKER_H
+#pragma once
 
 #include <QObject>
 #include <QThread>
 #include <QTimer>
-#include "requesthandler.h"
+#include "Headers/requesthandler.h"
 
 class SyncWorker : public QObject
 {
@@ -18,5 +17,3 @@ public slots:
 private:
     RequestHandler *handler;
 };
-
-#endif // SYNCWORKER_H

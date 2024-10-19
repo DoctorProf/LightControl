@@ -2,14 +2,15 @@ QT += quick network
 
 SOURCES += \
         main.cpp \
-        requesthandler.cpp \
-        syncworker.cpp
+        Sources/requesthandler.cpp \
+        Sources/syncworker.cpp
 
 CONFIG += c++17
 
-resources.files = main.qml
+resources.files = Layouts/main.qml
 resources.prefix = /$${TARGET}
-RESOURCES += resources
+RESOURCES += resources \
+    resources.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -22,8 +23,8 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES +=
+RC_FILE = desktop.rc
 
 HEADERS += \
-    requesthandler.h \
-    syncworker.h
+    Headers/requesthandler.h \
+    Headers/syncworker.h
