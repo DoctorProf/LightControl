@@ -8,12 +8,11 @@
 #include <QJsonArray>
 #include <QVariantList>
 #include <QUrlQuery>
-#include <map>
-#include <functional>
+#include <QMap>
 
 //template <typename... Args>
-
-using function = std::function<void(QNetworkReply*)>;
+class RequestHandler;
+using function = void (RequestHandler::*)(QNetworkReply*);
 
 class RequestHandler : public QObject
 {
@@ -38,7 +37,7 @@ signals:
 private:
     QNetworkAccessManager* network_manager;
     QString base_url;
-    std::map<QString, function> endpoints;
+    QMap<QString, function> endpoints;
 
     void handleGetModesReply(QNetworkReply* reply);
     void handleSelectModeReply(QNetworkReply* reply);

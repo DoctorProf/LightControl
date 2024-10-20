@@ -10,7 +10,8 @@ void apiThread(crow::SimpleApp& app)
 int main() 
 {
     ConfigController::readConfigFile("config.json");
-    Client client("http://192.168.1.21:10000");
+    ConfigController::updateParameters();
+    Client client("http://127.0.0.1:10000");
     crow::SimpleApp app;
     Api api(app);
 
@@ -27,11 +28,16 @@ int main()
 
     while (run)
     {
-        json config = ConfigController::getConfig();
+        /*json config = ConfigController::getConfig();
         int mode_id = config["info"]["mode_id"];
         int state = config["info"]["state"];
         float brightness = config["info"]["brightness"];
         json mode = config["modes"][mode_id];
+        json color = mode["options"]["color"];*/
+        int mode_id = ConfigController::getCurrentModeId();
+        int state = ConfigController::getState();
+        float brightness = ConfigController::getBrightness();
+        json mode = ConfigController::getCurrentMode();
         json color = mode["options"]["color"];
 
         if (previous_mode_id != mode_id || previous_state != state || previous_brightness != brightness || previous_color != color) 

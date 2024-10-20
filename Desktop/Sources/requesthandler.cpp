@@ -6,14 +6,12 @@ RequestHandler::RequestHandler(QObject *parent)
     network_manager = new QNetworkAccessManager(this);
     base_url = "http://127.0.0.1:8080";
     connect(network_manager, &QNetworkAccessManager::finished, this, &RequestHandler::onReplyFinished);
-    endpoints = {
-        {"/getInfo", handleGetInfoReply},
-        {"/getModes", handleGetModesReply},
-        {"/selectMode", handleSelectModeReply},
-        {"/setBrightness", handleSetBrightnessReply},
-        {"/setState", handleSetStateReply},
-        {"/setModeColor", handleSetModeColorReply}
-    };
+    endpoints.insert(QString("/getInfo"), handleGetInfoReply);
+    endpoints.insert(QString("/getModes"), handleGetModesReply);
+    endpoints.insert(QString("/selectMode"), handleSelectModeReply);
+    endpoints.insert(QString("/setBrightness"), handleSetBrightnessReply);
+    endpoints.insert(QString("/setState"), handleSetStateReply);
+    endpoints.insert(QString("/setModeColor"), handleSetModeColorReply);
 }
 void RequestHandler::getInfo()
 {
@@ -70,7 +68,7 @@ void RequestHandler::onReplyFinished(QNetworkReply *reply)
     QUrl url = reply->url();
     if(endpoints.find(url.path()) != endpoints.end())
     {
-        endpoints[url.path()].second;
+        (this->*endpoints[url.path()])(reply);
     }
     reply->deleteLater();
 }
