@@ -22,11 +22,13 @@ public:
 	static int getCurrentModeId();
 	static json getCurrentMode();
 	static int getState();
+	static json getCurrentModeOptions();
 private:
 	static json config;
-	static json current_mode;
 	static int mode_id;
 	static int brightness;
 	static int state;
+	static json current_mode;
+	static json current_mode_options;
 	static std::mutex config_mutex;
 };

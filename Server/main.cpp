@@ -24,39 +24,51 @@ int main()
     int previous_mode_id{ 0 };
     int previous_state{ 0 };
     int previous_brightness{ 0 };
-    json previous_color = { 0, 0, 0 };
+    json previous_options = {};
+
+    /*
+    * API метод RenameMode(std:string name);
+    * Изменение логики id модов
+    * Общий метод для сета options мода
+    * Изменить логику SelectMode
+    * Получение текущего мода по id, неверно
+    */
 
     while (run)
     {
-        /*json config = ConfigController::getConfig();
-        int mode_id = config["info"]["mode_id"];
-        int state = config["info"]["state"];
-        float brightness = config["info"]["brightness"];
-        json mode = config["modes"][mode_id];
-        json color = mode["options"]["color"];*/
         int mode_id = ConfigController::getCurrentModeId();
         int state = ConfigController::getState();
         float brightness = ConfigController::getBrightness();
-        json mode = ConfigController::getCurrentMode();
-        json color = mode["options"]["color"];
+        json options = ConfigController::getCurrentModeOptions();;
 
-        if (previous_mode_id != mode_id || previous_state != state || previous_brightness != brightness || previous_color != color) 
+        if (previous_mode_id != mode_id || previous_state != state || previous_brightness != brightness || previous_options != options)
         {
             previous_mode_id = mode_id;
             previous_state = state;
             previous_brightness = brightness;
-            previous_color = color;
+            previous_options = options;
             type_mode_static = true;
         }
-        if ((mode["options"]["static"] || !state) && type_mode_static)
+        if ((options["static"] || !state) && type_mode_static)
         {
+            int r = 0;
+            int g = 0;
+            int b = 0;
             brightness /= 255.f;
-            if (!state) color = { 0, 0, 0 };
-            int r = color[0];
-            int g = color[1];
-            int b = color[2];
-            if (!client.setStripColor(r * brightness, g * brightness, b * brightness)) type_mode_static = true;
-            else type_mode_static = false;
+            if (state)
+            {
+                r = options["color"][0];
+                g = options["color"][1];
+                b = options["color"][2];
+            }
+            if (!client.setStripColor(r * brightness, g * brightness, b * brightness)) 
+            {
+                type_mode_static = true;
+            }
+            else 
+            {
+                type_mode_static = false;
+            }
         }
         else 
         {

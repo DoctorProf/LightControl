@@ -2,6 +2,7 @@
 
 json ConfigController::config;
 json ConfigController::current_mode;
+json ConfigController::current_mode_options;
 int ConfigController::mode_id;
 int ConfigController::brightness;
 int ConfigController::state;
@@ -10,9 +11,19 @@ std::mutex ConfigController::config_mutex;
 void ConfigController::updateParameters() 
 {
 	mode_id = config["info"]["mode_id"];
-	current_mode = config["modes"][mode_id];
 	brightness = config["info"]["brightness"];
 	state = config["info"]["state"];
+	for (auto& mode : config["modes"]) 
+	{
+		if (mode["id"] == mode_id)
+		{
+			std::cout << "Mode found" << std::endl;
+			current_mode = mode;
+			current_mode_options = current_mode["options"];
+			return;
+		}
+	}
+	std::cout << "Mode not found." << std::endl;
 }
 int ConfigController::ConfigController::addMode(json mode) 
 {
@@ -77,4 +88,8 @@ int ConfigController::getState()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return state;
+}
+json ConfigController::getCurrentModeOptions()
+{
+	return current_mode_options;
 }
