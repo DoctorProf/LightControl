@@ -132,10 +132,8 @@ Window {
             id: color_dialog
             title: "Color"
             onAccepted: {
-                var r = (selectedColor.r * 255).toFixed().toString()
-                var g = (selectedColor.g * 255).toFixed().toString()
-                var b = (selectedColor.b * 255).toFixed().toString()
-                request_handler.setModeColor(r, g, b)
+                var hex = selectedColor.toString(16);
+                request_handler.setModeColor(hex)
             }
             onRejected: {
                 console.log("Color dialog rejected")

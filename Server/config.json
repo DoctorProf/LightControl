@@ -1,6 +1,6 @@
 {
     "info": {
-        "brightness": 255,
+        "brightness": 231,
         "mode_id": 0,
         "state": 1
     },
@@ -9,13 +9,9 @@
             "id": 0,
             "name": "STATIC",
             "options": {
-                "color": [
-                    246,
-                    167,
-                    201
-                ],
-                "static": true
-            }
+                "color": "ffffff"
+            },
+            "static": true
         }
     ]
 }

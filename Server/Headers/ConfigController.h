@@ -9,12 +9,17 @@ using json = nlohmann::json;
 class ConfigController 
 {
 public:
-	static void updateParameters();
-	static int addMode(json mode);
-	static int updateParameter(int value, std::string name_parameter);
-
 	static void readConfigFile(std::string file_name);
 	static void saveConfigFile(std::string file_name);
+
+	static bool isChangeOptions();
+	static void setChangeOptions(bool state);
+
+	static void updateParameters();
+	static void updateParameter(int value, std::string parameter_name);
+	static void updateParameterOptions(char* value, std::string parameter_name);
+	static int addMode(json mode);
+	
 	static json &getConfig();
 	static json getInfo();
 	static json getModes();
@@ -31,4 +36,5 @@ private:
 	static json current_mode;
 	static json current_mode_options;
 	static std::mutex config_mutex;
+	static bool change_options;
 };

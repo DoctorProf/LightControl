@@ -7,6 +7,29 @@ int ConfigController::mode_id;
 int ConfigController::brightness;
 int ConfigController::state;
 std::mutex ConfigController::config_mutex;
+bool ConfigController::change_options = false;
+
+void ConfigController::readConfigFile(std::string file_name)
+{
+	std::ifstream input_file(file_name);
+	config = json::parse(input_file);
+	input_file.close();
+}
+void ConfigController::saveConfigFile(std::string file_name)
+{
+	std::ofstream output_file(file_name);
+	output_file << config.dump(4);
+	output_file.close();
+}
+
+bool ConfigController::isChangeOptions()
+{
+	return change_options;
+}
+void ConfigController::setChangeOptions(bool state)
+{
+	change_options = state;
+}
 
 void ConfigController::updateParameters() 
 {
@@ -25,6 +48,20 @@ void ConfigController::updateParameters()
 	}
 	std::cout << "Mode not found." << std::endl;
 }
+void ConfigController::updateParameter(int value, std::string parameter_name)
+{
+	std::lock_guard<std::mutex> lock(config_mutex);
+	config["info"][parameter_name] = value;
+	ConfigController::saveConfigFile("config.json");
+	updateParameters();
+}
+void ConfigController::updateParameterOptions(char* value, std::string parameter_name)
+{
+	std::lock_guard<std::mutex> lock(config_mutex);
+	config["modes"][mode_id]["options"][parameter_name] = value;
+	ConfigController::saveConfigFile("config.json");
+	change_options = true;
+}
 int ConfigController::ConfigController::addMode(json mode) 
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
@@ -34,26 +71,7 @@ int ConfigController::ConfigController::addMode(json mode)
 	ConfigController::saveConfigFile("config.json");
 	return mode_id;
 }
-int ConfigController::updateParameter(int value, std::string name_parameter) 
-{
-	std::lock_guard<std::mutex> lock(config_mutex);
-	config["info"][name_parameter] = value;
-	ConfigController::saveConfigFile("config.json");
-	updateParameters();
-	return value;
-}
-void ConfigController::readConfigFile(std::string file_name)
-{
-	std::ifstream input_file(file_name);
-	config = json::parse(input_file);
-	input_file.close();
-}
-void ConfigController::saveConfigFile(std::string file_name)
-{
-	std::ofstream output_file(file_name);
-	output_file << config.dump(4);
-	output_file.close();
-}
+
 json &ConfigController::getConfig()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);

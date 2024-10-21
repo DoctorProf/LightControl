@@ -1,5 +1,6 @@
 #pragma once
 #include <crow/app.h>
+#include <cstring>
 #include "ConfigController.h"
 
 namespace validator 
@@ -8,8 +9,8 @@ namespace validator
 	int invalidParameter(char* parameter);
 	bool checkRange(int parameter, int min, int max);
 	bool checkBodyEmpty(crow::request req);
-	bool checkCorrectParseJson(crow::request req);
-	bool checkCorrectParameters(json mode, std::vector<std::string> parameters);
+	bool checkCorrectParseJson(std::string str);
+	bool checkCorrectParameters(json object, std::vector<std::string> parameters);
 	json setParameter(char* parameter, std::string name_parameter, int min, int max);
 	json addMode(crow::request req);
 }

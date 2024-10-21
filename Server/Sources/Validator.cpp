@@ -31,11 +31,11 @@ bool validator::checkBodyEmpty(crow::request req)
 {
     return req.body.empty();
 }
-bool validator::checkCorrectParseJson(crow::request req)
+bool validator::checkCorrectParseJson(std::string str)
 {
     try
     {
-        json mode = json::parse(req.body);
+        json::parse(str);
         return true;
     }
     catch (const json::parse_error& e)
@@ -43,23 +43,23 @@ bool validator::checkCorrectParseJson(crow::request req)
         return false;
     }
 }
-bool validator::checkCorrectParameters(json mode, std::vector<std::string> parameters)
+bool validator::checkCorrectParameters(json object, std::vector<std::string> parameters)
 {
     for (int i = 0; i < parameters.size(); ++i) 
     {
-        if (!mode.contains(parameters[i])) return false;
+        if (!object.contains(parameters[i])) return false;
     }
     return true;
 }
-json validator::setParameter(char* parameter, std::string name_parameter, int min, int max)
+json validator::setParameter(char* parameter, std::string parameter_name, int min, int max)
 {
     json response;
     int value = invalidParameter(parameter);
     if (value != -1 && checkRange(value, min, max)) 
     {
         response["ok"] = true;
-        int result = ConfigController::updateParameter(value, name_parameter);
-        response["description"] = "Parameter set to " + std::to_string(result);
+        ConfigController::updateParameter(value, parameter_name);
+        response["description"] = std::format("%s set to %d", parameter_name, value);
         return response;
     }
     else 
@@ -78,14 +78,14 @@ json validator::addMode(crow::request req)
         response["description"] = "Body is empty";
         return response;
     }
-    if (!checkCorrectParseJson(req)) 
+    if (!checkCorrectParseJson(req.body)) 
     {
         response["ok"] = false;
         response["description"] = "Invalid JSON format";
         return response;
     }
     json mode = json::parse(req.body);
-    if (!checkCorrectParameters(mode, {"options", "name"})) 
+    if (!checkCorrectParameters(mode, {"options", "name", "static"}))
     {
         response["ok"] = false;
         response["description"] = "Invalid parameters";

@@ -1,12 +1,11 @@
 #pragma once
 #include <httplib.h>
-
 class Client 
 {
 public:
-    Client(std::string baseUrl);
-    bool setLedColors(std::vector<uint8_t> colors);
-    bool setStripColor(uint8_t r, uint8_t g, uint8_t b);
+    Client(std::string base_url);
+    bool setLedColors(std::vector<int> colors);
+    bool setStripColor(int r, int g, int b);
 private:
     httplib::Client client;
 };

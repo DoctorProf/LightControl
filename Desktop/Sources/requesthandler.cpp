@@ -11,7 +11,7 @@ RequestHandler::RequestHandler(QObject *parent)
     endpoints.insert(QString("/selectMode"), handleSelectModeReply);
     endpoints.insert(QString("/setBrightness"), handleSetBrightnessReply);
     endpoints.insert(QString("/setState"), handleSetStateReply);
-    endpoints.insert(QString("/setModeColor"), handleSetModeColorReply);
+    endpoints.insert(QString("/setModeParameter"), handleSetModeParameterReply);
 }
 void RequestHandler::getInfo()
 {
@@ -52,13 +52,12 @@ void RequestHandler::setState(QString state)
     QNetworkRequest request(url);
     network_manager->get(request);
 }
-void RequestHandler::setModeColor(QString r, QString g, QString b)
+void RequestHandler::setModeColor(QString hex)
 {
-    QUrl url(base_url + "/setModeColor");
+    QUrl url(base_url + "/setModeParameter");
     QUrlQuery query;
-    query.addQueryItem("r", r);
-    query.addQueryItem("g", g);
-    query.addQueryItem("b", b);
+    query.addQueryItem("parameter_name", "color");
+    query.addQueryItem("value", hex);
     url.setQuery(query);
     QNetworkRequest request(url);
     network_manager->get(request);
@@ -140,14 +139,14 @@ void RequestHandler::handleSetStateReply(QNetworkReply* reply)
         qDebug() << "Failed to set state:" << reply->errorString();
     }
 }
-void RequestHandler::handleSetModeColorReply(QNetworkReply* reply)
+void RequestHandler::handleSetModeParameterReply(QNetworkReply* reply)
 {
     if (reply->error() == QNetworkReply::NoError)
     {
-        qDebug() << "Color set";
+        qDebug() << "Parameter set";
     }
     else
     {
-        qDebug() << "Failed to set color:" << reply->errorString();
+        qDebug() << "Failed to set parameter:" << reply->errorString();
     }
 }

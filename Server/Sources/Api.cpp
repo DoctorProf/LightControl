@@ -6,21 +6,20 @@ Api::Api(crow::SimpleApp& app)
 }
 void Api::registerRoutes(crow::SimpleApp& app) 
 {
-    CROW_ROUTE(app, "/setState")
-        .methods(crow::HTTPMethod::GET)
-        ([this](crow::request req) {
-        return setState(req);
-            });
     CROW_ROUTE(app, "/getInfo")
         .methods(crow::HTTPMethod::GET)
         ([this](crow::request req) {
         return getInfo(req);
             });
-
     CROW_ROUTE(app, "/getModes")
         .methods(crow::HTTPMethod::GET)
         ([this](crow::request req) {
         return getModes(req);
+            });
+    CROW_ROUTE(app, "/setState")
+        .methods(crow::HTTPMethod::GET)
+        ([this](crow::request req) {
+        return setState(req);
             });
     CROW_ROUTE(app, "/setBrightness")
         .methods(crow::HTTPMethod::GET)
@@ -37,10 +36,10 @@ void Api::registerRoutes(crow::SimpleApp& app)
         ([this](crow::request req) {
         return addMode(req);
             }); 
-    CROW_ROUTE(app, "/setModeColor")
+    CROW_ROUTE(app, "/setModeParameter")
         .methods(crow::HTTPMethod::GET)
         ([this](crow::request req) {
-        return setModeColor(req);
+        return setModeParameter(req);
             });
 }
 crow::response Api::setState(crow::request req) 
@@ -70,7 +69,6 @@ crow::response Api::setBrightness(crow::request req)
 {
     json response;
     auto brightness = req.url_params.get("brightness");
-
     if (!validator::missingParameter(brightness)) 
     {
         response["ok"] = false;
@@ -101,28 +99,26 @@ crow::response Api::addMode(crow::request req)
     response = validator::addMode(req);
     return crow::response(response.dump());
 }
-crow::response Api::setModeColor(crow::request req)
+crow::response Api::setModeParameter(crow::request req)
 {
     json response;
-    auto r = req.url_params.get("r");
-    auto g = req.url_params.get("g");
-    auto b = req.url_params.get("b");
-    if (!validator::missingParameter(r) &&
-        !validator::missingParameter(g) &&
-        !validator::missingParameter(b))
+    auto parameter_name = req.url_params.get("parameter_name");
+    auto value = req.url_params.get("value");
+    if (!validator::checkCorrectParameters(ConfigController::getCurrentModeOptions(), { parameter_name }))
+    {
+        response["ok"] = false;
+        response["description"] = "Invalid parameter name";
+        return crow::response(response.dump());
+    }
+    if (!validator::missingParameter(value)) 
     {
         response["ok"] = false;
         response["description"] = "Missing parameters";
         return crow::response(response.dump());
     }
-    int id = ConfigController::getInfo()["mode_id"];
-    int r_int = validator::invalidParameter(r);
-    int g_int = validator::invalidParameter(g);
-    int b_int = validator::invalidParameter(b);
-    json color = { r_int, g_int, b_int };
-    json& config = ConfigController::getConfig();
-    config["modes"][id]["options"]["color"] = color;
+    ConfigController::updateParameterOptions(value, parameter_name);
     response["ok"] = true;
-    response["description"] = "Color set";
+    response["description"] = std::format("%s set to %s", parameter_name, value);
+    ConfigController::setChangeOptions(true);
     return crow::response(response.dump());
 }

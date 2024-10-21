@@ -24,7 +24,6 @@ int main()
     int previous_mode_id{ 0 };
     int previous_state{ 0 };
     int previous_brightness{ 0 };
-    json previous_options = {};
 
     /*
     * API метод RenameMode(std:string name);
@@ -33,7 +32,6 @@ int main()
     * Изменить логику SelectMode
     * Получение текущего мода по id, неверно
     */
-
     while (run)
     {
         int mode_id = ConfigController::getCurrentModeId();
@@ -41,27 +39,23 @@ int main()
         float brightness = ConfigController::getBrightness();
         json options = ConfigController::getCurrentModeOptions();;
 
-        if (previous_mode_id != mode_id || previous_state != state || previous_brightness != brightness || previous_options != options)
+        if (previous_mode_id != mode_id || previous_state != state || previous_brightness != brightness || ConfigController::isChangeOptions())
         {
             previous_mode_id = mode_id;
             previous_state = state;
             previous_brightness = brightness;
-            previous_options = options;
             type_mode_static = true;
+            ConfigController::setChangeOptions(false);
         }
-        if ((options["static"] || !state) && type_mode_static)
+        if ((ConfigController::getCurrentMode()["static"] || !state) && type_mode_static)
         {
-            int r = 0;
-            int g = 0;
-            int b = 0;
+            std::vector<int> color{ 0, 0, 0 };
             brightness /= 255.f;
             if (state)
             {
-                r = options["color"][0];
-                g = options["color"][1];
-                b = options["color"][2];
+                color = parser::hexToRGB(options["color"]);
             }
-            if (!client.setStripColor(r * brightness, g * brightness, b * brightness)) 
+            if (!client.setStripColor(color[0] * brightness, color[1] * brightness, color[2] * brightness))
             {
                 type_mode_static = true;
             }
