@@ -9,13 +9,13 @@ int ConfigController::state;
 std::mutex ConfigController::config_mutex;
 bool ConfigController::change_options = false;
 
-void ConfigController::readConfigFile(std::string file_name)
+void ConfigController::readConfig(std::string file_name)
 {
 	std::ifstream input_file(file_name);
 	config = json::parse(input_file);
 	input_file.close();
 }
-void ConfigController::saveConfigFile(std::string file_name)
+void ConfigController::saveConfig(std::string file_name)
 {
 	std::ofstream output_file(file_name);
 	output_file << config.dump(4);
@@ -31,7 +31,7 @@ void ConfigController::setChangeOptions(bool state)
 	change_options = state;
 }
 
-void ConfigController::updateParameters() 
+void ConfigController::loadSettings()
 {
 	mode_id = config["info"]["mode_id"];
 	brightness = config["info"]["brightness"];
@@ -48,18 +48,18 @@ void ConfigController::updateParameters()
 	}
 	std::cout << "Mode not found." << std::endl;
 }
-void ConfigController::updateParameter(int value, std::string parameter_name)
+void ConfigController::updateSettings(int value, std::string parameter_name)
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
 	config["info"][parameter_name] = value;
-	ConfigController::saveConfigFile("config.json");
-	updateParameters();
+	ConfigController::saveConfig("config.json");
+	loadSettings();
 }
-void ConfigController::updateParameterOptions(char* value, std::string parameter_name)
+void ConfigController::updateOptions(char* value, std::string parameter_name)
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
 	config["modes"][mode_id]["options"][parameter_name] = value;
-	ConfigController::saveConfigFile("config.json");
+	ConfigController::saveConfig("config.json");
 	change_options = true;
 }
 int ConfigController::ConfigController::addMode(json mode) 
@@ -68,7 +68,7 @@ int ConfigController::ConfigController::addMode(json mode)
 	int mode_id = config["modes"].size();
 	mode["id"] = mode_id;
 	config["modes"].push_back(mode);
-	ConfigController::saveConfigFile("config.json");
+	ConfigController::saveConfig("config.json");
 	return mode_id;
 }
 

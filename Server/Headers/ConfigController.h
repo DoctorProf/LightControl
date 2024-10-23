@@ -9,15 +9,15 @@ using json = nlohmann::json;
 class ConfigController 
 {
 public:
-	static void readConfigFile(std::string file_name);
-	static void saveConfigFile(std::string file_name);
+	static void readConfig(std::string file_name);
+	static void saveConfig(std::string file_name);
 
 	static bool isChangeOptions();
 	static void setChangeOptions(bool state);
 
-	static void updateParameters();
-	static void updateParameter(int value, std::string parameter_name);
-	static void updateParameterOptions(char* value, std::string parameter_name);
+	static void loadSettings();
+	static void updateSettings(int value, std::string parameter_name);
+	static void updateOptions(char* value, std::string parameter_name);
 	static int addMode(json mode);
 	
 	static json &getConfig();

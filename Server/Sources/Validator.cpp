@@ -58,7 +58,7 @@ json validator::setParameter(char* parameter, std::string parameter_name, int mi
     if (value != -1 && checkRange(value, min, max)) 
     {
         response["ok"] = true;
-        ConfigController::updateParameter(value, parameter_name);
+        ConfigController::updateSettings(value, parameter_name);
         response["description"] = std::format("%s set to %d", parameter_name, value);
         return response;
     }

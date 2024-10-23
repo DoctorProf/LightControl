@@ -14,5 +14,6 @@ private:
 	crow::response setState(crow::request req);
 	crow::response selectMode(crow::request req);
 	crow::response addMode(crow::request req);
+	crow::response deleteMode(crow::request req);
 	crow::response setModeParameter(crow::request req);
 };

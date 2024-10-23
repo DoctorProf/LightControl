@@ -7,39 +7,44 @@ Api::Api(crow::SimpleApp& app)
 void Api::registerRoutes(crow::SimpleApp& app) 
 {
     CROW_ROUTE(app, "/getInfo")
-        .methods(crow::HTTPMethod::GET)
+        .methods(crow::HTTPMethod::Get)
         ([this](crow::request req) {
         return getInfo(req);
             });
     CROW_ROUTE(app, "/getModes")
-        .methods(crow::HTTPMethod::GET)
+        .methods(crow::HTTPMethod::Get)
         ([this](crow::request req) {
         return getModes(req);
             });
     CROW_ROUTE(app, "/setState")
-        .methods(crow::HTTPMethod::GET)
+        .methods(crow::HTTPMethod::Get)
         ([this](crow::request req) {
         return setState(req);
             });
     CROW_ROUTE(app, "/setBrightness")
-        .methods(crow::HTTPMethod::GET)
+        .methods(crow::HTTPMethod::Get)
         ([this](crow::request req) {
         return setBrightness(req);
             });
     CROW_ROUTE(app, "/selectMode")
-        .methods(crow::HTTPMethod::GET)
+        .methods(crow::HTTPMethod::Get)
         ([this](crow::request req) {
         return selectMode(req);
             });
     CROW_ROUTE(app, "/addMode")
-        .methods(crow::HTTPMethod::POST)
+        .methods(crow::HTTPMethod::Post)
         ([this](crow::request req) {
         return addMode(req);
             }); 
     CROW_ROUTE(app, "/setModeParameter")
-        .methods(crow::HTTPMethod::GET)
+        .methods(crow::HTTPMethod::Get)
         ([this](crow::request req) {
         return setModeParameter(req);
+            });
+    CROW_ROUTE(app, "/deleteMode")
+        .methods(crow::HTTPMethod::Delete)
+        ([this](crow::request req) {
+        return deleteMode(req);
             });
 }
 crow::response Api::setState(crow::request req) 
@@ -99,6 +104,10 @@ crow::response Api::addMode(crow::request req)
     response = validator::addMode(req);
     return crow::response(response.dump());
 }
+crow::response Api::deleteMode(crow::request req) 
+{
+
+}
 crow::response Api::setModeParameter(crow::request req)
 {
     json response;
@@ -116,9 +125,10 @@ crow::response Api::setModeParameter(crow::request req)
         response["description"] = "Missing parameters";
         return crow::response(response.dump());
     }
-    ConfigController::updateParameterOptions(value, parameter_name);
+    ConfigController::updateOptions(value, parameter_name);
+    ConfigController::loadSettings();
     response["ok"] = true;
-    response["description"] = std::format("%s set to %s", parameter_name, value);
+    response["description"] = std::format("{} set to {}", parameter_name, value);
     ConfigController::setChangeOptions(true);
     return crow::response(response.dump());
 }

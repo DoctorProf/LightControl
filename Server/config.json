@@ -9,7 +9,7 @@
             "id": 0,
             "name": "STATIC",
             "options": {
-                "color": "ffffff"
+                "color": "ff0000"
             },
             "static": true
         }
