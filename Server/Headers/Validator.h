@@ -5,12 +5,13 @@
 
 namespace validator 
 {
-	bool missingParameter(char* parameter);
-	int invalidParameter(char* parameter);
+	bool isMissingParameter(char* parameter);
+	bool isContainsParameter(std::string parameter_name);
+	int isInvalidParameter(char* parameter);
 	bool checkRange(int parameter, int min, int max);
 	bool checkBodyEmpty(crow::request req);
 	bool checkCorrectParseJson(std::string str);
 	bool checkCorrectParameters(json object, std::vector<std::string> parameters);
-	json setParameter(char* parameter, std::string name_parameter, int min, int max);
+	json setSettingsParameter(std::string parameter_name, char* parameter);
 	json addMode(crow::request req);
 }

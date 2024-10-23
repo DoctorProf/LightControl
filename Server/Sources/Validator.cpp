@@ -1,10 +1,23 @@
 #include "../Headers/Validator.h"
 
-bool validator::missingParameter(char* parameter) 
+bool validator::isMissingParameter(char* parameter) 
 {
 	return parameter;
 }
-int validator::invalidParameter(char* parameter) 
+bool validator::isContainsParameter(std::string parameter_name)
+{
+    std::cout << ConfigController::getSettings().dump();
+    json settings = ConfigController::getSettings();
+    for (auto it = settings.begin(); it != settings.end(); ++it)
+    {
+        if (parameter_name == it.key())
+        {
+            return true;
+        }
+    }
+    return false;
+}
+int validator::isInvalidParameter(char* parameter) 
 {
     int value;
 
@@ -45,21 +58,52 @@ bool validator::checkCorrectParseJson(std::string str)
 }
 bool validator::checkCorrectParameters(json object, std::vector<std::string> parameters)
 {
-    for (int i = 0; i < parameters.size(); ++i) 
+    for (auto key : parameters) 
     {
-        if (!object.contains(parameters[i])) return false;
+        if (!object.contains(key)) return false;
     }
     return true;
 }
-json validator::setParameter(char* parameter, std::string parameter_name, int min, int max)
+json validator::setSettingsParameter(std::string parameter_name, char* parameter)
 {
     json response;
-    int value = invalidParameter(parameter);
-    if (value != -1 && checkRange(value, min, max)) 
+    if (!isMissingParameter(parameter))
+    {
+        response["ok"] = false;
+        response["description"] = "Missing parameter";
+        return response;
+    }
+    if (!isContainsParameter(parameter_name))
+    {
+        response["ok"] = false;
+        response["description"] = "Parameter does not exist";
+        return response;
+    }
+    int value = isInvalidParameter(parameter);
+    std::vector<int> range;
+    if (parameter_name == "brightness")
+    {
+        range = { 0, 255 };
+    }
+    else if (parameter_name == "state")
+    {
+        range = { 0, 1 };
+    }
+    else if (parameter_name == "mode_id")
+    {
+        range = { 0, (int)(ConfigController::getModes().size() - 1) };
+    }
+    else 
+    {
+        response["ok"] = false;
+        response["description"] = "Invalid parameter name";
+        return response;
+    }
+    if (value != -1 && checkRange(value, range[0], range[1]))
     {
         response["ok"] = true;
         ConfigController::updateSettings(value, parameter_name);
-        response["description"] = std::format("%s set to %d", parameter_name, value);
+        response["description"] = std::format("{} set to {}", parameter_name, value);
         return response;
     }
     else 

@@ -33,9 +33,9 @@ void ConfigController::setChangeOptions(bool state)
 
 void ConfigController::loadSettings()
 {
-	mode_id = config["info"]["mode_id"];
-	brightness = config["info"]["brightness"];
-	state = config["info"]["state"];
+	mode_id = config["settings"]["mode_id"];
+	brightness = config["settings"]["brightness"];
+	state = config["settings"]["state"];
 	for (auto& mode : config["modes"]) 
 	{
 		if (mode["id"] == mode_id)
@@ -51,7 +51,7 @@ void ConfigController::loadSettings()
 void ConfigController::updateSettings(int value, std::string parameter_name)
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
-	config["info"][parameter_name] = value;
+	config["settings"][parameter_name] = value;
 	ConfigController::saveConfig("config.json");
 	loadSettings();
 }
@@ -77,10 +77,10 @@ json &ConfigController::getConfig()
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return config;
 }
-json ConfigController::getInfo()
+json ConfigController::getSettings()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
-	return config["info"];
+	return config["settings"];
 }
 json ConfigController::getModes()
 {

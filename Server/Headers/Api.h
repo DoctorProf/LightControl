@@ -8,12 +8,7 @@ public:
 	Api(crow::SimpleApp& app);
 private:
 	void registerRoutes(crow::SimpleApp& app);
-	crow::response getInfo(crow::request req);
-	crow::response getModes(crow::request req);
-	crow::response setBrightness(crow::request req);
-	crow::response setState(crow::request req);
-	crow::response selectMode(crow::request req);
-	crow::response addMode(crow::request req);
-	crow::response deleteMode(crow::request req);
-	crow::response setModeParameter(crow::request req);
+	crow::response settings(crow::request req);
+	crow::response modes(crow::request req);
+	crow::response mode(crow::request req);
 };

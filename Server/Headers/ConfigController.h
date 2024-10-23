@@ -21,7 +21,7 @@ public:
 	static int addMode(json mode);
 	
 	static json &getConfig();
-	static json getInfo();
+	static json getSettings();
 	static json getModes();
 	static int getBrightness();
 	static int getCurrentModeId();
