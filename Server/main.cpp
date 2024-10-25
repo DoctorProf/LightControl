@@ -5,26 +5,22 @@
 
 void apiThread(crow::SimpleApp& app) 
 {
-    app.port(8080).multithreaded().run();
+    app.port(ConfigController::getPortServer()).multithreaded().run();
 }
 int main() 
 {
-    ConfigController::readConfig("config.json");
-    ConfigController::loadSettings();
-    Client client("http://127.0.0.1:10000");
+    ConfigController::readIp();
+    ConfigController::readModes();
+    ConfigController::readSettings();
+    bool run = ConfigController::updateCurrentData();
+    Client client(ConfigController::getIpClient());
     crow::SimpleApp app;
     Api api(app);
 
-    bool run = true;
-    bool type_mode_static = true;
+   bool type_mode_static = true;
 
     std::thread api_thread(&apiThread, std::ref(app));
     api_thread.detach();
-
-    int previous_mode_id{ 0 };
-    int previous_state{ 0 };
-    int previous_brightness{ 0 };
-
     /*
     * API метод RenameMode(std:string name);
     * Изменение логики id модов
@@ -34,27 +30,21 @@ int main()
     */
     while (run)
     {
-        int mode_id = ConfigController::getCurrentModeId();
-        int state = ConfigController::getState();
-        float brightness = ConfigController::getBrightness();
-        json options = ConfigController::getCurrentModeOptions();;
-        bool changed = ConfigController::isChangeOptions();
+        bool changed = ConfigController::isChange();
+        bool state = ConfigController::getState();
 
-        if (previous_mode_id != mode_id || previous_state != state || previous_brightness != brightness || changed)
+        if (changed)
         {
-            previous_mode_id = mode_id;
-            previous_state = state;
-            previous_brightness = brightness;
             type_mode_static = true;
-            ConfigController::setChangeOptions(false);
+            ConfigController::setIsChange(false);
         }
         if ((ConfigController::getCurrentMode()["static"] || !state) && type_mode_static)
         {
             std::vector<int> color{ 0, 0, 0 };
-            brightness /= 255.f;
+            float brightness = ConfigController::getBrightness() / 255.f;
             if (state)
             {
-                color = parser::hexToRGB(options["color"]);
+                color = parser::hexToRGB(ConfigController::getCurrentModeOptions()["color"]);
             }
             if (!client.setStripColor(color[0] * brightness, color[1] * brightness, color[2] * brightness))
             {

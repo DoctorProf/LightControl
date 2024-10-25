@@ -6,72 +6,121 @@ RequestHandler::RequestHandler(QObject *parent)
     network_manager = new QNetworkAccessManager(this);
     base_url = "http://127.0.0.1:8080";
     connect(network_manager, &QNetworkAccessManager::finished, this, &RequestHandler::onReplyFinished);
-    endpoints.insert(QString("/getInfo"), handleGetInfoReply);
-    endpoints.insert(QString("/getModes"), handleGetModesReply);
-    endpoints.insert(QString("/selectMode"), handleSelectModeReply);
-    endpoints.insert(QString("/setBrightness"), handleSetBrightnessReply);
-    endpoints.insert(QString("/setState"), handleSetStateReply);
-    endpoints.insert(QString("/setModeParameter"), handleSetModeParameterReply);
-}
-void RequestHandler::getInfo()
-{
-    QUrl url(base_url + "/getInfo");
-    QNetworkRequest request(url);
-    network_manager->get(request);
-}
-void RequestHandler::getModes()
-{
-    QUrl url(base_url + "/getModes");
-    QNetworkRequest request(url);
-    network_manager->get(request);
-}
-void RequestHandler::selectMode(QString mode_id)
-{
-    QUrl url(base_url + "/selectMode");
-    QUrlQuery query;
-    query.addQueryItem("mode_id", mode_id);
-    url.setQuery(query);
-    QNetworkRequest request(url);
-    network_manager->get(request);
-}
-void RequestHandler::setBrightness(QString brightness)
-{
-    QUrl url(base_url + "/setBrightness");
-    QUrlQuery query;
-    query.addQueryItem("brightness", brightness);
-    url.setQuery(query);
-    QNetworkRequest request(url);
-    network_manager->get(request);
-}
-void RequestHandler::setState(QString state)
-{
-    QUrl url(base_url + "/setState");
-    QUrlQuery query;
-    query.addQueryItem("state", state);
-    url.setQuery(query);
-    QNetworkRequest request(url);
-    network_manager->get(request);
-}
-void RequestHandler::setModeColor(QString hex)
-{
-    QUrl url(base_url + "/setModeParameter");
-    QUrlQuery query;
-    query.addQueryItem("parameter_name", "color");
-    query.addQueryItem("value", hex);
-    url.setQuery(query);
-    QNetworkRequest request(url);
-    network_manager->get(request);
+    endpoints.insert(QString("/getSettings"), [this](QNetworkReply* reply)
+    {
+        if (reply->operation() == QNetworkAccessManager::GetOperation)
+        {
+            handleGetSettings(reply);
+        }
+    });
+    endpoints.insert(QString("/setSettings"), [this](QNetworkReply* reply)
+    {
+        if (reply->operation() == QNetworkAccessManager::GetOperation)
+        {
+            handleSetSettings(reply);
+        }
+    });
+    endpoints.insert(QString("/modes"), [this](QNetworkReply* reply)
+    {
+        if (reply->operation() == QNetworkAccessManager::GetOperation)
+        {
+            handleGetModes(reply);
+        }
+    });
+    endpoints.insert("/mode", [this](QNetworkReply* reply)
+        {
+            if (reply->operation() == QNetworkAccessManager::GetOperation)
+            {
+                handleSetModeParameter(reply);
+            }
+            else if (reply->operation() == QNetworkAccessManager::PostOperation)
+            {
+                handleAddMode(reply);
+            }
+            else if (reply->operation() == QNetworkAccessManager::DeleteOperation)
+            {
+                handleDeleteMode(reply);
+            }
+        });
 }
 void RequestHandler::onReplyFinished(QNetworkReply *reply)
 {
     QUrl url = reply->url();
     if(endpoints.find(url.path()) != endpoints.end())
     {
-        (this->*endpoints[url.path()])(reply);
+        //(this->*endpoints[url.path()])(reply);
+        endpoints[url.path()](reply);
     }
     reply->deleteLater();
 }
-void RequestHandler::handleGetModesReply(QNetworkReply *reply)
+
+void RequestHandler::getSettings()
+{
+    QUrl url(base_url + "/getSettings");
+    QNetworkRequest request(url);
+    network_manager->get(request);
+}
+void RequestHandler::setSettings(QString parameter_name, QString value)
+{
+    QUrl url(base_url + "/setSettings");
+    QUrlQuery query;
+    query.addQueryItem(parameter_name, value);
+    url.setQuery(query);
+    QNetworkRequest request(url);
+    network_manager->get(request);
+}
+void RequestHandler::getModes()
+{
+    QUrl url(base_url + "/modes");
+    QNetworkRequest request(url);
+    network_manager->get(request);
+}
+void RequestHandler::addMode(QJsonObject mode)
+{
+
+}
+void RequestHandler::deleteMode()
+{
+    QUrl url(base_url + "/mode");
+    QNetworkRequest request(url);
+    network_manager->deleteResource(request);
+}
+void RequestHandler::setModeParameter(QString parameter_name, QString value)
+{
+    QUrl url(base_url + "/mode");
+    QUrlQuery query;
+    query.addQueryItem(parameter_name, value);
+    url.setQuery(query);
+    QNetworkRequest request(url);
+    network_manager->get(request);
+}
+
+void RequestHandler::handleGetSettings(QNetworkReply *reply)
+{
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        QByteArray responseData = reply->readAll();
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(responseData);
+        QJsonObject obj = jsonDoc.object();
+        emit settingsReceived(obj);
+    }
+    else
+    {
+        qDebug() << "Failer receive settings:" << reply->errorString();
+    }
+}
+void RequestHandler::handleSetSettings(QNetworkReply *reply)
+{
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        qDebug() << "Settings parameter set";
+    }
+    else
+    {
+        qDebug() << "Failed to set parameter:" << reply->errorString();
+    }
+}
+void RequestHandler::handleGetModes(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError)
     {
@@ -90,56 +139,24 @@ void RequestHandler::handleGetModesReply(QNetworkReply *reply)
         qDebug() << "Error:" << reply->errorString();
     }
 }
-void RequestHandler::handleSelectModeReply(QNetworkReply *reply)
+void RequestHandler::handleAddMode(QNetworkReply* reply)
 {
-    if (reply->error() == QNetworkReply::NoError)
-    {
-        emit modeSelected(true);
-        qDebug() << "Mode selected successfully.";
-    }
-    else
-    {
-        emit modeSelected(false);
-        qDebug() << "Failed to select mode:" << reply->errorString();
-    }
+
 }
-void RequestHandler::handleGetInfoReply(QNetworkReply *reply)
+void RequestHandler::handleDeleteMode(QNetworkReply* reply)
 {
     if (reply->error() == QNetworkReply::NoError)
     {
-        QByteArray responseData = reply->readAll();
-        QJsonDocument jsonDoc = QJsonDocument::fromJson(responseData);
-        QJsonObject obj = jsonDoc.object();
-        emit infoReceived(obj);
+        qDebug() << "Mode deleted";
+        getModes();
+        getSettings();
     }
     else
     {
         qDebug() << "Error:" << reply->errorString();
     }
 }
-void RequestHandler::handleSetBrightnessReply(QNetworkReply* reply)
-{
-    if (reply->error() == QNetworkReply::NoError)
-    {
-        qDebug() << "Brigthness set";
-    }
-    else
-    {
-        qDebug() << "Failed to set brigthness:" << reply->errorString();
-    }
-}
-void RequestHandler::handleSetStateReply(QNetworkReply* reply)
-{
-    if (reply->error() == QNetworkReply::NoError)
-    {
-        qDebug() << "State set";
-    }
-    else
-    {
-        qDebug() << "Failed to set state:" << reply->errorString();
-    }
-}
-void RequestHandler::handleSetModeParameterReply(QNetworkReply* reply)
+void RequestHandler::handleSetModeParameter(QNetworkReply* reply)
 {
     if (reply->error() == QNetworkReply::NoError)
     {

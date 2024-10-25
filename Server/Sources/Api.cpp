@@ -6,10 +6,15 @@ Api::Api(crow::SimpleApp& app)
 }
 void Api::registerRoutes(crow::SimpleApp& app) 
 {
-    CROW_ROUTE(app, "/settings")
+    CROW_ROUTE(app, "/getSettings")
         .methods(crow::HTTPMethod::Get)
         ([this](crow::request req) {
-        return settings(req);
+        return getSettings(req);
+            });
+    CROW_ROUTE(app, "/setSettings")
+        .methods(crow::HTTPMethod::Get)
+        ([this](crow::request req) {
+        return setSettings(req);
             });
     CROW_ROUTE(app, "/modes")
         .methods(crow::HTTPMethod::Get)
@@ -19,73 +24,71 @@ void Api::registerRoutes(crow::SimpleApp& app)
     CROW_ROUTE(app, "/mode")
         .methods(crow::HTTPMethod::Get)
         ([this](crow::request req) {
-        return mode(req);
+        return modeGet(req);
             });
     CROW_ROUTE(app, "/mode")
         .methods(crow::HTTPMethod::Post)
         ([this](crow::request req) {
-        return mode(req);
+        return modePost(req);
             });
     CROW_ROUTE(app, "/mode")
         .methods(crow::HTTPMethod::Delete)
         ([this](crow::request req) {
-        return mode(req);
+        return modeDelete(req);
             });
 }
-crow::response Api::settings(crow::request req) 
+crow::response Api::getSettings(crow::request req) 
+{
+    return crow::response(ConfigController::getSettings().dump());
+}
+crow::response Api::setSettings(crow::request req) 
 {
     json response;
-    std::cout << req.raw_url;
-    if (req.url_params.keys().size()) 
+    if (req.url_params.keys().size())
     {
-        if (req.url_params.keys().size() > 1) 
+        if (req.url_params.keys().size() > 1)
         {
             response["ok"] = false;
             response["description"] = "More than one parameter";
             return crow::response(response.dump());
         }
-        for (auto key : req.url_params.keys()) 
+        for (auto key : req.url_params.keys())
         {
             auto parameter = req.url_params.get(key);
             return crow::response(validator::setSettingsParameter(key, parameter).dump());
         }
-    }
-    else 
-    {
-        return crow::response(ConfigController::getSettings().dump());
     }
 }
 crow::response Api::modes(crow::request req) 
 {
     return crow::response(ConfigController::getModes().dump());
 }
-crow::response Api::mode(crow::request req) 
+crow::response Api::modeGet(crow::request req)
 {
     json response;
-    switch (req.method)
+    if (req.url_params.keys().size())
     {
-    case crow::HTTPMethod::Get:
-        break;
-    case crow::HTTPMethod::Post:
-        break;
-    case crow::HTTPMethod::Delete:
-        break;
-    default:
-        response["ok"] = false;
-        response["description"] = "Invalid http method";
-        return crow::response(response.dump());
+        if (req.url_params.keys().size() > 1)
+        {
+            response["ok"] = false;
+            response["description"] = "More than one parameter";
+            return crow::response(response.dump());
+        }
+        for (auto key : req.url_params.keys())
+        {
+            auto parameter = req.url_params.get(key);
+            return crow::response(validator::setModeParameter(key, parameter).dump());
+        }
     }
 }
-//crow::response Api::addMode(crow::request req)
-//{
-//    json response;
-//    response = validator::addMode(req);
-//    return crow::response(response.dump());
-//}
-//crow::response Api::deleteMode(crow::request req) 
-//{
-//
-//}
+crow::response Api::modePost(crow::request req) 
+{
+    return crow::response(validator::addMode(req).dump());
+}
+crow::response Api::modeDelete(crow::request req)
+{
+    return crow::response(validator::deleteMode(req).dump());
+}
 //crow::response Api::setModeParameter(crow::request req)
 //{
 //    json response;

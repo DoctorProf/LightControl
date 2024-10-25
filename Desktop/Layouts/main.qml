@@ -34,7 +34,8 @@ Window {
             font.pixelSize: 18
             font.bold: true
             onClicked: {
-                request_handler.getInfo()
+                request_handler.getModes();
+                request_handler.getSettings()
             }
         }
 
@@ -42,7 +43,7 @@ Window {
             id: modes_box
             objectName: "modes_box"
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            Layout.topMargin: 30
+            //Layout.topMargin: 30
             Layout.preferredWidth: 150
             Layout.preferredHeight: 40
             Material.accent: "#1b5eb5"
@@ -56,7 +57,7 @@ Window {
             valueRole: "value"
             onCurrentIndexChanged: {
                 var obj = modes_model.get(currentIndex)
-                request_handler.selectMode(obj.value.id)
+                request_handler.setSettings("mode_id", obj.value.id)
                 if("color" in obj.value.options) {
                     color_picker_button.visible = true
                 }
@@ -66,7 +67,6 @@ Window {
         Slider{
             id: brightness_slider
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            Layout.bottomMargin: 0
             Material.accent: "#1b5eb5"
             to: 255
             from: 0
@@ -74,13 +74,13 @@ Window {
             onValueChanged: {
                 var brightness = value.toFixed().toString();
                 brightness_value.text = brightness
-                request_handler.setBrightness(brightness)
+                request_handler.setSettings("brightness", brightness)
             }
         }
         Label {
             id: brightness_value
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            Layout.bottomMargin: 20
+            //Layout.bottomMargin: 20
             font.family: "Arial"
             font.pixelSize: 12
             font.bold: true
@@ -91,7 +91,7 @@ Window {
             Layout.preferredWidth: 120
             Layout.preferredHeight: 40
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            Layout.bottomMargin: 50
+            //Layout.bottomMargin: 50
             Material.background: "#b1f4ff"
             Material.accent: "#1b5eff"
             text: "State"
@@ -100,7 +100,23 @@ Window {
             font.bold: true
             checkable: true
             onClicked: {
-                request_handler.setState(+checked)
+                request_handler.setSettings("state", +checked)
+            }
+        }
+        Button {
+            id: delete_button
+            Layout.preferredWidth: 120
+            Layout.preferredHeight: 40
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            //Layout.bottomMargin: 50
+            Material.background: "#b1f4ff"
+            Material.accent: "#1b5eff"
+            text: "Delete"
+            font.family: "Arial"
+            font.pixelSize: 18
+            font.bold: true
+            onClicked: {
+                request_handler.deleteMode();
             }
         }
     }
@@ -132,8 +148,8 @@ Window {
             id: color_dialog
             title: "Color"
             onAccepted: {
-                var hex = selectedColor.toString(16);
-                request_handler.setModeColor(hex)
+                var hex = selectedColor.toString(16).slice(1);
+                request_handler.setModeParameter("color", hex)
             }
             onRejected: {
                 console.log("Color dialog rejected")
@@ -146,6 +162,7 @@ Window {
 
         function onModesReceived(modes)
         {
+            console.log("emitModes")
             modes_model.clear()
             for (var i = 0; i < modes.length; i++) {
                 console.log(modes[i].name, modes[i].id);
@@ -156,13 +173,15 @@ Window {
             }
         }
         function onModeSelected(success) {
+            onsole.log("emitSelected")
             if (success) {
                 console.log("Mode selected successfully.")
             } else {
                 console.log("Failed to select mode.")
             }
         }
-        function onInfoReceived(obj) {
+        function onSettingsReceived(obj) {
+            console.log("emitSettings")
             brightness_slider.value = obj.brightness
             state_button.checked = obj.state
             modes_box.currentIndex = obj.mode_id

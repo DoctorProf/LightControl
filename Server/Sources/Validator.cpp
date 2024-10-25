@@ -4,11 +4,9 @@ bool validator::isMissingParameter(char* parameter)
 {
 	return parameter;
 }
-bool validator::isContainsParameter(std::string parameter_name)
+bool validator::isContainsParameter(std::string parameter_name, json object)
 {
-    std::cout << ConfigController::getSettings().dump();
-    json settings = ConfigController::getSettings();
-    for (auto it = settings.begin(); it != settings.end(); ++it)
+    for (auto it = object.begin(); it != object.end(); ++it)
     {
         if (parameter_name == it.key())
         {
@@ -73,7 +71,7 @@ json validator::setSettingsParameter(std::string parameter_name, char* parameter
         response["description"] = "Missing parameter";
         return response;
     }
-    if (!isContainsParameter(parameter_name))
+    if (!isContainsParameter(parameter_name, ConfigController::getSettings()))
     {
         response["ok"] = false;
         response["description"] = "Parameter does not exist";
@@ -91,7 +89,7 @@ json validator::setSettingsParameter(std::string parameter_name, char* parameter
     }
     else if (parameter_name == "mode_id")
     {
-        range = { 0, (int)(ConfigController::getModes().size() - 1) };
+        range = { 0, ConfigController::getCountModes() - 1};
     }
     else 
     {
@@ -102,8 +100,8 @@ json validator::setSettingsParameter(std::string parameter_name, char* parameter
     if (value != -1 && checkRange(value, range[0], range[1]))
     {
         response["ok"] = true;
-        ConfigController::updateSettings(value, parameter_name);
         response["description"] = std::format("{} set to {}", parameter_name, value);
+        ConfigController::updateSettings(parameter_name, value);
         return response;
     }
     else 
@@ -112,6 +110,26 @@ json validator::setSettingsParameter(std::string parameter_name, char* parameter
         response["description"] = "Invalid parameter";
         return response;
     }
+}
+json validator::setModeParameter(std::string parameter_name, char* parameter)
+{
+    json response;
+    if (!isMissingParameter(parameter))
+    {
+        response["ok"] = false;
+        response["description"] = "Missing parameter";
+        return response;
+    }
+    if (!isContainsParameter(parameter_name, ConfigController::getCurrentModeOptions()))
+    {
+        response["ok"] = false;
+        response["description"] = "Parameter does not exist";
+        return response;
+    }
+    ConfigController::updateModeOptions(parameter_name, parameter);
+    response["ok"] = true;
+    response["description"] = std::format("{} set to {}", parameter_name, parameter);
+    return response;
 }
 json validator::addMode(crow::request req)
 {
@@ -140,4 +158,21 @@ json validator::addMode(crow::request req)
     response["description"] = "Mode added";
     response["mode_id"] = ConfigController::addMode(mode);
     return response;
+}
+json validator::deleteMode(crow::request req) 
+{
+    json response;
+    try
+    {
+        ConfigController::deleteMode();
+        response["ok"] = true;
+        response["description"] = "Mode deleted";
+        return response;
+    }
+    catch (const json::out_of_range&)
+    {
+        response["ok"] = false;
+        response["description"] = "No mods to remove";
+        return response;
+    }
 }

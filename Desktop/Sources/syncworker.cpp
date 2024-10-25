@@ -9,7 +9,6 @@ void SyncWorker::syncData()
 {
     while(true)
     {
-        handler->getInfo();
         QThread::sleep(1);
     }
 }

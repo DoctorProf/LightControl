@@ -9,32 +9,44 @@ using json = nlohmann::json;
 class ConfigController 
 {
 public:
-	static void readConfig(std::string file_name);
-	static void saveConfig(std::string file_name);
+	static void readIp();
+	static void readModes();
+	static void readSettings();
 
-	static bool isChangeOptions();
-	static void setChangeOptions(bool state);
+	static void saveModes();
+	static void saveSettings();
 
-	static void loadSettings();
-	static void updateSettings(int value, std::string parameter_name);
-	static void updateOptions(char* value, std::string parameter_name);
+	static bool updateCurrentData();
+
+	static bool isChange();
+	static void setIsChange(bool state);
+
+	static void updateSettings(std::string parameter_name, int value);
+	static void updateModeOptions(std::string parameter_name, char* value);
+
 	static int addMode(json mode);
-	
-	static json &getConfig();
-	static json getSettings();
+	static void deleteMode();
+
 	static json getModes();
+	static json getSettings();
+	static int getPortServer();
+	static std::string getIpClient();
 	static int getBrightness();
 	static int getCurrentModeId();
-	static json getCurrentMode();
 	static int getState();
+	static int getCountModes();
+	static json getCurrentMode();
 	static json getCurrentModeOptions();
 private:
-	static json config;
-	static int mode_id;
+	static json ip;
+	static json modes;
+	static json settings;
 	static int brightness;
+	static int mode_id;
 	static int state;
 	static json current_mode;
 	static json current_mode_options;
+	static int count_modes;
+	static bool is_change;
 	static std::mutex config_mutex;
-	static bool change_options;
 };

@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/Desktop/Layouts/main.qml")));
 
     request_handler.getModes();
-    request_handler.getInfo();
+    request_handler.getSettings();
 
     // SyncWorker *worker = new SyncWorker(&request_handler);
     // QThread *thread = new QThread;
