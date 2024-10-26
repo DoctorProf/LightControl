@@ -99,44 +99,23 @@ void RequestHandler::handleGetSettings(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError)
     {
-        QByteArray responseData = reply->readAll();
-        QJsonDocument jsonDoc = QJsonDocument::fromJson(responseData);
-        QJsonObject obj = jsonDoc.object();
-        emit settingsReceived(obj);
-    }
-    else
-    {
-        qDebug() << "Failer receive settings:" << reply->errorString();
+        emit settingsReceived(network_utils::extractJsonObj(reply));
+        emit responseMessage(network_utils::extractResponseMessage(reply));
     }
 }
 void RequestHandler::handleSetSettings(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError)
     {
-        qDebug() << "Settings parameter set";
-    }
-    else
-    {
-        qDebug() << "Failed to set parameter:" << reply->errorString();
+        emit responseMessage(network_utils::extractResponseMessage(reply));
     }
 }
 void RequestHandler::handleGetModes(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError)
     {
-        QByteArray responseData = reply->readAll();
-        QJsonDocument jsonDoc = QJsonDocument::fromJson(responseData);
-        QJsonArray modesArray = jsonDoc.array();
-        QVariantList modes;
-        for (const QJsonValue &value : modesArray)
-        {
-            modes.append(value);
-        }
-        emit modesReceived(modes);
-    }
-    else
-    {
-        qDebug() << "Error:" << reply->errorString();
+        emit modesReceived(network_utils::extractVariants(reply));
+        emit responseMessage(network_utils::extractResponseMessage(reply));
     }
 }
 void RequestHandler::handleAddMode(QNetworkReply* reply)
@@ -147,23 +126,15 @@ void RequestHandler::handleDeleteMode(QNetworkReply* reply)
 {
     if (reply->error() == QNetworkReply::NoError)
     {
-        qDebug() << "Mode deleted";
+        emit responseMessage(network_utils::extractResponseMessage(reply));
         getModes();
         getSettings();
-    }
-    else
-    {
-        qDebug() << "Error:" << reply->errorString();
     }
 }
 void RequestHandler::handleSetModeParameter(QNetworkReply* reply)
 {
     if (reply->error() == QNetworkReply::NoError)
     {
-        qDebug() << "Parameter set";
-    }
-    else
-    {
-        qDebug() << "Failed to set parameter:" << reply->errorString();
+        emit responseMessage(network_utils::extractResponseMessage(reply));
     }
 }

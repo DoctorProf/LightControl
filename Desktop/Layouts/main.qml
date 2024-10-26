@@ -16,6 +16,10 @@ Window {
     title: qsTr("LightControl")
     Material.theme: Material.Light
 
+    Snackbar {
+        id: snackbar
+    }
+
     ColumnLayout {
         anchors.left: parent.left
         anchors.top: parent.top
@@ -151,9 +155,6 @@ Window {
                 var hex = selectedColor.toString(16).slice(1);
                 request_handler.setModeParameter("color", hex)
             }
-            onRejected: {
-                console.log("Color dialog rejected")
-            }
         }
     }
 
@@ -162,7 +163,6 @@ Window {
 
         function onModesReceived(modes)
         {
-            console.log("emitModes")
             modes_model.clear()
             for (var i = 0; i < modes.length; i++) {
                 console.log(modes[i].name, modes[i].id);
@@ -172,19 +172,13 @@ Window {
                                    })
             }
         }
-        function onModeSelected(success) {
-            onsole.log("emitSelected")
-            if (success) {
-                console.log("Mode selected successfully.")
-            } else {
-                console.log("Failed to select mode.")
-            }
-        }
         function onSettingsReceived(obj) {
-            console.log("emitSettings")
             brightness_slider.value = obj.brightness
             state_button.checked = obj.state
             modes_box.currentIndex = obj.mode_id
+        }
+        function onResponseMessage(message) {
+            snackbar.show(message)
         }
     }
 }

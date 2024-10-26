@@ -2,7 +2,7 @@
 #include "Validator.h"
 #include "Parser.h"
 
-class Api 
+class Api
 {
 public:
 	Api(crow::SimpleApp& app);

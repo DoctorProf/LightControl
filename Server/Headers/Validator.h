@@ -3,7 +3,7 @@
 #include <cstring>
 #include "ConfigController.h"
 
-namespace validator 
+namespace validator
 {
 	bool isMissingParameter(char* parameter);
 	bool isContainsParameter(std::string parameter_name, json object);

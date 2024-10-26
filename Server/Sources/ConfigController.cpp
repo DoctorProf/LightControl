@@ -18,19 +18,19 @@ void ConfigController::readIp()
 	ip = json::parse(input_file);
 	input_file.close();
 }
-void ConfigController::readModes() 
+void ConfigController::readModes()
 {
 	std::ifstream input_file("Config/modes.json");
 	modes = json::parse(input_file);
 	input_file.close();
 }
-void ConfigController::readSettings() 
+void ConfigController::readSettings()
 {
 	std::ifstream input_file("Config/settings.json");
 	settings = json::parse(input_file);
 	input_file.close();
 }
-void ConfigController::saveModes() 
+void ConfigController::saveModes()
 {
 	std::ofstream output_file("Config/modes.json");
 	output_file << modes.dump(4);
@@ -85,7 +85,7 @@ void ConfigController::updateModeOptions(std::string parameter_name, char* value
 	saveModes();
 	updateCurrentData();
 }
-int ConfigController::addMode(json mode) 
+int ConfigController::addMode(json mode)
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
 	int mode_id = count_modes;
@@ -100,12 +100,12 @@ void ConfigController::deleteMode()
 	std::lock_guard<std::mutex> lock(config_mutex);
 	modes.erase(mode_id);
 	count_modes--;
-	for (int i = mode_id; i < count_modes; ++i) 
+	for (int i = mode_id; i < count_modes; ++i)
 	{
 		int id = modes[i]["id"];
 		modes[i]["id"] = id - 1;
 	}
-	if (mode_id >= count_modes) 
+	if (mode_id >= count_modes)
 	{
 		int mode_id = settings["mode_id"];
 		settings["mode_id"] = mode_id - 1;
@@ -135,32 +135,33 @@ std::string ConfigController::getIpClient()
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return ip["client_ip"];
 }
-int ConfigController::getBrightness() 
+int ConfigController::getBrightness()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return brightness;
 }
-int ConfigController::getCurrentModeId() 
+int ConfigController::getCurrentModeId()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return mode_id;
 }
-json ConfigController::getCurrentMode() 
+json ConfigController::getCurrentMode()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return current_mode;
 }
-int ConfigController::getState() 
+int ConfigController::getState()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return state;
 }
-int ConfigController::getCountModes() 
+int ConfigController::getCountModes()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return count_modes;
 }
 json ConfigController::getCurrentModeOptions()
 {
+	std::lock_guard<std::mutex> lock(config_mutex);
 	return current_mode_options;
 }

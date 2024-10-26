@@ -3,20 +3,12 @@
         "id": 0,
         "name": "Red",
         "options": {
-            "color": "ff0000"
+            "color": "ff2020"
         },
         "static": true
     },
     {
         "id": 1,
-        "name": "Green",
-        "options": {
-            "color": "00ff00"
-        },
-        "static": true
-    },
-    {
-        "id": 2,
         "name": "Blue",
         "options": {
             "color": "0000ff"
@@ -24,15 +16,7 @@
         "static": true
     },
     {
-        "id": 3,
-        "name": "Magenta",
-        "options": {
-            "color": "feb45f"
-        },
-        "static": true
-    },
-    {
-        "id": 4,
+        "id": 2,
         "name": "Yellow",
         "options": {
             "color": "ffff00"

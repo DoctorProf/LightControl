@@ -1,12 +1,8 @@
 #pragma once
 
+#include "networkutils.h"
 #include <QObject>
 #include <QNetworkAccessManager>
-#include <QNetworkReply>
-#include <QJsonObject>
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QVariantList>
 #include <QUrlQuery>
 #include <QMap>
 #include <functional>
@@ -33,8 +29,7 @@ private slots:
 signals:
     void settingsReceived(QJsonObject obj);
     void modesReceived(QVariantList modes);
-    void modeSelected(bool success);
-
+    void responseMessage(QString message);
 private:
     QNetworkAccessManager* network_manager;
     QString base_url;

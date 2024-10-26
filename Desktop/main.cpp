@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     RequestHandler request_handler;
     app.setWindowIcon(QIcon(":/icon/Resources/logo.ico"));
     engine.rootContext()->setContextProperty("request_handler", &request_handler);
-    engine.load(QUrl(QStringLiteral("qrc:/Desktop/Layouts/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/Layouts/main.qml")));
 
     request_handler.getModes();
     request_handler.getSettings();

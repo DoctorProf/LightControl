@@ -6,7 +6,7 @@
 
 using json = nlohmann::json;
 
-class ConfigController 
+class ConfigController
 {
 public:
 	static void readIp();
