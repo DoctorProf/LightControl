@@ -3,23 +3,15 @@
         "id": 0,
         "name": "Red",
         "options": {
-            "color": "ff2020"
+            "color": "fc0f4c"
         },
         "static": true
     },
     {
         "id": 1,
-        "name": "Blue",
+        "name": "G",
         "options": {
-            "color": "0000ff"
-        },
-        "static": true
-    },
-    {
-        "id": 2,
-        "name": "Yellow",
-        "options": {
-            "color": "ffff00"
+            "color": "ffffff"
         },
         "static": true
     }

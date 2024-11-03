@@ -1,17 +1,15 @@
 #include "../Headers/ConfigController.h"
 
-json ConfigController::ip;
-json ConfigController::modes;
-json ConfigController::settings;
-int ConfigController::brightness;
-int ConfigController::mode_id;
-int ConfigController::state;
-json ConfigController::current_mode;
-json ConfigController::current_mode_options;
-int ConfigController::count_modes;
-bool ConfigController::is_change;
-std::mutex ConfigController::config_mutex;
+ConfigController* ConfigController::instance = nullptr;
 
+ConfigController* ConfigController::getInstance()
+{
+	if (!instance)
+	{
+		instance = new ConfigController();
+	}
+	return instance;
+}
 void ConfigController::readIp()
 {
 	std::ifstream input_file("Config/ip.json");
@@ -55,7 +53,6 @@ bool ConfigController::updateCurrentData()
 		{
 			std::cout << "Mode found" << std::endl;
 			current_mode = mode;
-			current_mode_options = current_mode["options"];
 			return true;
 		}
 	}
@@ -64,10 +61,12 @@ bool ConfigController::updateCurrentData()
 }
 bool ConfigController::isChange()
 {
+	std::lock_guard<std::mutex> lock(config_mutex);
 	return is_change;
 }
 void ConfigController::setIsChange(bool state)
 {
+	std::lock_guard<std::mutex> lock(config_mutex);
 	is_change = state;
 }
 
@@ -140,7 +139,7 @@ int ConfigController::getBrightness()
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return brightness;
 }
-int ConfigController::getCurrentModeId()
+int ConfigController::getModeId()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return mode_id;
@@ -159,9 +158,4 @@ int ConfigController::getCountModes()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return count_modes;
-}
-json ConfigController::getCurrentModeOptions()
-{
-	std::lock_guard<std::mutex> lock(config_mutex);
-	return current_mode_options;
 }

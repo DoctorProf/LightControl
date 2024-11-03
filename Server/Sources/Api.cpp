@@ -39,7 +39,7 @@ void Api::registerRoutes(crow::SimpleApp& app)
 }
 crow::response Api::getSettings(crow::request req)
 {
-	return crow::response(ConfigController::getSettings().dump());
+	return crow::response(ConfigController::getInstance()->getSettings().dump());
 }
 crow::response Api::setSettings(crow::request req)
 {
@@ -62,7 +62,7 @@ crow::response Api::setSettings(crow::request req)
 }
 crow::response Api::modes(crow::request req)
 {
-	return crow::response(ConfigController::getModes().dump());
+	return crow::response(ConfigController::getInstance()->getModes().dump());
 }
 crow::response Api::modeGet(crow::request req)
 {

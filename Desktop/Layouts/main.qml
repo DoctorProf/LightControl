@@ -47,7 +47,6 @@ Window {
             id: modes_box
             objectName: "modes_box"
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            //Layout.topMargin: 30
             Layout.preferredWidth: 150
             Layout.preferredHeight: 40
             Material.accent: "#1b5eb5"
@@ -84,7 +83,6 @@ Window {
         Label {
             id: brightness_value
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            //Layout.bottomMargin: 20
             font.family: "Arial"
             font.pixelSize: 12
             font.bold: true
@@ -95,7 +93,6 @@ Window {
             Layout.preferredWidth: 120
             Layout.preferredHeight: 40
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            //Layout.bottomMargin: 50
             Material.background: "#b1f4ff"
             Material.accent: "#1b5eff"
             text: "State"
@@ -112,7 +109,6 @@ Window {
             Layout.preferredWidth: 120
             Layout.preferredHeight: 40
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            //Layout.bottomMargin: 50
             Material.background: "#b1f4ff"
             Material.accent: "#1b5eff"
             text: "Delete"
@@ -151,9 +147,13 @@ Window {
         ColorDialog {
             id: color_dialog
             title: "Color"
+            Material.primary: Material.Dark
             onAccepted: {
                 var hex = selectedColor.toString(16).slice(1);
                 request_handler.setModeParameter("color", hex)
+            }
+            onRejected: {
+
             }
         }
     }

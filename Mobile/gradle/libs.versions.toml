@@ -11,6 +11,9 @@ activity = "1.9.3"
 constraintlayout = "2.1.4"
 retrofit = "2.11.0"
 converterGson = "2.11.0"
+retrofitConverters = "2.8.1"
+retrofitAdapters = "2.8.1"
+adapterGuava = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -23,6 +26,9 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "converterGson" }
+retrofit-converters = { group = "com.squareup.retrofit2", name = "retrofit-converters", version.ref = "retrofitConverters" }
+retrofit-adapters = { group = "com.squareup.retrofit2", name = "retrofit-adapters", version.ref = "retrofitAdapters" }
+adapter-guava = { group = "com.squareup.retrofit2", name = "adapter-guava", version.ref = "adapterGuava" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

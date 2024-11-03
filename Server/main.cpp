@@ -1,19 +1,18 @@
 #include "Headers/Api.h"
 #include "Headers/Client.h"
 #include <thread>
-#include <csignal>
 
 void apiThread(crow::SimpleApp& app)
 {
-	app.port(ConfigController::getPortServer()).multithreaded().run();
+	app.port(ConfigController::getInstance()->getPortServer()).multithreaded().run();
 }
 int main()
 {
-	ConfigController::readIp();
-	ConfigController::readModes();
-	ConfigController::readSettings();
-	bool run = ConfigController::updateCurrentData();
-	Client client(ConfigController::getIpClient());
+	ConfigController::getInstance()->readIp();
+	ConfigController::getInstance()->readModes();
+	ConfigController::getInstance()->readSettings();
+	bool run = ConfigController::getInstance()->updateCurrentData();
+	Client client(ConfigController::getInstance()->getIpClient());
 	crow::SimpleApp app;
 	Api api(app);
 
@@ -21,30 +20,25 @@ int main()
 
 	std::thread api_thread(&apiThread, std::ref(app));
 	api_thread.detach();
-	/*
-	* API метод RenameMode(std:string name);
-	* Изменение логики id модов
-	* Общий метод для сета options мода
-	* Изменить логику SelectMode
-	* Получение текущего мода по id, неверно
-	*/
+
 	while (run)
 	{
-		bool changed = ConfigController::isChange();
-		bool state = ConfigController::getState();
+		bool changed = ConfigController::getInstance()->isChange();
+		bool state = ConfigController::getInstance()->getState();
+		json mode = ConfigController::getInstance()->getCurrentMode();
 
 		if (changed)
 		{
 			type_mode_static = true;
-			ConfigController::setIsChange(false);
+			ConfigController::getInstance()->setIsChange(false);
 		}
-		if ((ConfigController::getCurrentMode()["static"] || !state) && type_mode_static)
+		if ((mode["static"] || !state) && type_mode_static)
 		{
 			std::vector<int> color{ 0, 0, 0 };
-			float brightness = ConfigController::getBrightness() / 255.f;
+			float brightness = ConfigController::getInstance()->getBrightness() / 255.f;
 			if (state)
 			{
-				color = parser::hexToRGB(ConfigController::getCurrentModeOptions()["color"]);
+				color = parser::hexToRGB(mode["options"]["color"]);
 			}
 			if (!client.setStripColor(color[0] * brightness, color[1] * brightness, color[2] * brightness))
 			{

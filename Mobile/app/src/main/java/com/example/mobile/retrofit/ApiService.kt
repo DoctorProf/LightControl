@@ -1,7 +1,6 @@
 package com.example.mobile.retrofit
 
 import com.example.mobile.retrofit.dto.Mode
-import com.example.mobile.retrofit.dto.Modes
 import com.example.mobile.retrofit.dto.Response
 import com.example.mobile.retrofit.dto.Settings
 import retrofit2.Call
@@ -10,23 +9,24 @@ import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
+import retrofit2.http.QueryMap
 
 interface ApiService {
     @GET("/getSettings")
-    fun getSettings(): Call<Settings>
+    suspend fun getSettings(): Settings
 
     @GET("/setSettings")
-    fun setSettings(@Query("brightness") brightness: Int): Call<Void>
+    suspend fun setSettings(@QueryMap params: Map<String, Int>): Response
 
     @GET("/modes")
-    fun getModes(): Call<List<Modes>>
+    suspend fun getModes(): List<Mode>
 
     @GET("/mode")
-    fun setModeParameter(@Query("modeId") modeId: String): Call<Response>
+    suspend fun setModeParameter(@QueryMap params: Map<String, String>): Response
 
     @POST("/mode")
-    fun addMode(@Body mode: Mode): Call<Void>
+    suspend fun addMode(@Body mode: Mode): Response
 
     @DELETE("/mode")
-    fun deleteMode(@Query("modeId") modeId: String): Call<Void>
+    suspend fun deleteMode(): Response
 }

@@ -71,7 +71,7 @@ json validator::setSettingsParameter(std::string parameter_name, char* parameter
 		response["description"] = "Missing parameter";
 		return response;
 	}
-	if (!isContainsParameter(parameter_name, ConfigController::getSettings()))
+	if (!isContainsParameter(parameter_name, ConfigController::getInstance()->getSettings()))
 	{
 		response["status"] = "Error";
 		response["description"] = "Parameter does not exist";
@@ -89,7 +89,7 @@ json validator::setSettingsParameter(std::string parameter_name, char* parameter
 	}
 	else if (parameter_name == "mode_id")
 	{
-		range = { 0, ConfigController::getCountModes() - 1 };
+		range = { 0, ConfigController::getInstance()->getCountModes() - 1 };
 	}
 	else
 	{
@@ -101,7 +101,7 @@ json validator::setSettingsParameter(std::string parameter_name, char* parameter
 	{
 		response["status"] = "Success";
 		response["description"] = std::format("{} set to {}", parameter_name, value);
-		ConfigController::updateSettings(parameter_name, value);
+		ConfigController::getInstance()->updateSettings(parameter_name, value);
 		return response;
 	}
 	else
@@ -120,13 +120,13 @@ json validator::setModeParameter(std::string parameter_name, char* parameter)
 		response["description"] = "Missing parameter";
 		return response;
 	}
-	if (!isContainsParameter(parameter_name, ConfigController::getCurrentModeOptions()))
+	if (!isContainsParameter(parameter_name, ConfigController::getInstance()->getCurrentMode()["options"]))
 	{
 		response["status"] = "Error";
 		response["description"] = "Parameter does not exist";
 		return response;
 	}
-	ConfigController::updateModeOptions(parameter_name, parameter);
+	ConfigController::getInstance()->updateModeOptions(parameter_name, parameter);
 	response["status"] = "Success";
 	response["description"] = std::format("{} set to {}", parameter_name, parameter);
 	return response;
@@ -156,7 +156,7 @@ json validator::addMode(crow::request req)
 
 	response["status"] = "Success";
 	response["description"] = "Mode added";
-	response["mode_id"] = ConfigController::addMode(mode);
+	response["mode_id"] = ConfigController::getInstance()->addMode(mode);
 	return response;
 }
 json validator::deleteMode(crow::request req)
@@ -164,7 +164,7 @@ json validator::deleteMode(crow::request req)
 	json response;
 	try
 	{
-		ConfigController::deleteMode();
+		ConfigController::getInstance()->deleteMode();
 		response["status"] = "Success";
 		response["description"] = "Mode deleted";
 		return response;
