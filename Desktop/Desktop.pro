@@ -3,8 +3,7 @@ QT += quick network
 SOURCES += \
         Sources/networkutils.cpp \
         main.cpp \
-        Sources/requesthandler.cpp \
-        Sources/syncworker.cpp
+        Sources/requesthandler.cpp
 
 CONFIG += c++17
 
@@ -28,8 +27,10 @@ RC_FILE = desktop.rc
 
 HEADERS += \
     Headers/networkutils.h \
-    Headers/requesthandler.h \
-    Headers/syncworker.h
+    Headers/requesthandler.h
 
 DISTFILES += \
-    Layouts/Snackbar.qml
+    Layouts/CreatorPage.qml \
+    Layouts/MainPage.qml \
+    Layouts/Snackbar.qml \
+    Resources/colors

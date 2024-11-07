@@ -97,6 +97,10 @@ int ConfigController::addMode(json mode)
 void ConfigController::deleteMode()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
+	if (count_modes < 2)
+	{
+		return;
+	}
 	modes.erase(mode_id);
 	count_modes--;
 	for (int i = mode_id; i < count_modes; ++i)

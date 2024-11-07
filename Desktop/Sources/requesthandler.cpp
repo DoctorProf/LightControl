@@ -48,7 +48,6 @@ void RequestHandler::onReplyFinished(QNetworkReply *reply)
     QUrl url = reply->url();
     if(endpoints.find(url.path()) != endpoints.end())
     {
-        //(this->*endpoints[url.path()])(reply);
         endpoints[url.path()](reply);
     }
     reply->deleteLater();
@@ -77,7 +76,11 @@ void RequestHandler::getModes()
 }
 void RequestHandler::addMode(QJsonObject mode)
 {
-
+    QUrl url(base_url + "/mode");
+    QNetworkRequest request(url);
+    QJsonDocument doc(mode);
+    QByteArray body = doc.toJson();
+    network_manager->post(request, body);
 }
 void RequestHandler::deleteMode()
 {
@@ -126,9 +129,9 @@ void RequestHandler::handleDeleteMode(QNetworkReply* reply)
 {
     if (reply->error() == QNetworkReply::NoError)
     {
-        emit responseMessage(network_utils::extractResponseMessage(reply));
         getModes();
         getSettings();
+        emit responseMessage(network_utils::extractResponseMessage(reply)); 
     }
 }
 void RequestHandler::handleSetModeParameter(QNetworkReply* reply)
