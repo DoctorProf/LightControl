@@ -3,34 +3,42 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Controls.Material
 
-Window {
-    width: 600
-    height: 300
+Window
+{
+    property string background_color : "#e0bbe4"
+    property string accent_color : "#4b0082"
+    property int width_win: 600
+    property int height_win: 300
+    width: width_win
+    height: height_win
 
-    maximumHeight: height
-    maximumWidth: width
-    minimumHeight: height
-    minimumWidth: width
+    maximumHeight: height_win
+    maximumWidth: width_win
+    minimumHeight: height_win
+    minimumWidth: width_win
     visible: true
     title: qsTr("LightControl")
     Material.theme: Material.Light
 
-    property string background_color : "#b1f4ff"
-    property string accent_color : "#1b5eb5"
 
-    StackView {
+
+    StackView
+    {
         id: stack_view
         anchors.fill: parent
         initialItem: main_page
     }
 
-    Snackbar {
+    Snackbar
+    {
         id: snackbar
     }
 
-    Component {
+    Component
+    {
         id: main_page
-        MainPage {
+        MainPage
+        {
             id: main_page_component
         }
     }

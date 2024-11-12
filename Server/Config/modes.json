@@ -3,23 +3,15 @@
         "id": 0,
         "name": "Red",
         "options": {
-            "color": "eabcbc"
+            "color": "f7001a"
         },
         "static": true
     },
     {
         "id": 1,
-        "name": "magenta",
+        "name": "тестовый",
         "options": {
-            "color": "ee0dfa"
-        },
-        "static": true
-    },
-    {
-        "id": 2,
-        "name": "32клт цуаорицуашриаг9и29гацуцущомцтштрцам9грмгртгртшгймцр шгймртйпр8у0ймойщ8тпм980ти9г",
-        "options": {
-            "color": "00f1ff"
+            "color": "28f1f5"
         },
         "static": true
     }

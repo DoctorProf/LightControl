@@ -4,26 +4,48 @@ import QtQuick.Layouts
 import QtQuick.Controls.Material
 import QtQuick.Dialogs
 
-Page {
+Page
+{
     id: creator_page
+    width: width_win
+    height: height_win
 
-    ColumnLayout {
+    ColorDialog
+    {
+        id: color_dialog
+        title: "Color"
+        Material.primary: Material.Dark
+        onAccepted:
+        {
+            var hex = selectedColor.toString(16).slice(1);
+            color_hex.text = hex
+        }
+        onRejected:
+        {
+            static_box.checked = false
+        }
+    }
+    ColumnLayout
+    {
         id: column
-        Button {
+        Button
+        {
             Layout.alignment: Qt.AlignTop | Qt.AlignLeft
-            Layout.preferredWidth: 120
+            Layout.preferredWidth: 100
             Layout.preferredHeight: 40
             Layout.margins: 10
             Material.background: background_color
             text: "Back"
             font.family: "Arial"
-            font.pixelSize: 18
+            font.pixelSize: 16
             font.bold: true
-            onClicked: {
+            onClicked:
+            {
                 stack_view.push(Qt.resolvedUrl("qrc:/Layouts/MainPage.qml"))
             }
         }
-        TextField {
+        TextField
+        {
             id: name_field
             Layout.preferredWidth: 120
             Layout.preferredHeight: 40
@@ -31,21 +53,25 @@ Page {
             Layout.alignment: Qt.AlignCenter
         }
 
-        CheckBox {
+        CheckBox
+        {
             id: static_box
             text: "Static"
             Material.accent: accent_color
             Layout.alignment: Qt.AlignCenter
-            onClicked: {
+            onClicked:
+            {
                 staticMode()
             }
         }
-        Label {
+        Label
+        {
             id: color_hex
             Material.accent: "#1b5eb5"
             Layout.alignment: Qt.AlignCenter
         }
-        Button {
+        Button
+        {
             Layout.alignment: Qt.AlignCenter
             Layout.preferredWidth: 120
             Layout.preferredHeight: 40
@@ -53,38 +79,29 @@ Page {
             Material.background: background_color
             text: "Save"
             font.family: "Arial"
-            font.pixelSize: 18
+            font.pixelSize: 16
             font.bold: true
-            onClicked: {
-                var mode = {
-                    "static" : static_box.checked,
-                    "name" : name_field.text,
-                    "options" : {
-                        "color" : color_hex.text
+            onClicked:
+            {
+                var mode =
+                    {
+                        "static" : static_box.checked,
+                        "name" : name_field.text,
+                        "options" :
+                            {
+                                "color" : color_hex.text
+                            }
                     }
-                }
                 request_handler.addMode(mode)
 
             }
         }
-        ColorDialog {
-            id: color_dialog
-            title: "Color"
-            Material.primary: Material.Dark
-            onAccepted: {
-                var hex = selectedColor.toString(16).slice(1);
-                color_hex.text = hex
-            }
-            onRejected: {
-
-            }
-        }
     }
-    function staticMode() {
+    function staticMode()
+    {
         if(static_box.checked)
         {
             color_dialog.open()
         }
-
     }
 }

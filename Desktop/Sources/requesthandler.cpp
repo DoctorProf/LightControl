@@ -123,7 +123,10 @@ void RequestHandler::handleGetModes(QNetworkReply *reply)
 }
 void RequestHandler::handleAddMode(QNetworkReply* reply)
 {
-
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        emit responseMessage(network_utils::extractResponseMessage(reply));
+    }
 }
 void RequestHandler::handleDeleteMode(QNetworkReply* reply)
 {

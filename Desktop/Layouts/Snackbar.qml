@@ -1,6 +1,7 @@
 import QtQuick 2.15
 
-Rectangle {
+Rectangle
+{
     id: snackbar
     width: parent.width / 2.5
     height: 30
@@ -13,7 +14,8 @@ Rectangle {
     visible: false
     z: 10
 
-    Text {
+    Text
+    {
         id: messageText
         anchors.centerIn: parent
         color: "black"
@@ -22,26 +24,31 @@ Rectangle {
         font.bold: true
     }
 
-    Behavior on opacity {
+    Behavior on opacity
+    {
         NumberAnimation { duration: 250 }
     }
 
-    Behavior on visible {
+    Behavior on visible
+    {
         NumberAnimation { duration: 250 }
     }
 
-    Timer {
+    Timer
+    {
         id: timer
         interval: 2000
         running: false
         repeat: false
-        onTriggered: {
+        onTriggered:
+        {
             snackbar.visible = false
             snackbar.opacity = 0
         }
     }
 
-    function show(message) {
+    function show(message)
+    {
         messageText.text = message
         snackbar.visible = true
         snackbar.opacity = 1
