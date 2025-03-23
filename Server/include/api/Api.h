@@ -1,6 +1,6 @@
 #pragma once
-#include "Validator.h"
-#include "Parser.h"
+#include "../validators/ValidatorApi.h"
+#include "../utils/ColorUtils.h"
 
 class Api
 {
@@ -11,7 +11,4 @@ private:
 	crow::response getSettings(crow::request req);
 	crow::response setSettings(crow::request req);
 	crow::response modes(crow::request req);
-	crow::response modeGet(crow::request req);
-	crow::response modePost(crow::request req);
-	crow::response modeDelete(crow::request req);
 };

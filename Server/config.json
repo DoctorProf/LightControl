@@ -1,0 +1,10 @@
+{
+  "led": {
+    "brightness": 255,
+    "mode_name": "white",
+    "state": 1
+  },
+  "client": {
+    "address": "http://192.168.1.12:10000"
+  }
+}

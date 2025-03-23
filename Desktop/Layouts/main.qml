@@ -20,8 +20,6 @@ Window
     title: qsTr("LightControl")
     Material.theme: Material.Light
 
-
-
     StackView
     {
         id: stack_view

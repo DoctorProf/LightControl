@@ -8,28 +8,14 @@ Page {
     id: main_page
     width: width_win
     height: height_win
+    property bool modesLoaded: false
+    property bool settingsLoaded: false
 
     Component.onCompleted:
     {
         request_handler.getModes()
         request_handler.getSettings()
     }
-
-    ColorDialog
-    {
-        id: color_dialog
-        title: "Color"
-        onAccepted:
-        {
-            var hex = selectedColor.toString(16);
-            color_picker.color = hex
-            request_handler.setModeParameter("color", hex.slice(1))
-        }
-        onRejected:
-        {
-        }
-    }
-
     ColumnLayout
     {
         anchors.left: parent.left
@@ -66,112 +52,9 @@ Page {
                 onCurrentIndexChanged:
                 {
                     var obj = modes_model.get(currentIndex)
-                    request_handler.setSettings("mode_id", obj.value.id)
-                    if("color" in obj.value.options)
-                    {
-                        color_picker.visible = true
-                        color_picker.color = "#" + obj.value.options.color
-                    }
+                    request_handler.setSettings("mode_name", obj.value)
                 }
             }
-            Rectangle
-            {
-                id: add_button
-                color: background_color
-                Material.accent: accent_color
-                radius: 10
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-
-                Text
-                {
-                    anchors.centerIn: parent
-                    text: "+"
-                    font.family: "Arial"
-                    font.pixelSize: 18
-                    font.bold: true
-                }
-
-                MouseArea
-                {
-                    anchors.fill: parent
-                    onClicked:
-                    {
-                        stack_view.push(Qt.resolvedUrl("qrc:/Layouts/CreatorPage.qml"))
-                    }
-                    onPressed:
-                    {
-                        add_button.color = accent_color
-                    }
-                    onReleased:
-                    {
-                        add_button.color = background_color
-                    }
-                }
-            }
-            Rectangle
-            {
-                id: delete_button
-                color: background_color
-                Material.accent: accent_color
-                radius: 10
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-
-                Text
-                {
-                    anchors.centerIn: parent
-                    text: "-"
-                    font.family: "Arial"
-                    font.pixelSize: 18
-                    font.bold: true
-                }
-
-                MouseArea
-                {
-                    anchors.fill: parent
-                    onClicked:
-                    {
-                        request_handler.deleteMode();
-                    }
-                    onPressed:
-                    {
-                        delete_button.color = accent_color
-                    }
-                    onReleased:
-                    {
-                        delete_button.color = background_color
-                    }
-                }
-            }
-            Rectangle
-            {
-                id: color_picker
-                color: background_color
-                Material.accent: accent_color
-                radius: 10
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-                visible: false
-
-                MouseArea
-                {
-                    anchors.fill: parent
-                    onClicked:
-                    {
-                        color_dialog.open()
-                    }
-                    onPressed:
-                    {
-                        color_picker.color = accent_color
-                    }
-                    onReleased:
-                    {
-                        color_picker.color = background_color
-                    }
-                }
-            }
-            Item {Layout.fillWidth: true}
         }
         RowLayout
         {
@@ -250,24 +133,44 @@ Page {
         target: request_handler
         function onModesReceived(modes)
         {
-            modes_model.clear()
-            for (var i = 0; i < modes.length; i++)
-            {
+            modes_model.clear();
+            for (var i = 0; i < modes["modes"].length; ++i) {
                 modes_model.append({
-                                       "text": modes[i].name,
-                                       "value": modes[i]
-                                   })
+                    "text": modes["modes"][i],
+                    "value": modes["modes"][i]
+                });
             }
+            modesLoaded = true;
         }
+
         function onSettingsReceived(obj)
         {
-            brightness_slider.value = obj.brightness
-            state_switch.checked = obj.state
-            modes_box.currentIndex = obj.mode_id
+            brightness_slider.value = obj.brightness;
+            state_switch.checked = obj.state;
+            settingsLoaded = true;
+            applySettingsIfReady(obj);
+        }
+
+        function applySettingsIfReady(obj)
+        {
+            if (modesLoaded && settingsLoaded) {
+                modes_box.currentIndex = getIndex(obj.mode_name);
+            }
         }
         function onResponseMessage(message)
         {
             snackbar.show(message)
+        }
+        function getIndex(value)
+        {
+            for (var i = 0; i < modes_model.count; ++i) {
+                var item = modes_model.get(i);
+
+                if (value === item.value) {
+                    return i;
+                }
+            }
+            return 0;
         }
     }
 }

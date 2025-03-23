@@ -30,7 +30,6 @@ HEADERS += \
     Headers/requesthandler.h
 
 DISTFILES += \
-    Layouts/CreatorPage.qml \
     Layouts/MainPage.qml \
     Layouts/Snackbar.qml \
     Resources/colors

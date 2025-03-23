@@ -1,57 +1,39 @@
-#include "Headers/Api.h"
-#include "Headers/Client.h"
+#include "include/api/Api.h"
+#include "include/network/Client.h"
 #include <thread>
+#include <random>
+#include <chrono>
+#include <atomic>
+#include <algorithm>
+#include "include/controllers/ModeController.h"
 
 void apiThread(crow::SimpleApp& app)
 {
-	app.port(ConfigController::getInstance()->getPortServer()).multithreaded().run();
+	app.multithreaded().run();
 }
 int main()
 {
-	ConfigController::getInstance()->readIp();
-	ConfigController::getInstance()->readModes();
-	ConfigController::getInstance()->readSettings();
-	bool run = ConfigController::getInstance()->updateCurrentData();
-	Client client(ConfigController::getInstance()->getIpClient());
+	srand(time(NULL));
+
+	ConfigController::getInstance()->readConfig();
+	ConfigController::getInstance()->updateData();
+
+	Client client(ConfigController::getInstance()->getAddressClient());
 	crow::SimpleApp app;
 	Api api(app);
 
-	bool type_mode_static = true;
+	bool run = true;
 
 	std::thread api_thread(&apiThread, std::ref(app));
 	api_thread.detach();
 
+	ModeController mode_controller;
+	mode_controller.loadMode("mode.dll");
+	auto color = mode_controller.getColor();
+	auto color_vec = utils::INTToRGB(color);
+	std::cout << "r " << color_vec[0] << " g " << color_vec[1] << " b " << color_vec[2] << std::endl;
 	while (run)
 	{
-		bool changed = ConfigController::getInstance()->isChange();
-		bool state = ConfigController::getInstance()->getState();
-		json mode = ConfigController::getInstance()->getCurrentMode();
-
-		if (changed)
-		{
-			type_mode_static = true;
-			ConfigController::getInstance()->setIsChange(false);
-		}
-		if ((mode["static"] || !state) && type_mode_static)
-		{
-			std::vector<int> color{ 0, 0, 0 };
-			float brightness = ConfigController::getInstance()->getBrightness() / 255.f;
-			if (state)
-			{
-				color = parser::hexToRGB(mode["options"]["color"]);
-			}
-			if (!client.setStripColor(color[0] * brightness, color[1] * brightness, color[2] * brightness))
-			{
-				type_mode_static = true;
-			}
-			else
-			{
-				type_mode_static = false;
-			}
-		}
-		else
-		{
-		}
 	}
 	return 0;
 }

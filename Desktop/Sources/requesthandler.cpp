@@ -27,21 +27,6 @@ RequestHandler::RequestHandler(QObject *parent)
             handleGetModes(reply);
         }
     });
-    endpoints.insert("/mode", [this](QNetworkReply* reply)
-        {
-            if (reply->operation() == QNetworkAccessManager::GetOperation)
-            {
-                handleSetModeParameter(reply);
-            }
-            else if (reply->operation() == QNetworkAccessManager::PostOperation)
-            {
-                handleAddMode(reply);
-            }
-            else if (reply->operation() == QNetworkAccessManager::DeleteOperation)
-            {
-                handleDeleteMode(reply);
-            }
-        });
 }
 void RequestHandler::onReplyFinished(QNetworkReply *reply)
 {
@@ -74,29 +59,6 @@ void RequestHandler::getModes()
     QNetworkRequest request(url);
     network_manager->get(request);
 }
-void RequestHandler::addMode(QJsonObject mode)
-{
-    QUrl url(base_url + "/mode");
-    QNetworkRequest request(url);
-    QJsonDocument doc(mode);
-    QByteArray body = doc.toJson();
-    network_manager->post(request, body);
-}
-void RequestHandler::deleteMode()
-{
-    QUrl url(base_url + "/mode");
-    QNetworkRequest request(url);
-    network_manager->deleteResource(request);
-}
-void RequestHandler::setModeParameter(QString parameter_name, QString value)
-{
-    QUrl url(base_url + "/mode");
-    QUrlQuery query;
-    query.addQueryItem(parameter_name, value);
-    url.setQuery(query);
-    QNetworkRequest request(url);
-    network_manager->get(request);
-}
 
 void RequestHandler::handleGetSettings(QNetworkReply *reply)
 {
@@ -117,30 +79,7 @@ void RequestHandler::handleGetModes(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError)
     {
-        emit modesReceived(network_utils::extractVariants(reply));
-        emit responseMessage(network_utils::extractResponseMessage(reply));
-    }
-}
-void RequestHandler::handleAddMode(QNetworkReply* reply)
-{
-    if (reply->error() == QNetworkReply::NoError)
-    {
-        emit responseMessage(network_utils::extractResponseMessage(reply));
-    }
-}
-void RequestHandler::handleDeleteMode(QNetworkReply* reply)
-{
-    if (reply->error() == QNetworkReply::NoError)
-    {
-        getModes();
-        getSettings();
-        emit responseMessage(network_utils::extractResponseMessage(reply)); 
-    }
-}
-void RequestHandler::handleSetModeParameter(QNetworkReply* reply)
-{
-    if (reply->error() == QNetworkReply::NoError)
-    {
+        emit modesReceived(network_utils::extractJsonObj(reply));
         emit responseMessage(network_utils::extractResponseMessage(reply));
     }
 }
