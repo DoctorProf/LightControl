@@ -11,20 +11,22 @@ bool ModeController::loadMode(std::string name)
 {
 	unloadMode();
 
-	dll = LoadLibraryA(("modes/" + name).c_str());
+	dll = LoadLibraryA(("modes/" + name + ".dll").c_str());
 	if (!dll)
 	{
 		std::cerr << "Failed to load DLL: " << name << std::endl;
 		return false;
 	}
 
-	getTypeFunc = loadFunction<func_int>("getType");
-	setColorFunc = loadFunction<func_setColor>("setColor");
+	setLedCountFunc = loadFunction<func_setLedCount>("setLedCount");
+	getTypeModeFunc = loadFunction<func_int>("getTypeMode");
+	setStaticColorFunc = loadFunction<func_setStaticColor>("setStaticColor");
 	setSpeedFunc = loadFunction<func_setSpeed>("setSpeed");
 	setWaveLengthFunc = loadFunction<func_setWaveLength>("setWaveLength");
-	getColorFunc = loadFunction<func_int>("getColor");
+	getStaticColorFunc = loadFunction<func_int>("getStaticColor");
+	getDynamicColorFunc = loadFunction<func_getDynamicColorFunc>("getDynamicColor");
 
-	if (!getTypeFunc || !setColorFunc || !setSpeedFunc || !setWaveLengthFunc || !getColorFunc)
+	if (!getTypeModeFunc || !setSpeedFunc || !setSpeedFunc || !setWaveLengthFunc || !getStaticColorFunc)
 	{
 		std::cerr << "Failed to load one or more functions from DLL: " << name << std::endl;
 		unloadMode();
@@ -41,12 +43,13 @@ void ModeController::unloadMode()
 		FreeLibrary(dll);
 		dll = nullptr;
 	}
-
-	getTypeFunc = nullptr;
-	setColorFunc = nullptr;
+	setLedCountFunc = nullptr;
+	getTypeModeFunc = nullptr;
+	setStaticColorFunc = nullptr;
 	setSpeedFunc = nullptr;
 	setWaveLengthFunc = nullptr;
-	getColorFunc = nullptr;
+	getStaticColorFunc = nullptr;
+	getDynamicColorFunc = nullptr;
 }
 
 template <typename T>
@@ -58,25 +61,37 @@ T ModeController::loadFunction(std::string functionName)
 	}
 	return reinterpret_cast<T>(GetProcAddress(dll, functionName.c_str()));
 }
-
-int ModeController::getType()
+void ModeController::setLedCount(int count)
 {
-	if (getTypeFunc) {
-		return getTypeFunc();
-	}
-	std::cerr << "getType function is not loaded!" << std::endl;
-	return -1;
-}
-
-void ModeController::setColor(int red, int green, int blue)
-{
-	if (setColorFunc)
+	if (setLedCountFunc)
 	{
-		setColorFunc(red, green, blue);
+		setLedCountFunc(count);
 	}
 	else
 	{
-		std::cerr << "setColor function is not loaded!" << std::endl;
+		std::cerr << "setLedCount function is not loaded!" << std::endl;
+	}
+}
+
+int ModeController::getTypeMode()
+{
+	if (getTypeModeFunc)
+	{
+		return getTypeModeFunc();
+	}
+	std::cerr << "getTypeMode function is not loaded!" << std::endl;
+	return -1;
+}
+
+void ModeController::setStaticColor(int red, int green, int blue)
+{
+	if (setStaticColorFunc)
+	{
+		setStaticColorFunc(red, green, blue);
+	}
+	else
+	{
+		std::cerr << "setStaticColor function is not loaded!" << std::endl;
 	}
 }
 
@@ -104,12 +119,23 @@ void ModeController::setWaveLength(int length)
 	}
 }
 
-int ModeController::getColor()
+int ModeController::getStaticColor()
 {
-	if (getColorFunc)
+	if (getStaticColorFunc)
 	{
-		return getColorFunc();
+		return getStaticColorFunc();
 	}
-	std::cerr << "getColor function is not loaded!" << std::endl;
+	std::cerr << "getStaticColor function is not loaded!" << std::endl;
 	return -1;
+}
+void ModeController::getDynamicColor(int* output)
+{
+	if (getDynamicColorFunc)
+	{
+		getDynamicColorFunc(output);
+	}
+	else
+	{
+		std::cerr << "getDynamicColor function is not loaded!" << std::endl;
+	}
 }

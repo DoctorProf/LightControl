@@ -15,26 +15,33 @@ bool validator_api::isContainsParameter(std::string parameter_name, json object)
 	}
 	return false;
 }
-int validator_api::isInvalidParameter(char* parameter)
+int validator_api::isInvalidParameterInt(char* parameter)
 {
-	int value;
-
-	value = std::atoi(parameter);
 	try
 	{
-		value = std::stoi(parameter);
+		return std::stoi(parameter);
 	}
-	catch (const std::invalid_argument&)
+	catch (const std::exception&)
 	{
 		return -1;
 	}
-	catch (const std::out_of_range&)
+}
+float validator_api::isInvalidParameterFloat(char* parameter)
+{
+	try
+	{
+		return std::stof(parameter);
+	}
+	catch (const std::exception&)
 	{
 		return -1;
 	}
-	return value;
 }
 bool validator_api::checkRange(int parameter, int min, int max)
+{
+	return !(parameter < min || parameter > max);
+}
+bool validator_api::checkRange(float parameter, float min, float max)
 {
 	return !(parameter < min || parameter > max);
 }
@@ -42,9 +49,47 @@ bool validator_api::checkRange(int parameter, int min, int max)
 json validator_api::checkCorrectBrightness(std::string parameter_name, char* parameter)
 {
 	json response;
-	int value = isInvalidParameter(parameter);
+	int value = isInvalidParameterInt(parameter);
 
 	if (value != -1 && checkRange(value, 0, 255))
+	{
+		response["status"] = "Success";
+		response["description"] = std::format("{} set to {}", parameter_name, value);
+		ConfigController::getInstance()->updateSettings(parameter_name, value);
+		return response;
+	}
+	else
+	{
+		response["status"] = "Error";
+		response["description"] = "Invalid parameter";
+		return response;
+	}
+}
+json validator_api::checkCorrectSpeed(std::string parameter_name, char* parameter)
+{
+	json response;
+	float value = isInvalidParameterFloat(parameter);
+
+	if (value != -1 && checkRange(value, 0.f, 1.f))
+	{
+		response["status"] = "Success";
+		response["description"] = std::format("{} set to {}", parameter_name, value);
+		ConfigController::getInstance()->updateSettings(parameter_name, value);
+		return response;
+	}
+	else
+	{
+		response["status"] = "Error";
+		response["description"] = "Invalid parameter";
+		return response;
+	}
+}
+json validator_api::checkCorrectLengthWave(std::string parameter_name, char* parameter)
+{
+	json response;
+	float value = isInvalidParameterFloat(parameter);
+
+	if (value != -1 && checkRange(value, 0.f, 1.f))
 	{
 		response["status"] = "Success";
 		response["description"] = std::format("{} set to {}", parameter_name, value);
@@ -61,7 +106,7 @@ json validator_api::checkCorrectBrightness(std::string parameter_name, char* par
 json validator_api::checkCorrectState(std::string parameter_name, char* parameter)
 {
 	json response;
-	int value = isInvalidParameter(parameter);
+	int value = isInvalidParameterInt(parameter);
 
 	if (value != -1 && checkRange(value, 0, 1))
 	{
@@ -80,8 +125,7 @@ json validator_api::checkCorrectState(std::string parameter_name, char* paramete
 json  validator_api::checkCorrectModeName(std::string parameter_name, char* parameter)
 {
 	json response;
-	// List empty !!!
-	std::vector<std::string> modes = {};
+	std::vector<std::string> modes = ConfigController::getInstance()->getModesNames();
 	if (std::find(modes.begin(), modes.end(), parameter) == modes.end())
 	{
 		response["status"] = "Error";
@@ -112,6 +156,14 @@ json validator_api::setSettingsParameter(std::string parameter_name, char* param
 	if (parameter_name == "brightness")
 	{
 		return checkCorrectBrightness(parameter_name, parameter);
+	}
+	if (parameter_name == "speed")
+	{
+		return checkCorrectSpeed(parameter_name, parameter);
+	}
+	if (parameter_name == "length_wave")
+	{
+		return checkCorrectLengthWave(parameter_name, parameter);
 	}
 	if (parameter_name == "state")
 	{

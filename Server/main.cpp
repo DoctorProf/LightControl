@@ -22,18 +22,50 @@ int main()
 	crow::SimpleApp app;
 	Api api(app);
 
-	bool run = true;
-
 	std::thread api_thread(&apiThread, std::ref(app));
 	api_thread.detach();
 
 	ModeController mode_controller;
-	mode_controller.loadMode("mode.dll");
-	auto color = mode_controller.getColor();
-	auto color_vec = utils::INTToRGB(color);
-	std::cout << "r " << color_vec[0] << " g " << color_vec[1] << " b " << color_vec[2] << std::endl;
-	while (run)
+
+	float brightness;
+	int state;
+	bool* change_handler = ConfigController::getInstance()->getChangeHandler();
+	bool type;
+	bool first_request;
+	const int led_count = ConfigController::getInstance()->getLedCount();
+
+	while (true)
 	{
+		if (*change_handler)
+		{
+			brightness = ConfigController::getInstance()->getBrightness() / 255.f;
+			state = ConfigController::getInstance()->getState();
+			mode_controller.loadMode(ConfigController::getInstance()->getModeName());
+			mode_controller.setLedCount(led_count);
+			type = mode_controller.getTypeMode();
+			first_request = true;
+			*change_handler = false;
+		}
+		if (!state && first_request)
+		{
+			client.setStripColor(0, 0, 0);
+			first_request = false;
+		}
+		if (type && first_request)
+		{
+			auto color = utils::INTToRGB(mode_controller.getStaticColor());
+			std::transform(color.begin(), color.end(), color.begin(), [brightness](int value) {
+				return value * brightness;
+				});
+			client.setStripColor(color[0], color[1], color[2]);
+			first_request = false;
+		}
+		if (!type && state)
+		{
+			std::vector<int> colors(led_count * 3);
+			mode_controller.getDynamicColor(colors.data());
+			client.setLedColors(colors);
+		}
 	}
 	return 0;
 }

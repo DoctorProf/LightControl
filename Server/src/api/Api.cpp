@@ -48,6 +48,6 @@ crow::response Api::setSettings(crow::request req)
 crow::response Api::modes(crow::request req)
 {
 	json modes;
-	//modes["modes"] = ModeController::getInstance()->getListNamesModes();
+	modes["modes"] = ConfigController::getInstance()->getModesNames();
 	return crow::response(modes.dump());
 }

@@ -8,4 +8,5 @@ public:
 	bool setStripColor(int r, int g, int b);
 private:
 	httplib::Client client;
+	int count_led;
 };

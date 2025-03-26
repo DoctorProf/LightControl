@@ -1,10 +1,13 @@
 {
-  "led": {
-    "brightness": 255,
-    "mode_name": "white",
-    "state": 1
-  },
-  "client": {
-    "address": "http://192.168.1.12:10000"
-  }
+    "client": {
+        "address": "http://192.168.1.21:10000"
+    },
+    "led": {
+        "brightness": 165,
+        "led_count": 300,
+        "length_wave": 0.6000000238418579,
+        "mode_name": "white",
+        "speed": 0.5,
+        "state": 1
+    }
 }

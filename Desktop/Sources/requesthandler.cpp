@@ -4,7 +4,7 @@ RequestHandler::RequestHandler(QObject *parent)
     : QObject(parent)
 {
     network_manager = new QNetworkAccessManager(this);
-    base_url = "http://127.0.0.1:8080";
+    base_url = "http://127.0.0.1:80";
     connect(network_manager, &QNetworkAccessManager::finished, this, &RequestHandler::onReplyFinished);
     endpoints.insert(QString("/getSettings"), [this](QNetworkReply* reply)
     {
