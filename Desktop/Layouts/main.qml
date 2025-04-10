@@ -5,10 +5,8 @@ import QtQuick.Controls.Material
 
 Window
 {
-    property string background_color : "#e0bbe4"
-    property string accent_color : "#4b0082"
-    property int width_win: 600
-    property int height_win: 300
+    property int width_win: 400
+    property int height_win: 600
     width: width_win
     height: height_win
 
@@ -18,7 +16,8 @@ Window
     minimumWidth: width_win
     visible: true
     title: qsTr("LightControl")
-    Material.theme: Material.Light
+    Material.theme: Material.Dark
+    Material.primary: "#1766db"
 
     StackView
     {

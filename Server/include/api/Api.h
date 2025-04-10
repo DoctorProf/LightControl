@@ -11,4 +11,6 @@ private:
 	crow::response getSettings(crow::request req);
 	crow::response setSettings(crow::request req);
 	crow::response modes(crow::request req);
+	crow::response getModeParams(crow::request req);
+	crow::response setModeParams(crow::request req);
 };

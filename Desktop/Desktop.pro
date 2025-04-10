@@ -30,6 +30,8 @@ HEADERS += \
     Headers/requesthandler.h
 
 DISTFILES += \
+    Layouts/ColorPicker.qml \
+    Layouts/HsvColorDialog.qml \
     Layouts/MainPage.qml \
     Layouts/Snackbar.qml \
     Resources/colors

@@ -2,13 +2,13 @@
 
 Client::Client(std::string base_url) : client(base_url)
 {
-	client.set_connection_timeout(0.001);
+	client.set_connection_timeout(1);
 	client.set_keep_alive(true);
 }
 void Client::setLedColors(std::vector<int> colors)
 {
 	std::string color_data(colors.begin(), colors.end());
-	client.Post("/setLedColors", color_data, "application/octet-stream");
+	auto res = client.Post("/setLedColors", color_data, "text/plain");
 }
 bool Client::setStripColor(int r, int g, int b)
 {

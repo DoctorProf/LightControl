@@ -1,1 +1,0 @@
-g++ -shared -o mode.dll mode.cpp -std=c++20 -DLED_CONTROLLER_EXPORT

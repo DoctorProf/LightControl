@@ -1,87 +1,100 @@
-#include <ESP8266WiFi.h>
-#include <ESPAsyncWebServer.h>
-#include <FastLED.h>
+#include <ESP8266WebServer.h>
+#include <Adafruit_NeoPixel.h>
 
-// Аппаратные настройки
-#define LED_PIN 5
-#define NUM_LEDS 300
-#define COLOR_ORDER GRB
+// Константы
+#define WIFI_SSID "Crazy Wi-Fi 2.4"
+#define WIFI_PASSWORD "15122004"
+#define LED_PIN      0     // D3 (GPIO0)
+#define LED_COUNT    300    // Количество светодиодов
+#define SERVER_PORT  80
 
-// WiFi параметры
-const char* SSID = "Crazy Wi-Fi 2.4"; // Используйте только ASCII символы
-const char* PASSWORD = "15122004";
-const uint16_t SERVER_PORT = 10000;
-
-CRGB leds[NUM_LEDS];
-AsyncWebServer server(SERVER_PORT);
-
-// Глобальные переменные для быстрого доступа
-const String OK_RESPONSE = "OK";
-const String BAD_REQUEST = "Bad Request";
-
-void setupWiFi() {
-  WiFi.persistent(false);  // Отключаем сохранение конфигурации WiFi в Flash
-  WiFi.mode(WIFI_STA);     // Режим станции
-  WiFi.setSleepMode(WIFI_NONE_SLEEP);  // Отключаем спящий режим
-  WiFi.begin(SSID, PASSWORD);
-  
-  while (WiFi.status() != WL_CONNECTED) delay(10);  // Быстрое подключение
-}
+// Инициализация объектов
+ESP8266WebServer server(SERVER_PORT);
+Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_RGB + NEO_KHZ800);
 
 void setup() {
-  // Инициализация светодиодов
-  FastLED.addLeds<WS2812B, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS)
-    .setCorrection(TypicalLEDStrip)
-    .setDither(0);  // Отключаем дитеринг для повышения производительности
-  FastLED.setBrightness(50);
-  FastLED.clear(true);
+  Serial.begin(115200);
+  
+  // Подключение к Wi-Fi
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  Serial.print("Connecting to WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nConnected! IP: " + WiFi.localIP().toString());
 
-  // Настройка WiFi
-  setupWiFi();
+  // Инициализация ленты
+  strip.begin();
+  strip.show(); // Очистка ленты
 
-  // Обработчики запросов
-  server.on("/setStripColor", HTTP_GET, [](AsyncWebServerRequest *request) {
-    if (request->hasParam("r") && request->hasParam("g") && request->hasParam("b")) {
-      // Быстрый парсинг параметров
-      const uint8_t r = request->getParam("r")->value().toInt() & 0xFF;
-      const uint8_t g = request->getParam("g")->value().toInt() & 0xFF;
-      const uint8_t b = request->getParam("b")->value().toInt() & 0xFF;
-
-      // Асинхронное обновление светодиодов
-      static bool updateInProgress = false;
-      if (!updateInProgress) {
-        updateInProgress = true;
-        fill_solid(leds, NUM_LEDS, CRGB(r, g, b));
-        FastLED.show();
-        updateInProgress = false;
-      }
-
-      request->send(200, "text/plain", OK_RESPONSE);
-    } else {
-      request->send(400, "text/plain", BAD_REQUEST);
-    }
-  });
-
-  server.on("/setLedColors", HTTP_POST, [](AsyncWebServerRequest *request) {
-    request->send(200, "text/plain", OK_RESPONSE);
-  }, NULL, [](AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total) {
-    // Прямая запись в память светодиодов
-    if (total == NUM_LEDS * 3) {
-      memcpy(leds, data, min(len, sizeof(CRGB) * NUM_LEDS));
-      FastLED.show();
-    }
-  });
-
+  // Настройка HTTP сервера
+  server.on("/setStripColor", HTTP_GET, handleSetStripColor);
+  server.on("/setLedColors", HTTP_POST, handleSetLedColors);
+  server.onNotFound(handleNotFound);
+  
   server.begin();
+  Serial.println("HTTP server started");
 }
 
 void loop() {
-  static uint32_t lastCheck = 0;
-  if (millis() - lastCheck > 5000) {
-    if (WiFi.status() != WL_CONNECTED) {
-      WiFi.reconnect();
-    }
-    lastCheck = millis();
+  server.handleClient();
+}
+
+// Обработчик установки цвета всей ленты
+void handleSetStripColor() {
+  if (!server.hasArg("r") || !server.hasArg("g") || !server.hasArg("b")) {
+    server.send(400, "text/plain", "Missing RGB parameters");
+    return;
   }
-  delay(0);  // Минимальная задержка
+
+  int r = server.arg("r").toInt();
+  int g = server.arg("g").toInt();
+  int b = server.arg("b").toInt();
+
+  if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
+    server.send(400, "text/plain", "Invalid color values (0-255)");
+    return;
+  }
+
+  // Установка цвета для всех светодиодов
+  for (int i = 0; i < strip.numPixels(); i++) {
+    strip.setPixelColor(i, strip.Color(r, g, b));
+  }
+  strip.show();
+  
+  server.send(200, "text/plain", "OK");
+}
+
+// Обработчик установки индивидуальных цветов
+void handleSetLedColors() {
+  if (server.method() != HTTP_POST) {
+    server.send(405, "text/plain", "Method Not Allowed");
+    return;
+  }
+
+  String body = server.arg("plain");
+  if (body.length() != LED_COUNT * 3) {
+    server.send(400, "text/plain", 
+      "Invalid data length. Expected: " + String(LED_COUNT * 3) + 
+      ", received: " + String(body.length()));
+    return;
+  }
+
+  // Парсинг данных
+  for (int i = 0; i < LED_COUNT; i++) {
+    int pos = i * 3;
+    uint8_t r = body[pos];
+    uint8_t g = body[pos + 1];
+    uint8_t b = body[pos + 2];
+    strip.setPixelColor(i, strip.Color(r, g, b));
+  }
+  strip.show();
+  
+  server.send(200, "text/plain", "OK");
+}
+
+// Обработчик неизвестных путей
+void handleNotFound() {
+  server.send(404, "text/plain", "Not Found");
 }

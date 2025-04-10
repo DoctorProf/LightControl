@@ -20,19 +20,16 @@ bool ModeController::loadMode(std::string name)
 
 	setLedCountFunc = loadFunction<func_setLedCount>("setLedCount");
 	getTypeModeFunc = loadFunction<func_int>("getTypeMode");
-	setStaticColorFunc = loadFunction<func_setStaticColor>("setStaticColor");
-	setSpeedFunc = loadFunction<func_setSpeed>("setSpeed");
-	setWaveLengthFunc = loadFunction<func_setWaveLength>("setWaveLength");
+	setParametersFunc = loadFunction<func_setParameters>("setParameters");
 	getStaticColorFunc = loadFunction<func_int>("getStaticColor");
 	getDynamicColorFunc = loadFunction<func_getDynamicColorFunc>("getDynamicColor");
 
-	if (!getTypeModeFunc || !setSpeedFunc || !setSpeedFunc || !setWaveLengthFunc || !getStaticColorFunc)
+	if (!setLedCountFunc || !getTypeModeFunc || !setParametersFunc || !getStaticColorFunc || !getDynamicColorFunc)
 	{
 		std::cerr << "Failed to load one or more functions from DLL: " << name << std::endl;
 		unloadMode();
 		return false;
 	}
-
 	return true;
 }
 
@@ -45,21 +42,19 @@ void ModeController::unloadMode()
 	}
 	setLedCountFunc = nullptr;
 	getTypeModeFunc = nullptr;
-	setStaticColorFunc = nullptr;
-	setSpeedFunc = nullptr;
-	setWaveLengthFunc = nullptr;
+	setParametersFunc = nullptr;
 	getStaticColorFunc = nullptr;
 	getDynamicColorFunc = nullptr;
 }
 
 template <typename T>
-T ModeController::loadFunction(std::string functionName)
+T ModeController::loadFunction(std::string function_name)
 {
 	if (!dll)
 	{
 		return nullptr;
 	}
-	return reinterpret_cast<T>(GetProcAddress(dll, functionName.c_str()));
+	return reinterpret_cast<T>(GetProcAddress(dll, function_name.c_str()));
 }
 void ModeController::setLedCount(int count)
 {
@@ -82,43 +77,17 @@ int ModeController::getTypeMode()
 	std::cerr << "getTypeMode function is not loaded!" << std::endl;
 	return -1;
 }
-
-void ModeController::setStaticColor(int red, int green, int blue)
+void ModeController::setParameters(const char* parameters)
 {
-	if (setStaticColorFunc)
+	if (setParametersFunc)
 	{
-		setStaticColorFunc(red, green, blue);
+		setParametersFunc(parameters);
 	}
 	else
 	{
-		std::cerr << "setStaticColor function is not loaded!" << std::endl;
+		std::cerr << "setParameters function is not loaded!" << std::endl;
 	}
 }
-
-void ModeController::setSpeed(float speed)
-{
-	if (setSpeedFunc)
-	{
-		setSpeedFunc(speed);
-	}
-	else
-	{
-		std::cerr << "setSpeed function is not loaded!" << std::endl;
-	}
-}
-
-void ModeController::setWaveLength(int length)
-{
-	if (setWaveLengthFunc)
-	{
-		setWaveLengthFunc(length);
-	}
-	else
-	{
-		std::cerr << "setWaveLength function is not loaded!" << std::endl;
-	}
-}
-
 int ModeController::getStaticColor()
 {
 	if (getStaticColorFunc)

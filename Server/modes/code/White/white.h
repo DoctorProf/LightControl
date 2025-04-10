@@ -1,6 +1,9 @@
 #pragma once
 #include <vector>
 #include <array>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
 
 #ifdef _WIN32
 #ifdef LED_CONTROLLER_EXPORT
@@ -16,9 +19,6 @@ extern "C"
 {
 	LED_API void setLedCount(int count);
 	LED_API int getTypeMode();
-	LED_API void setStaticColor(int red, int green, int blue);
-	LED_API void setSpeed(float new_speed);
-	LED_API void setWaveLength(float new_wave_length);
 	LED_API int getStaticColor();
 	LED_API void getDynamicColor(int* output);
 }

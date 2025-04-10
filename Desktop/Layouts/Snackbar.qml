@@ -3,10 +3,10 @@ import QtQuick 2.15
 Rectangle
 {
     id: snackbar
-    width: parent.width / 2.5
+    width: parent.width / 1.5
     height: 30
     radius: 20
-    color: "white"
+    color: "black"
     opacity: 1
     anchors.bottom: parent.bottom
     anchors.horizontalCenter: parent.horizontalCenter
@@ -18,7 +18,7 @@ Rectangle
     {
         id: messageText
         anchors.centerIn: parent
-        color: "black"
+        color: "white"
         font.family: "Arial"
         font.pixelSize: 14
         font.bold: true

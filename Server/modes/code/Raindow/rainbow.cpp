@@ -1,14 +1,19 @@
-#include "mode.h"
+#include "rainbow.h"
 #include <cmath>
 #include <algorithm>
 #include <cstring>
+#include <iostream>
 
 static int type_mode = 0;
-static int static_color[3] = { 255, 255, 255 };
 static std::vector<int> dynamic_color;
-static float speed = 1.f;
-static float wave_length = 1.f;
 static int led_count;
+
+static int r = 255;
+static int g = 0;
+static int b = 0;
+
+static float speed = 0.f;
+static float wave_lenght = 0.f;
 
 std::array<int, 3> HSVToRGB(float h_value, float s_value, float v_value)
 {
@@ -16,7 +21,7 @@ std::array<int, 3> HSVToRGB(float h_value, float s_value, float v_value)
 	float s = s_value;
 	float v = v_value;
 	float c = v * s;
-	float x = c * (1 - abs(fmod(h / 60.f, 2) - 1));
+	float x = c * (1 - std::abs(fmod(h / 60.f, 2) - 1));
 	float m = v - c;
 	float r;
 	float g;
@@ -70,33 +75,27 @@ extern "C"
 	{
 		return std::clamp(type_mode, 0, 1);
 	}
-
-	LED_API void setStaticColor(int red, int green, int blue)
+	LED_API void setParameters(const char* params)
 	{
-		static_color[0] = std::clamp(red, 0, 255);
-		static_color[1] = std::clamp(green, 0, 255);
-		static_color[2] = std::clamp(blue, 0, 255);
-	}
-
-	LED_API void setSpeed(float new_speed)
-	{
-		speed = std::clamp(new_speed, 0.0f, 1.0f);
-	}
-
-	LED_API void setWaveLength(float new_wave_length)
-	{
-		wave_length = std::clamp(new_wave_length, 0.0f, 1.0f);
+		auto params_json = json::parse(params);
+		speed = params_json["speed"]["value"];
+		wave_lenght = params_json["wave_lenght"]["value"];
 	}
 	LED_API int getStaticColor()
 	{
-		int r = static_color[0];
-		int g = static_color[1];
-		int b = static_color[2];
 		return (r << 16) | (g << 8) | b;
 	}
 	LED_API void getDynamicColor(int* output)
 	{
-		std::fill(dynamic_color.begin(), dynamic_color.end(), 155);
+		static int counter = 0;
+		counter += speed;
+		for (int i = 0; i < led_count; ++i)
+		{
+			auto color = HSVToRGB((float)fmod(360.f * (i * wave_lenght / led_count) + counter, 360), 1, 1);
+			dynamic_color[i * 3] = color.at(0);
+			dynamic_color[i * 3 + 1] = color.at(1);
+			dynamic_color[i * 3 + 2] = color.at(2);
+		}
 		memcpy(output, dynamic_color.data(), dynamic_color.size() * sizeof(int));
 	}
 }

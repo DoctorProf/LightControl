@@ -12,35 +12,47 @@ class ConfigController
 {
 private:
 	ConfigController() = default;
+
+	static ConfigController* instance;
+
 	json config;
+
 	int led_count;
 	int brightness;
-	float speed;
-	float length_wave;
 	std::string mode_name;
 	int state;
+	json mode_params;
+	std::string path_mode_params;
+	int is_changed;
+	int* change_handler = nullptr;
+
 	std::mutex config_mutex;
-	bool is_changed;
-	bool* change_handler = nullptr;
-	static ConfigController* instance;
 
 public:
 	static ConfigController* getInstance();
 
 	void readConfig();
 	void saveConfig();
-	void updateData();
-	bool* getChangeHandler();
-	void updateSettings(std::string parameter_name, int value);
-	void updateSettings(std::string parameter_name, std::string value);
-	void updateSettings(std::string parameter_name, float value);
-	std::vector<std::string> getModesNames();
+	void saveModeParams();
+	void updateParameter(std::string param_name);
+	void loadData();
+	int* getChangeHandler();
+
 	json getSettings();
+	json getModeParams();
+
+	void updateSettings(std::string param_name, int value);
+	void updateSettings(std::string param_name, std::string value);
+
+	void updateParamsMode(std::string param_name, std::string internal_param, int value);
+	void updateParamsMode(std::string param_name, std::string internal_param, std::string value);
+	void updateParamsMode(std::string param_name, std::string internal_param, float value);
+
+	std::vector<std::string> getModesNames();
+
 	std::string getAddressClient();
 	int getLedCount();
 	int getBrightness();
-	float getSpeed();
-	float getLengthWave();
 	std::string getModeName();
 	int getState();
 };

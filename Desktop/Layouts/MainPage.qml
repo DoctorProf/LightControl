@@ -8,169 +8,228 @@ Page {
     id: main_page
     width: width_win
     height: height_win
+
     property bool modesLoaded: false
     property bool settingsLoaded: false
+    property string mode_name : ""
 
-    Component.onCompleted:
-    {
+    Component.onCompleted: {
         request_handler.getModes()
         request_handler.getSettings()
     }
-    ColumnLayout
-    {
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        width: parent.width *  0.6
-        spacing: 20
 
-        RowLayout
-        {
-            id: modes_row
-            Layout.preferredWidth: parent.width
-            Layout.preferredHeight: 50
+    ColumnLayout {
+        anchors.fill: parent
+        spacing: 30
+
+        // Mode Selection
+        ComboBox {
+            id: modes_box
+            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: 300
+            Layout.topMargin: 15
+            font.pixelSize: 16
+            font.bold: true
+            Material.accent: Material.primary
+            model: ListModel { id: modes_model }
+            textRole: "text"
+            valueRole: "value"
+
+            // Кастомизация отображения текста
+            delegate: ItemDelegate {
+                width: modes_box.width
+                contentItem: Text {
+                    text: model.text
+                    font: modes_box.font
+                    color: Material.foreground
+                    elide: Text.ElideRight
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                }
+                highlighted: modes_box.highlightedIndex === index
+            }
+
+            // Кастомизация выбранного значения
+            contentItem: Text {
+                text: modes_box.displayText
+                font: modes_box.font
+                color: Material.foreground
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                elide: Text.ElideRight
+            }
+
+            onCurrentIndexChanged: {
+                var obj = modes_model.get(currentIndex)
+                request_handler.setSettings("mode_name", obj.value)
+            }
+        }
+
+        // Color Picker
+        RowLayout {
+            Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 40
+            spacing: 25
+
+            Button {
+                id: color_button
+                text: "PickColor"
+                onClicked: color_dialog.open()
+                Material.background: Material.primary
+                Material.foreground: "white"
+                font.pixelSize: 16
+                padding: 15
+            }
+
+            Rectangle {
+                id: color_preview
+                width: 60
+                height: 60
+                radius: 8
+                border.color: Qt.darker(color_preview.color, 1.4)
+                border.width: 2
+                onColorChanged: {
+                    request_handler.setSettings("color", color_preview.color)
+                }
+
+                MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            request_handler.setSettings("color", color_preview.color)
+                        }
+                    }
+            }
+
+        }
+
+        ColumnLayout {
+            Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 30
+            Layout.leftMargin: 20
+            Layout.rightMargin: 20
+            spacing: 10
+
+            Label {
+                text: "Brightness: " + brightness_slider.value.toFixed()
+                font.bold: true
+                font.pixelSize: 18
+                Layout.alignment: Qt.AlignHCenter
+            }
+
+            Slider {
+                id: brightness_slider
+                Layout.preferredWidth: 350
+                from: 0
+                to: 255
+                Material.accent: Material.primary
+                onValueChanged: request_handler.setSettings("brightness", value)
+            }
+        }
+
+        ColumnLayout {
+            Layout.alignment: Qt.AlignHCenter
             Layout.topMargin: 20
             Layout.leftMargin: 20
+            Layout.rightMargin: 20
             spacing: 10
-            ComboBox
-            {
-                id: modes_box
-                width: 150
-                height: 40
-                Layout.preferredWidth: width
-                Layout.preferredHeight: height
-                Material.accent: accent_color
-                font.family: "Arial"
-                font.pixelSize: 16
-                font.bold: true
-                model: ListModel
-                {
-                    id: modes_model
-                }
-                textRole: "text"
-                valueRole: "value"
-                onCurrentIndexChanged:
-                {
-                    var obj = modes_model.get(currentIndex)
-                    request_handler.setSettings("mode_name", obj.value)
-                }
-            }
-        }
-        RowLayout
-        {
-            id: brightness_row
-            Layout.preferredWidth: parent.width
-            Layout.preferredHeight: 50
-            Layout.leftMargin: 20
 
-            Slider
-            {
-                id: brightness_slider
-                Layout.preferredWidth: 200
-                Layout.preferredHeight: 40
-                Material.accent: accent_color
-                to: 255
+            Label {
+                text: "Speed: " + speed_slider.value.toFixed()
+                font.bold: true
+                font.pixelSize: 18
+                Layout.alignment: Qt.AlignHCenter
+            }
+
+            Slider {
+                id: speed_slider
+                Layout.preferredWidth: 350
                 from: 0
-                value: 0
-                onValueChanged:
-                {
-                    var brightness = value.toFixed().toString();
-                    brightness_value.text = brightness
-                    request_handler.setSettings("brightness", brightness)
+                to: 1
+                Material.accent: Material.primary
+                onValueChanged: request_handler.setSettings("speed", value)
+            }
+        }
+
+        RowLayout {
+            Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 30
+            Layout.bottomMargin: 20
+            spacing: 25
+
+            Switch {
+                id: state_switch
+                width: 80
+                height: 50
+                Material.accent: Material.primary
+                onCheckedChanged: {
+                    request_handler.setSettings("state", +checked)
                 }
             }
-            Label
-            {
-                id: brightness_value
-                Layout.rightMargin: 100
-                font.family: "Arial"
-                font.pixelSize: 16
+
+            Label {
+                text: state_switch.checked ? "ON" : "OFF"
                 font.bold: true
-                text : brightness_slider.value
+                font.pixelSize: 20
+                color: state_switch.checked ? "#4CAF50" : "#F44336"
             }
         }
-        RowLayout
-        {
-            id: switch_row
-            Layout.preferredWidth: parent.width
-            Layout.preferredHeight: 50
-            Layout.leftMargin: 20
 
-            Switch
-            {
-               id: state_switch
-               Layout.preferredWidth: 150
-               Layout.preferredHeight: 40
-               Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-               Material.background: background_color
-               Material.accent: accent_color
-               text: "off"
-               font.family: "Arial"
-               font.pixelSize: 16
-               font.bold: true
-               onCheckedChanged:
-               {
-                   request_handler.setSettings("state", +checked)
-                   if(checked) text = "on"
-                   else text = "off"
-               }
-           }
+        Item { Layout.fillHeight: true }
+    }
+
+    // HsvColorDialog {
+    //        id: color_dialog
+    //        initialColor: color_preview.color
+    //        onColorSelected: color_preview.color = selectedColor
+    //    }
+
+    ColorDialog {
+        id: color_dialog
+        title: "PickColor"
+        options: Dialog.UsePlatformDialog ? 0 : ColorDialog.DontUseNativeDialog
+
+        onAccepted: {
+            color_preview.color = selectedColor.toString()
+            request_handler.setSettings("color", selectedColor)
         }
-        Item {Layout.fillHeight: true }
     }
 
-    ColumnLayout
-    {
-        id: column_layout
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        width: parent.width * 0.4
-    }
-
-    Connections
-    {
+    Connections {
         target: request_handler
-        function onModesReceived(modes)
-        {
-            modes_model.clear();
-            for (var i = 0; i < modes["modes"].length; ++i) {
-                modes_model.append({
-                    "text": modes["modes"][i],
-                    "value": modes["modes"][i]
-                });
-            }
-            modesLoaded = true;
+
+        function onModesReceived(modes) {
+            modes_model.clear()
+            modes["modes"].forEach(mode => modes_model.append({text: mode, value: mode}))
+            modesLoaded = true
+            applySettingsIfReady(mode_name)
         }
 
-        function onSettingsReceived(obj)
-        {
-            brightness_slider.value = obj.brightness;
-            state_switch.checked = obj.state;
-            settingsLoaded = true;
-            applySettingsIfReady(obj);
+        function onSettingsReceived(obj) {
+            if (obj.brightness !== undefined) brightness_slider.value = obj.brightness
+            if (obj.state !== undefined) state_switch.checked = obj.state
+            if (obj.speed !== undefined) speed_slider.value = obj.speed
+            if (obj.color !== undefined) color_preview.color = obj.color
+            if (obj.led_count !== undefined) speed_slider.to = obj.led_count
+            if (obj.mode_name !== undefined) mode_name = obj.mode_name
+            settingsLoaded = true
+            applySettingsIfReady(mode_name)
         }
 
-        function applySettingsIfReady(obj)
-        {
+        function applySettingsIfReady(mode_name) {
             if (modesLoaded && settingsLoaded) {
-                modes_box.currentIndex = getIndex(obj.mode_name);
+                modes_box.currentIndex = getIndex(mode_name)
             }
         }
-        function onResponseMessage(message)
-        {
-            snackbar.show(message)
-        }
-        function getIndex(value)
-        {
-            for (var i = 0; i < modes_model.count; ++i) {
-                var item = modes_model.get(i);
 
-                if (value === item.value) {
-                    return i;
-                }
+        function getIndex(value) {
+            for (let i = 0; i < modes_model.count; ++i) {
+                if (modes_model.get(i).value === value) return i
             }
-            return 0;
+            return 0
+        }
+
+        function onResponseMessage(message) {
+            snackbar.show(message)
         }
     }
 }

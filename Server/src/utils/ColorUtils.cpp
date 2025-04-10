@@ -12,10 +12,7 @@ std::vector<int> utils::HEXToRGB(std::string hex)
 	ss << std::hex << hex;
 	ss >> color;
 
-	int r = (color >> 16) & 0xFF;
-	int g = (color >> 8) & 0xFF;
-	int b = color & 0xFF;
-	return { r, g, b };
+	return INTToRGB(color);
 }
 std::vector<int> utils::HSVToRGB(std::vector<float> hsv)
 {
@@ -23,7 +20,7 @@ std::vector<int> utils::HSVToRGB(std::vector<float> hsv)
 	float s = hsv[1];
 	float v = hsv[2];
 	float c = v * s;
-	float x = c * (1 - abs(fmod(h / 60.f, 2) - 1));
+	float x = c * (1 - fabs(fmod(h / 60.f, 2) - 1));
 	float m = v - c;
 	std::vector<float> rgb_;
 	if (h >= 0 && h < 60) rgb_ = { c, x, 0 };
@@ -37,8 +34,8 @@ std::vector<int> utils::HSVToRGB(std::vector<float> hsv)
 }
 std::vector<int> utils::INTToRGB(int color)
 {
-	std::stringstream stream;
-	stream << std::hex << color;
-	std::string result(stream.str());
-	return utils::HEXToRGB(result);
+	int r = (color >> 16) & 0xFF;
+	int g = (color >> 8) & 0xFF;
+	int b = color & 0xFF;
+	return { r, g, b };
 }

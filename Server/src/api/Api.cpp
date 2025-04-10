@@ -21,6 +21,16 @@ void Api::registerRoutes(crow::SimpleApp& app)
 		([this](crow::request req) {
 		return modes(req);
 			});
+	CROW_ROUTE(app, "/getModeParams")
+		.methods(crow::HTTPMethod::Get)
+		([this](crow::request req) {
+		return getModeParams(req);
+			});
+	CROW_ROUTE(app, "/setModeParams")
+		.methods(crow::HTTPMethod::Get)
+		([this](crow::request req) {
+		return setModeParams(req);
+			});
 }
 crow::response Api::getSettings(crow::request req)
 {
@@ -36,18 +46,32 @@ crow::response Api::setSettings(crow::request req)
 		response["description"] = "More/less than one parameter";
 		return crow::response(response.dump());
 	}
-	else
-	{
-		for (auto key : keys)
-		{
-			auto parameter = req.url_params.get(key);
-			return crow::response(validator_api::setSettingsParameter(key, parameter).dump());
-		}
-	}
+	auto key = keys[0];
+	auto parameter = req.url_params.get(key);
+	return crow::response(validator_api::setSettingsParameter(key, parameter).dump());
 }
 crow::response Api::modes(crow::request req)
 {
 	json modes;
 	modes["modes"] = ConfigController::getInstance()->getModesNames();
 	return crow::response(modes.dump());
+}
+crow::response Api::getModeParams(crow::request req)
+{
+	return crow::response(ConfigController::getInstance()->getModeParams().dump());
+}
+crow::response Api::setModeParams(crow::request req)
+{
+	json response;
+	std::vector<std::string> keys = req.url_params.keys();
+	if (keys.size() != 2)
+	{
+		response["status"] = "Error";
+		response["description"] = "More/less than two parameter";
+		return crow::response(response.dump());
+	}
+	auto parameter_name = req.url_params.get(keys[0]);
+	auto internal_param = keys[1];
+	auto value = req.url_params.get(internal_param);
+	return crow::response(validator_api::setModeParameter(parameter_name, internal_param, value).dump());
 }
