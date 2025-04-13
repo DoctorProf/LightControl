@@ -4,6 +4,14 @@
 #include <cstring>
 #include <iostream>
 
+//unsigned int color;
+//std::stringstream ss;
+//ss << std::hex << hex;
+//ss >> color;
+//int r = (color >> 16) & 0xFF;
+//int g = (color >> 8) & 0xFF;
+//int b = color & 0xFF;
+
 static int type_mode = 0;
 static std::vector<int> dynamic_color;
 static int led_count;
