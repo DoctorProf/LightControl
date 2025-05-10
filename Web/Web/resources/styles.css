@@ -1,0 +1,226 @@
+:root {
+    --gradient-start: #2D0B47;
+    --gradient-end: #6A1B9A;
+    --accent: #DA22FF;
+    --glass: rgba(45, 11, 71, 0.85);
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --border-light: rgba(255, 255, 255, 0.25);
+    --panel-bg: rgba(34, 0, 51, 0.7);
+    --switch-bg: rgba(218, 34, 255, 0.4);
+}
+
+.root {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.glass-container {
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border: 2px solid var(--accent);
+    border-radius: 1rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    padding: 2rem;
+}
+
+.form-control,
+.form-select {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--accent);
+    color: var(--text-primary);
+    padding: 0.8rem;
+    border-radius: 0.75rem;
+    width: 100%;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+    }
+
+.slider-container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 25px 0;
+}
+
+.form-range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+    .form-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 24px; /* Уменьшенный размер */
+        height: 24px; /* Уменьшенный размер */
+        background: var(--accent);
+        border: 3px solid white;
+        border-radius: 50%;
+        cursor: grab;
+        margin-top: -8px; /* Уменьшенный отступ */
+        box-shadow: 0 2px 8px rgba(218, 34, 255, 0.4);
+        transition: transform 0.2s;
+    }
+
+    .form-range::-moz-range-thumb {
+        width: 24px; /* Уменьшенный размер */
+        height: 24px; /* Уменьшенный размер */
+        background: var(--accent);
+        border: 3px solid white;
+        border-radius: 50%;
+        cursor: grab;
+        box-shadow: 0 2px 8px rgba(218, 34, 255, 0.4);
+        transition: transform 0.2s;
+    }
+
+    .form-range::-webkit-slider-runnable-track {
+        height: 8px;
+        background: rgba(0, 0, 0, 0.4);
+        border: 2px solid var(--accent);
+        border-radius: 4px;
+    }
+
+    .form-range::-moz-range-track {
+        height: 8px;
+        background: rgba(0, 0, 0, 0.4);
+        border: 2px solid var(--accent);
+        border-radius: 4px;
+    }
+
+    .form-range:hover::-webkit-slider-thumb {
+        transform: scale(1.05);
+    }
+
+    .form-range:hover::-moz-range-thumb {
+        transform: scale(1.05);
+    }
+
+.slider-labels {
+    width: calc(100% - 30px);
+    margin: 22px 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.custom-switch {
+    width: 4.5em;
+    height: 2.2em;
+    background-color: var(--switch-bg);
+    border: 2px solid var(--accent) !important;
+    border-radius: 2em;
+    transition: background-color 0.2s;
+}
+
+    .custom-switch:checked {
+        background-color: var(--accent) !important;
+    }
+
+.control-panel,
+.params-panel {
+    background: var(--panel-bg);
+    border: 2px solid var(--accent);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 1rem;
+}
+
+.control-panel {
+    flex: 0 0 400px;
+}
+
+.params-panel {
+    flex: 1;
+    min-width: 450px;
+}
+
+.text-muted {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.small {
+    font-size: 0.9rem;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.px-2 {
+    padding: 0 0.5rem;
+}
+
+.py-4 {
+    padding: 1.5rem 0;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .glass-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .control-panel,
+    .params-panel {
+        width: 100%;
+        min-width: auto;
+        margin: 0 0 1.5rem 0;
+        padding: 1.5rem;
+    }
+
+    .form-range {
+        height: 6px;
+    }
+
+        .form-range::-webkit-slider-thumb {
+            width: 28px;
+            height: 28px;
+            margin-top: -11px;
+        }
+
+    .slider-container {
+        padding: 0 10px;
+    }
+
+    .slider-labels {
+        width: calc(100% - 20px);
+        margin: 18px 10px 0;
+    }
+}

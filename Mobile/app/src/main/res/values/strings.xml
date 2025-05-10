@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Mobile</string>
-    <string name="creator">Creator</string>
-    <string name="state">State</string>
-    <string name="delete">Delete</string>
-    <string name="clear"></string>
-    <string name="brightness">0</string>
-</resources>
