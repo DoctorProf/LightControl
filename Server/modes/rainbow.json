@@ -2,6 +2,7 @@
     "speed": {
         "max": 10.0,
         "min": 0.0,
+        "screen_name": "Скорость",
         "step": 1,
         "type": "float",
         "value": 10.0
@@ -9,8 +10,9 @@
     "wave_lenght": {
         "max": 5.0,
         "min": 0.5,
+        "screen_name": "Длина волны",
         "step": 0.5,
         "type": "float",
-        "value": 5.0
+        "value": 2.0
     }
 }

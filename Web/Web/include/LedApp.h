@@ -11,6 +11,7 @@
 #include <Wt/WPushButton.h>
 #include <Wt/WLineEdit.h>
 #include <Wt/WColorPicker.h>
+#include <Wt/WString.h>
 #include "Server.h"
 
 class LedApp : public Wt::WApplication {
@@ -26,8 +27,8 @@ private:
 	void setupModeSelector();
 	void setupBrightnessSlider();
 	void setupPowerSwitch();
-	std::unique_ptr<Wt::WContainerWidget> createPropertyControl(std::string name, float min, float max, float step, float value);
-	std::unique_ptr<Wt::WContainerWidget> createColorControl(std::string value);
+	std::unique_ptr<Wt::WContainerWidget> createPropertyControl(Wt::WString screen_name, std::string name, float min, float max, float step, float value);
+	std::unique_ptr<Wt::WContainerWidget> createColorControl(Wt::WString screen_name, std::string value);
 
 	void setValuesToControls();
 

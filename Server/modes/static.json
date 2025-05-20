@@ -1,6 +1,7 @@
 {
-    "color": {
-        "type": "color",
-        "value": "#ff0ee7"
-    }
+  "color": {
+    "screen_name": "Цвет",
+    "type": "color",
+    "value": "#ff0ee7"
+  }
 }

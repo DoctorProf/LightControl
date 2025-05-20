@@ -163,36 +163,34 @@ Page {
             snackbar.show(message)
         }
 
-        function onParamsModeReceived(params) {
-                for (let i = properties_container.children.length - 1; i >= 0; --i) {
-                    const child = properties_container.children[i];
-                    if (child !== undefined && child !== null && child.destroy !== undefined) {
-                        child.destroy();
-                    }
-                }
-
-                for (let key in params) {
-                    const param = params[key];
-                    if (param.type === "float") {
-                        create_float_slider(key, param);
-                    } else if (param.type === "color") {
-                        create_color_picker(key, param);
-                    }
+        function onParamsModeReceived(params)
+        {
+            // Очистка старых элементов
+            for (let i = properties_container.children.length - 1; i >= 0; --i) {
+                const child = properties_container.children[i];
+                if (child !== undefined && child !== null && child.destroy !== undefined) {
+                    child.destroy();
                 }
             }
 
-            function create_float_slider(name, param) {
+            function escapeQmlString(str) {
+                return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
+            }
+
+            function create_float_slider(key, param) {
+                let safeScreenName = escapeQmlString(param.screen_name);
                 Qt.createQmlObject(`
                     import QtQuick 2.15
                     import QtQuick.Controls 2.15
                     import QtQuick.Layouts 1.15
 
                     ColumnLayout {
+                        property string screenName: "${safeScreenName}"
                         spacing: 4
                         Layout.alignment: Qt.AlignHCenter
 
                         Label {
-                            text: "${name}"
+                            text: qsTr(screenName)
                             font.bold: true
                             font.pixelSize: 16
                             color: "white"
@@ -206,7 +204,7 @@ Page {
                             stepSize: ${param.step}
                             value: ${param.value}
                             Layout.preferredWidth: 200
-                            onValueChanged: request_handler.setModeParams("${name}", "value", value)
+                            onValueChanged: request_handler.setModeParams("${key}", "value", value)
                         }
 
                         Label {
@@ -216,21 +214,23 @@ Page {
                             Layout.alignment: Qt.AlignHCenter
                         }
                     }
-                `, properties_container, "dynamic_float_slider_" + name);
+                `, properties_container, "dynamic_float_slider_" + key);
             }
 
-            function create_color_picker(name, param) {
-                return Qt.createQmlObject(`
+            function create_color_picker(key, param) {
+                let safeScreenName = escapeQmlString(param.screen_name);
+                Qt.createQmlObject(`
                     import QtQuick 2.15
                     import QtQuick.Controls 2.15
                     import QtQuick.Layouts 1.15
 
                     ColumnLayout {
+                        property string screenName: "${safeScreenName}"
                         spacing: 6
                         Layout.alignment: Qt.AlignHCenter
 
                         Label {
-                            text: "${name}"
+                            text: qsTr(screenName)
                             font.bold: true
                             font.pixelSize: 16
                             color: "white"
@@ -253,13 +253,24 @@ Page {
                                     const new_color = color_dialog_helper.getColor(color_preview.color)
                                     if (new_color && new_color !== color_preview.color) {
                                         color_preview.color = new_color
-                                        request_handler.setModeParams("${name}", "value", new_color)
+                                        request_handler.setModeParams("${key}", "value", new_color)
                                     }
                                 }
                             }
                         }
                     }
-                `, properties_container, "dynamic_color_picker_" + name);
+                `, properties_container, "dynamic_color_picker_" + key);
             }
+
+            // Создаём элементы
+            for (let key in params) {
+                const param = params[key];
+                if (param.type === "float") {
+                    create_float_slider(key, param);
+                } else if (param.type === "color") {
+                    create_color_picker(key, param);
+                }
+            }
+        }
     }
 }

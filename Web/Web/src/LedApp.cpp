@@ -39,6 +39,7 @@ void LedApp::setupContainers()
 
 	properties_container = layout_for_containers->addWidget(std::make_unique<Wt::WContainerWidget>());
 	properties_container->addStyleClass("params-panel");
+	properties_container->setOverflow(Wt::Overflow::Auto);
 	properties_layout = properties_container->setLayout(std::make_unique<Wt::WVBoxLayout>());
 	properties_layout->setContentsMargins(30, 30, 30, 30);
 }
@@ -106,12 +107,13 @@ void LedApp::setupPowerSwitch()
 		server->setSettings("state", power_switch->isChecked());
 		});
 }
-std::unique_ptr<Wt::WContainerWidget> LedApp::createPropertyControl(std::string name, float min, float max, float step, float value)
+std::unique_ptr<Wt::WContainerWidget> LedApp::createPropertyControl(
+	Wt::WString screen_name, std::string name, float min, float max, float step, float value)
 {
 	auto container = std::make_unique<Wt::WContainerWidget>();
 	container->addStyleClass("param-group bg-dark rounded p-3 mb-3");
 
-	auto title = container->addWidget(std::make_unique<Wt::WText>(name));
+	auto title = container->addWidget(std::make_unique<Wt::WText>(screen_name));
 	title->addStyleClass("h5 text-light mb-2");
 
 	auto slider_container = container->addWidget(std::make_unique<Wt::WContainerWidget>());
@@ -134,35 +136,47 @@ std::unique_ptr<Wt::WContainerWidget> LedApp::createPropertyControl(std::string 
 	slider->setStep(int_step);
 	slider->resize(300, 30);
 
-	slider->input().connect([=, step = step, precision = precision]() {
+	auto value_text = container->addWidget(std::make_unique<Wt::WText>());
+	value_text->setText(Wt::WString("{1}").arg(value));
+	value_text->addStyleClass("text-muted mt-2 d-block text-center");
+
+	slider->input().connect([=, precision = precision]() mutable {
 		float actual_value = static_cast<float>(slider->value()) / precision;
+		std::ostringstream oss;
+		oss << std::fixed << std::setprecision(2) << actual_value;
+		value_text->setText(Wt::WString(oss.str()));
 		server->setModeParams(name, "value", actual_value);
 		});
 
 	return container;
 }
-std::unique_ptr<Wt::WContainerWidget> LedApp::createColorControl(std::string value)
+std::unique_ptr<Wt::WContainerWidget> LedApp::createColorControl(Wt::WString screen_name, std::string value)
 {
 	auto container = std::make_unique<Wt::WContainerWidget>();
 	container->addStyleClass("color-control mb-4 p-3 bg-dark rounded");
 
-	container->addWidget(std::make_unique<Wt::WText>("Color"))
+	container->addWidget(std::make_unique<Wt::WText>(screen_name))
 		->addStyleClass("h5 text-light mb-3");
 
 	auto color_picker = container->addWidget(std::make_unique<Wt::WColorPicker>());
-
 	color_picker->setColor(Wt::WColor(value));
-
 	color_picker->addStyleClass("custom-color-picker");
 	color_picker->setInline(true);
 
-	color_picker->colorInput().connect([=] {
+	auto value_text = container->addWidget(std::make_unique<Wt::WText>());
+	value_text->setText(value);
+	value_text->addStyleClass("text-muted mt-2 d-block text-center");
+
+	color_picker->colorInput().connect([=]() mutable {
 		Wt::WColor new_color = color_picker->color();
-		server->setModeParams("color", "value", new_color.cssText());
+		std::string color_value = new_color.cssText();
+		value_text->setText(color_value);
+		server->setModeParams("color", "value", color_value);
 		});
 
 	return container;
 }
+
 void LedApp::setValuesToControls()
 {
 	json modes = server->getModes();
@@ -184,6 +198,7 @@ void LedApp::setValuesToControls()
 	int state = settings["state"];
 	power_switch->setChecked(state);
 }
+
 void LedApp::createControlsProperties()
 {
 	try {
@@ -198,10 +213,11 @@ void LedApp::createControlsProperties()
 		for (auto& [param_name, param_data] : mode_parameters.items())
 		{
 			std::string type = param_data["type"];
+			Wt::WString screen_name = param_data["screen_name"].get<std::string>();
 			if (type == "color")
 			{
 				std::string value = param_data["value"];
-				properties_layout->addWidget(std::move(createColorControl(param_data["value"].get<std::string>())), 1, Wt::AlignmentFlag::Center);
+				properties_layout->addWidget(std::move(createColorControl(screen_name, param_data["value"].get<std::string>())), 1, Wt::AlignmentFlag::Center);
 			}
 			else if (type == "float")
 			{
@@ -209,7 +225,7 @@ void LedApp::createControlsProperties()
 				float min = param_data["min"];
 				float max = param_data["max"];
 				float step = param_data["step"];
-				properties_layout->addWidget(std::move(createPropertyControl(param_name, min, max, step, value)), 1, Wt::AlignmentFlag::Center);
+				properties_layout->addWidget(std::move(createPropertyControl(screen_name, param_name, min, max, step, value)), 1, Wt::AlignmentFlag::Center);
 			}
 		}
 	}
