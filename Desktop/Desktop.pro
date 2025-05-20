@@ -1,4 +1,4 @@
-QT += quick network
+QT += quick network widgets
 
 SOURCES += \
         Sources/networkutils.cpp \
@@ -26,12 +26,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RC_FILE = desktop.rc
 
 HEADERS += \
+    Headers/colordialoghelper.h \
     Headers/networkutils.h \
     Headers/requesthandler.h
 
 DISTFILES += \
-    Layouts/ColorPicker.qml \
-    Layouts/HsvColorDialog.qml \
     Layouts/MainPage.qml \
     Layouts/Snackbar.qml \
     Resources/colors

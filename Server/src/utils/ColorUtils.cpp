@@ -7,12 +7,12 @@ std::vector<int> utils::HEXToRGB(std::string hex)
 	{
 		hex = hex.substr(1);
 	}
-	unsigned int color;
-	std::stringstream ss;
-	ss << std::hex << hex;
-	ss >> color;
+	unsigned long color_int = std::stoul(hex, nullptr, 16);
+	int r = (color_int >> 16) & 0xFF;
+	int g = (color_int >> 8) & 0xFF;
+	int b = color_int & 0xFF;
 
-	return INTToRGB(color);
+	return { r, g, b };
 }
 std::vector<int> utils::HSVToRGB(std::vector<float> hsv)
 {

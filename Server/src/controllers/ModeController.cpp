@@ -14,7 +14,8 @@ bool ModeController::loadMode(std::string name)
 	dll = LoadLibraryA(("modes/" + name + ".dll").c_str());
 	if (!dll)
 	{
-		std::cerr << "Failed to load DLL: " << name << std::endl;
+		DWORD error = GetLastError();
+		std::cerr << "Failed to load DLL. Error code: " << error << std::endl;
 		return false;
 	}
 

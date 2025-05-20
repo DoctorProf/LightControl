@@ -9,6 +9,9 @@
 #include <Wt/WBootstrap5Theme.h>
 #include <Wt/WLabel.h>
 #include <Wt/WPushButton.h>
+#include <Wt/WLineEdit.h>
+#include <Wt/WColorPicker.h>
+#include "Server.h"
 
 class LedApp : public Wt::WApplication {
 public:
@@ -19,20 +22,26 @@ private:
 	void setupContainers();
 	void setupControls();
 
+	void setupLogo();
 	void setupModeSelector();
 	void setupBrightnessSlider();
 	void setupPowerSwitch();
-	void connectSignals();
-	void createPropertyControl();
-	void createColorControl();
+	std::unique_ptr<Wt::WContainerWidget> createPropertyControl(std::string name, float min, float max, float step, float value);
+	std::unique_ptr<Wt::WContainerWidget> createColorControl(std::string value);
+
+	void setValuesToControls();
+
+	void createControlsProperties();
 
 	Wt::WContainerWidget* main_container;
-	Wt::WHBoxLayout* layout_for_containers;
+	Wt::WVBoxLayout* layout_for_containers;
 	Wt::WContainerWidget* controls_container;
 	Wt::WVBoxLayout* controls_layout;
 	Wt::WContainerWidget* properties_container;
-	Wt::WVBoxLayout* properties_layout;
+	Wt::WVBoxLayout* properties_layout = nullptr;
 	Wt::WComboBox* mode_selector;
 	Wt::WSlider* brightness_slider;
+	Wt::WText* brightness_value_text;
 	Wt::WCheckBox* power_switch;
+	std::unique_ptr<Server> server;
 };

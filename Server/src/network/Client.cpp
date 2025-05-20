@@ -2,7 +2,7 @@
 
 Client::Client(std::string base_url) : client(base_url)
 {
-	client.set_connection_timeout(1);
+	client.set_connection_timeout(5);
 	client.set_keep_alive(true);
 }
 void Client::setLedColors(std::vector<int> colors)

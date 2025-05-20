@@ -1,892 +1,929 @@
 ﻿  LedApp.cpp
-C:\vcpkg\installed\x64-windows\include\Wt\Core\observable.hpp(135,40): warning C4251: Wt::Core::observable::observerInfo_: class "std::unique_ptr<Wt::Core::Impl::observer_info,std::default_delete<Wt::Core::Impl::observer_info>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Core::observable"
+C:\vcpkg\installed\x64-windows\include\Wt\Core\observable.hpp(135,40): warning C4251: "Wt::Core::observable::observerInfo_": "std::unique_ptr<Wt::Core::Impl::observer_info,std::default_delete<Wt::Core::Impl::observer_info>>" должен иметь dll-интерфейс для использования клиентами "Wt::Core::observable"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Core\observable.hpp(135,8):
-   см. объявление "std::unique_ptr<Wt::Core::Impl::observer_info,std::default_delete<Wt::Core::Impl::observer_info>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::Core::Impl::observer_info,std::default_delete<Wt::Core::Impl::observer_info>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WStringStream.h(222,40): warning C4251: Wt::WStringStream::bufs_: class "std::vector<std::pair<char *,int>,std::allocator<std::pair<char *,int>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WStringStream"
+C:\vcpkg\installed\x64-windows\include\Wt\WStringStream.h(222,40): warning C4251: "Wt::WStringStream::bufs_": "std::vector<std::pair<char *,int>,std::allocator<std::pair<char *,int>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WStringStream"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WStringStream.h(222,8):
-   см. объявление "std::vector<std::pair<char *,int>,std::allocator<std::pair<char *,int>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<std::pair<char *,int>,std::allocator<std::pair<char *,int>>>"
   
 C:\vcpkg\installed\x64-windows\include\Wt\WStringStream.h(120,26): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
   (компиляция исходного файла "src/LedApp.cpp")
   
-C:\vcpkg\installed\x64-windows\include\Wt\Http\Message.h(73,17): warning C4251: Wt::Http::Message::Header::name_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Http::Message::Header"
+C:\vcpkg\installed\x64-windows\include\Wt\Http\Message.h(73,17): warning C4251: "Wt::Http::Message::Header::name_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::Http::Message::Header"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\Http\Message.h(73,24): warning C4251: Wt::Http::Message::Header::value_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Http::Message::Header"
+C:\vcpkg\installed\x64-windows\include\Wt\Http\Message.h(73,24): warning C4251: "Wt::Http::Message::Header::value_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::Http::Message::Header"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\Http\Message.h(157,23): warning C4251: Wt::Http::Message::headers_: class "std::vector<Wt::Http::Message::Header,std::allocator<Wt::Http::Message::Header>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Http::Message"
+C:\vcpkg\installed\x64-windows\include\Wt\Http\Message.h(157,23): warning C4251: "Wt::Http::Message::headers_": "std::vector<Wt::Http::Message::Header,std::allocator<Wt::Http::Message::Header>>" должен иметь dll-интерфейс для использования клиентами "Wt::Http::Message"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Http\Message.h(88,16):
-   см. объявление "std::vector<Wt::Http::Message::Header,std::allocator<Wt::Http::Message::Header>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::Http::Message::Header,std::allocator<Wt::Http::Message::Header>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(89,25): warning C4251: Wt::Http::UploadedFile::fileInfo_: class "std::shared_ptr<Wt::Http::UploadedFile::Impl>" должен иметь dll-интерфейс для использования клиентами class "Wt::Http::UploadedFile"
+C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(89,25): warning C4251: "Wt::Http::UploadedFile::fileInfo_": "std::shared_ptr<Wt::Http::UploadedFile::Impl>" должен иметь dll-интерфейс для использования клиентами "Wt::Http::UploadedFile"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(89,8):
-   см. объявление "std::shared_ptr<Wt::Http::UploadedFile::Impl>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(1565,7):
+       см. объявление "std::shared_ptr<Wt::Http::UploadedFile::Impl>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(161,49): warning C4251: std::vector<Wt::Http::Request::ByteRange,std::allocator<Wt::Http::Request::ByteRange>>::_Mypair: class "std::_Compressed_pair<std::allocator<Wt::Http::Request::ByteRange>,std::_Vector_val<std::_Simple_types<_Ty>>,true>" должен иметь dll-интерфейс для использования клиентами class "std::vector<Wt::Http::Request::ByteRange,std::allocator<Wt::Http::Request::ByteRange>>"
+C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(161,49): warning C4251: "std::vector<Wt::Http::Request::ByteRange,std::allocator<Wt::Http::Request::ByteRange>>::_Mypair": "std::_Compressed_pair<std::allocator<Wt::Http::Request::ByteRange>,std::_Vector_val<std::_Simple_types<_Ty>>,true>" должен иметь dll-интерфейс для использования клиентами "std::vector<Wt::Http::Request::ByteRange,std::allocator<Wt::Http::Request::ByteRange>>"
 C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(161,49): warning C4251:         with
 C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(161,49): warning C4251:         [
 C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(161,49): warning C4251:             _Ty=Wt::Http::Request::ByteRange
 C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(161,49): warning C4251:         ]
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\vector(2206,5):
-   см. объявление "std::_Compressed_pair<std::allocator<Wt::Http::Request::ByteRange>,std::_Vector_val<std::_Simple_types<_Ty>>,true>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xmemory(1522,7):
+       см. объявление "std::_Compressed_pair<std::allocator<Wt::Http::Request::ByteRange>,std::_Vector_val<std::_Simple_types<_Ty>>,true>"
           with
           [
               _Ty=Wt::Http::Request::ByteRange
           ]
   
-C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(470,38): warning C4251: Wt::Http::Request::cookies_: class "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Http::Request"
+C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(470,38): warning C4251: "Wt::Http::Request::cookies_": "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>" должен иметь dll-интерфейс для использования клиентами "Wt::Http::Request"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(195,16):
-   см. объявление "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\map(72,7):
+       см. объявление "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(471,37): warning C4251: Wt::Http::Request::sslInfo_: class "std::unique_ptr<Wt::WSslInfo,std::default_delete<Wt::WSslInfo>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Http::Request"
+C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(471,37): warning C4251: "Wt::Http::Request::sslInfo_": "std::unique_ptr<Wt::WSslInfo,std::default_delete<Wt::WSslInfo>>" должен иметь dll-интерфейс для использования клиентами "Wt::Http::Request"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(471,16):
-   см. объявление "std::unique_ptr<Wt::WSslInfo,std::default_delete<Wt::WSslInfo>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WSslInfo,std::default_delete<Wt::WSslInfo>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WObject.h(342,49): warning C4251: Wt::WObject::statelessSlots_: class "std::vector<std::unique_ptr<Wt::WStatelessSlot,std::default_delete<Wt::WStatelessSlot>>,std::allocator<std::unique_ptr<Wt::WStatelessSlot,std::default_delete<Wt::WStatelessSlot>>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WObject"
+C:\vcpkg\installed\x64-windows\include\Wt\WObject.h(342,49): warning C4251: "Wt::WObject::statelessSlots_": "std::vector<std::unique_ptr<Wt::WStatelessSlot,std::default_delete<Wt::WStatelessSlot>>,std::allocator<std::unique_ptr<Wt::WStatelessSlot,std::default_delete<Wt::WStatelessSlot>>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WObject"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WObject.h(342,8):
-   см. объявление "std::vector<std::unique_ptr<Wt::WStatelessSlot,std::default_delete<Wt::WStatelessSlot>>,std::allocator<std::unique_ptr<Wt::WStatelessSlot,std::default_delete<Wt::WStatelessSlot>>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<std::unique_ptr<Wt::WStatelessSlot,std::default_delete<Wt::WStatelessSlot>>,std::allocator<std::unique_ptr<Wt::WStatelessSlot,std::default_delete<Wt::WStatelessSlot>>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WObject.h(343,42): warning C4251: Wt::WObject::children_: class "std::vector<std::unique_ptr<Wt::WObject,std::default_delete<Wt::WObject>>,std::allocator<std::unique_ptr<Wt::WObject,std::default_delete<Wt::WObject>>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WObject"
+C:\vcpkg\installed\x64-windows\include\Wt\WObject.h(343,42): warning C4251: "Wt::WObject::children_": "std::vector<std::unique_ptr<Wt::WObject,std::default_delete<Wt::WObject>>,std::allocator<std::unique_ptr<Wt::WObject,std::default_delete<Wt::WObject>>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WObject"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WObject.h(343,8):
-   см. объявление "std::vector<std::unique_ptr<Wt::WObject,std::default_delete<Wt::WObject>>,std::allocator<std::unique_ptr<Wt::WObject,std::default_delete<Wt::WObject>>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<std::unique_ptr<Wt::WObject,std::default_delete<Wt::WObject>>,std::allocator<std::unique_ptr<Wt::WObject,std::default_delete<Wt::WObject>>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WObject.h(346,15): warning C4251: Wt::WObject::name_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WObject"
+C:\vcpkg\installed\x64-windows\include\Wt\WObject.h(346,15): warning C4251: "Wt::WObject::name_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WObject"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WObject.h(349,32): warning C4251: Wt::WObject::nextObjId_: struct "std::atomic<unsigned int>" должен иметь dll-интерфейс для использования клиентами class "Wt::WObject"
+C:\vcpkg\installed\x64-windows\include\Wt\WObject.h(349,32): warning C4251: "Wt::WObject::nextObjId_": "std::atomic<unsigned int>" должен иметь dll-интерфейс для использования клиентами "Wt::WObject"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\atomic(2772,35):
-   см. объявление "std::atomic<unsigned int>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\atomic(2131,8):
+       см. объявление "std::atomic<unsigned int>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WString.h(743,15): warning C4251: Wt::WString::utf8_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WString"
+C:\vcpkg\installed\x64-windows\include\Wt\WString.h(743,15): warning C4251: "Wt::WString::utf8_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WString"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WString.h(757,31): warning C4251: Wt::WString::stArguments_: class "std::vector<Wt::WString,std::allocator<Wt::WString>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WString"
+C:\vcpkg\installed\x64-windows\include\Wt\WString.h(757,31): warning C4251: "Wt::WString::stArguments_": "std::vector<Wt::WString,std::allocator<Wt::WString>>" должен иметь dll-интерфейс для использования клиентами "Wt::WString"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WString.h(703,14):
-   см. объявление "std::vector<Wt::WString,std::allocator<Wt::WString>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::WString,std::allocator<Wt::WString>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WAnimation.h(179,27): warning C4251: Wt::WAnimation::effects_: class "Wt::WFlags<Wt::AnimationEffect>" должен иметь dll-интерфейс для использования клиентами class "Wt::WAnimation"
+C:\vcpkg\installed\x64-windows\include\Wt\WAnimation.h(179,27): warning C4251: "Wt::WAnimation::effects_": "Wt::WFlags<Wt::AnimationEffect>" должен иметь dll-интерфейс для использования клиентами "Wt::WAnimation"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WAnimation.h(80,14):
-   см. объявление "Wt::WFlags<Wt::AnimationEffect>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WFlags.h(30,7):
+       см. объявление "Wt::WFlags<Wt::AnimationEffect>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\Signals\signals.hpp(47,55): warning C4251: Wt::Signals::Impl::SignalLinkBase::obj_: class "Wt::Core::observing_ptr<const Wt::Core::observable>" должен иметь dll-интерфейс для использования клиентами class "Wt::Signals::Impl::SignalLinkBase"
+C:\vcpkg\installed\x64-windows\include\Wt\Signals\signals.hpp(47,55): warning C4251: "Wt::Signals::Impl::SignalLinkBase::obj_": "Wt::Core::observing_ptr<const Wt::Core::observable>" должен иметь dll-интерфейс для использования клиентами "Wt::Signals::Impl::SignalLinkBase"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Core\observable_impl.hpp(44,3):
-   см. объявление "Wt::Core::observing_ptr<const Wt::Core::observable>"
+      C:\vcpkg\installed\x64-windows\include\Wt\Core\observing_ptr.hpp(43,7):
+       см. объявление "Wt::Core::observing_ptr<const Wt::Core::observable>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(489,32): warning C4251: Wt::EventSignalBase::nextId_: struct "std::atomic<unsigned int>" должен иметь dll-интерфейс для использования клиентами class "Wt::EventSignalBase"
+C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(489,32): warning C4251: "Wt::EventSignalBase::nextId_": "std::atomic<unsigned int>" должен иметь dll-интерфейс для использования клиентами "Wt::EventSignalBase"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\atomic(2772,35):
-   см. объявление "std::atomic<unsigned int>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\atomic(2131,8):
+       см. объявление "std::atomic<unsigned int>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(497,36): warning C4251: Wt::EventSignalBase::connections_: class "std::vector<Wt::EventSignalBase::StatelessConnection,std::allocator<Wt::EventSignalBase::StatelessConnection>>" должен иметь dll-интерфейс для использования клиентами class "Wt::EventSignalBase"
+C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(497,36): warning C4251: "Wt::EventSignalBase::connections_": "std::vector<Wt::EventSignalBase::StatelessConnection,std::allocator<Wt::EventSignalBase::StatelessConnection>>" должен иметь dll-интерфейс для использования клиентами "Wt::EventSignalBase"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(497,8):
-   см. объявление "std::vector<Wt::EventSignalBase::StatelessConnection,std::allocator<Wt::EventSignalBase::StatelessConnection>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::EventSignalBase::StatelessConnection,std::allocator<Wt::EventSignalBase::StatelessConnection>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(498,18): warning C4251: Wt::EventSignalBase::flags_: class "std::bitset<7>" должен иметь dll-интерфейс для использования клиентами class "Wt::EventSignalBase"
+C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(498,18): warning C4251: "Wt::EventSignalBase::flags_": "std::bitset<7>" должен иметь dll-интерфейс для использования клиентами "Wt::EventSignalBase"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(498,8):
-   см. объявление "std::bitset<7>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<7>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(505,21): warning C4251: Wt::EventSignalBase::dummy_: struct "Wt::Signals::Signal<>" должен иметь dll-интерфейс для использования клиентами class "Wt::EventSignalBase"
+C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(505,21): warning C4251: "Wt::EventSignalBase::dummy_": "Wt::Signals::Signal<>" должен иметь dll-интерфейс для использования клиентами "Wt::EventSignalBase"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(505,12):
-   см. объявление "Wt::Signals::Signal<>"
+      C:\vcpkg\installed\x64-windows\include\Wt\Signals\signals.hpp(311,8):
+       см. объявление "Wt::Signals::Signal<>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(93,28): warning C4251: Wt::JavaScriptEvent::modifiers: class "Wt::WFlags<Wt::KeyboardModifier>" должен иметь dll-интерфейс для использования клиентами class "Wt::JavaScriptEvent"
+C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(93,28): warning C4251: "Wt::JavaScriptEvent::modifiers": "Wt::WFlags<Wt::KeyboardModifier>" должен иметь dll-интерфейс для использования клиентами "Wt::JavaScriptEvent"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WGlobal.h(807,1):
-   см. объявление "Wt::WFlags<Wt::KeyboardModifier>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WFlags.h(30,7):
+       см. объявление "Wt::WFlags<Wt::KeyboardModifier>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(96,22): warning C4251: Wt::JavaScriptEvent::touches: class "std::vector<Wt::Touch,std::allocator<Wt::Touch>>" должен иметь dll-интерфейс для использования клиентами class "Wt::JavaScriptEvent"
+C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(96,22): warning C4251: "Wt::JavaScriptEvent::touches": "std::vector<Wt::Touch,std::allocator<Wt::Touch>>" должен иметь dll-интерфейс для использования клиентами "Wt::JavaScriptEvent"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(96,8):
-   см. объявление "std::vector<Wt::Touch,std::allocator<Wt::Touch>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::Touch,std::allocator<Wt::Touch>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(96,31): warning C4251: Wt::JavaScriptEvent::targetTouches: class "std::vector<Wt::Touch,std::allocator<Wt::Touch>>" должен иметь dll-интерфейс для использования клиентами class "Wt::JavaScriptEvent"
+C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(96,31): warning C4251: "Wt::JavaScriptEvent::targetTouches": "std::vector<Wt::Touch,std::allocator<Wt::Touch>>" должен иметь dll-интерфейс для использования клиентами "Wt::JavaScriptEvent"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(96,8):
-   см. объявление "std::vector<Wt::Touch,std::allocator<Wt::Touch>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::Touch,std::allocator<Wt::Touch>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(96,46): warning C4251: Wt::JavaScriptEvent::changedTouches: class "std::vector<Wt::Touch,std::allocator<Wt::Touch>>" должен иметь dll-интерфейс для использования клиентами class "Wt::JavaScriptEvent"
+C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(96,46): warning C4251: "Wt::JavaScriptEvent::changedTouches": "std::vector<Wt::Touch,std::allocator<Wt::Touch>>" должен иметь dll-интерфейс для использования клиентами "Wt::JavaScriptEvent"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(96,8):
-   см. объявление "std::vector<Wt::Touch,std::allocator<Wt::Touch>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::Touch,std::allocator<Wt::Touch>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(105,15): warning C4251: Wt::JavaScriptEvent::type: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::JavaScriptEvent"
+C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(105,15): warning C4251: "Wt::JavaScriptEvent::type": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::JavaScriptEvent"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(108,15): warning C4251: Wt::JavaScriptEvent::tid: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::JavaScriptEvent"
+C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(108,15): warning C4251: "Wt::JavaScriptEvent::tid": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::JavaScriptEvent"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(110,15): warning C4251: Wt::JavaScriptEvent::response: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::JavaScriptEvent"
+C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(110,15): warning C4251: "Wt::JavaScriptEvent::response": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::JavaScriptEvent"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(112,28): warning C4251: Wt::JavaScriptEvent::userEventArgs: class "std::vector<std::string,std::allocator<std::string>>" должен иметь dll-интерфейс для использования клиентами class "Wt::JavaScriptEvent"
+C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(112,28): warning C4251: "Wt::JavaScriptEvent::userEventArgs": "std::vector<std::string,std::allocator<std::string>>" должен иметь dll-интерфейс для использования клиентами "Wt::JavaScriptEvent"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(98,14):
-   см. объявление "std::vector<std::string,std::allocator<std::string>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<std::string,std::allocator<std::string>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(410,23): warning C4251: Wt::WDropEvent::dropMimeType_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WDropEvent"
+C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(410,23): warning C4251: "Wt::WDropEvent::dropMimeType_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WDropEvent"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(411,38): warning C4251: Wt::WDropEvent::mouseEvent_: class "std::unique_ptr<const Wt::WMouseEvent,std::default_delete<const Wt::WMouseEvent>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WDropEvent"
+C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(411,38): warning C4251: "Wt::WDropEvent::mouseEvent_": "std::unique_ptr<const Wt::WMouseEvent,std::default_delete<const Wt::WMouseEvent>>" должен иметь dll-интерфейс для использования клиентами "Wt::WDropEvent"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(411,8):
-   см. объявление "std::unique_ptr<const Wt::WMouseEvent,std::default_delete<const Wt::WMouseEvent>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<const Wt::WMouseEvent,std::default_delete<const Wt::WMouseEvent>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(412,38): warning C4251: Wt::WDropEvent::touchEvent_: class "std::unique_ptr<const Wt::WTouchEvent,std::default_delete<const Wt::WTouchEvent>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WDropEvent"
+C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(412,38): warning C4251: "Wt::WDropEvent::touchEvent_": "std::unique_ptr<const Wt::WTouchEvent,std::default_delete<const Wt::WTouchEvent>>" должен иметь dll-интерфейс для использования клиентами "Wt::WDropEvent"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WEvent.h(412,8):
-   см. объявление "std::unique_ptr<const Wt::WTouchEvent,std::default_delete<const Wt::WTouchEvent>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<const Wt::WTouchEvent,std::default_delete<const Wt::WTouchEvent>>"
+  
+C:\vcpkg\installed\x64-windows\include\Wt\WException.h(44,15): warning C4251: "Wt::WException::what_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WException"
+  (компиляция исходного файла "src/LedApp.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
 C:\vcpkg\installed\x64-windows\include\Wt\WException.h(20,39): warning C4275: class "std::exception", не являющийся dll-интерфейсом, использован в качестве базового для dll-интерфейса class "Wt::WException"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\exception(38,19):
-   см. объявление "std::exception"
-  C:\vcpkg\installed\x64-windows\include\Wt\WException.h(20,14):
-   см. объявление "Wt::WException"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_exception.h(49,35):
+       см. объявление "std::exception"
+      C:\vcpkg\installed\x64-windows\include\Wt\WException.h(20,14):
+       см. объявление "Wt::WException"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WException.h(44,15): warning C4251: Wt::WException::what_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WException"
+C:\vcpkg\installed\x64-windows\include\Wt\WJavaScriptSlot.h(215,32): warning C4251: "Wt::JSlot::nextFid_": "std::atomic<unsigned int>" должен иметь dll-интерфейс для использования клиентами "Wt::JSlot"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\atomic(2131,8):
+       см. объявление "std::atomic<unsigned int>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WJavaScriptSlot.h(215,32): warning C4251: Wt::JSlot::nextFid_: struct "std::atomic<unsigned int>" должен иметь dll-интерфейс для использования клиентами class "Wt::JSlot"
+C:\vcpkg\installed\x64-windows\include\Wt\WLogger.h(285,22): warning C4251: "Wt::WLogger::addLineLock_": "std::mutex" должен иметь dll-интерфейс для использования клиентами "Wt::WLogger"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\atomic(2772,35):
-   см. объявление "std::atomic<unsigned int>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\mutex(98,19):
+       см. объявление "std::mutex"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLogger.h(285,22): warning C4251: Wt::WLogger::addLineLock_: class "std::mutex" должен иметь dll-интерфейс для использования клиентами class "Wt::WLogger"
+C:\vcpkg\installed\x64-windows\include\Wt\WLogger.h(286,22): warning C4251: "Wt::WLogger::fields_": "std::vector<Wt::WLogger::Field,std::allocator<Wt::WLogger::Field>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLogger"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\mutex(102,19):
-   см. объявление "std::mutex"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::WLogger::Field,std::allocator<Wt::WLogger::Field>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLogger.h(286,22): warning C4251: Wt::WLogger::fields_: class "std::vector<Wt::WLogger::Field,std::allocator<Wt::WLogger::Field>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLogger"
+C:\vcpkg\installed\x64-windows\include\Wt\WLogger.h(294,21): warning C4251: "Wt::WLogger::rules_": "std::vector<Wt::WLogger::Rule,std::allocator<Wt::WLogger::Rule>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLogger"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WLogger.h(219,14):
-   см. объявление "std::vector<Wt::WLogger::Field,std::allocator<Wt::WLogger::Field>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::WLogger::Rule,std::allocator<Wt::WLogger::Rule>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLogger.h(294,21): warning C4251: Wt::WLogger::rules_: class "std::vector<Wt::WLogger::Rule,std::allocator<Wt::WLogger::Rule>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLogger"
+C:\vcpkg\installed\x64-windows\include\Wt\WLogger.h(418,33): warning C4251: "Wt::WLogEntry::impl_": "std::unique_ptr<Wt::WLogEntry::Impl,std::default_delete<Wt::WLogEntry::Impl>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLogEntry"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WLogger.h(294,8):
-   см. объявление "std::vector<Wt::WLogger::Rule,std::allocator<Wt::WLogger::Rule>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WLogEntry::Impl,std::default_delete<Wt::WLogEntry::Impl>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLogger.h(418,33): warning C4251: Wt::WLogEntry::impl_: class "std::unique_ptr<Wt::WLogEntry::Impl,std::default_delete<Wt::WLogEntry::Impl>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLogEntry"
+C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(1391,18): warning C4251: "Wt::WWidget::flags_": "std::bitset<8>" должен иметь dll-интерфейс для использования клиентами "Wt::WWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WLogger.h(418,16):
-   см. объявление "std::unique_ptr<Wt::WLogEntry::Impl,std::default_delete<Wt::WLogEntry::Impl>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<8>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(1391,18): warning C4251: Wt::WWidget::flags_: class "std::bitset<8>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(1393,19): warning C4251: "Wt::WWidget::eventSignals_": "std::list<Wt::EventSignalBase *,std::allocator<Wt::EventSignalBase *>>" должен иметь dll-интерфейс для использования клиентами "Wt::WWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(1391,8):
-   см. объявление "std::bitset<8>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\list(769,7):
+       см. объявление "std::list<Wt::EventSignalBase *,std::allocator<Wt::EventSignalBase *>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(1393,19): warning C4251: Wt::WWidget::eventSignals_: class "std::list<Wt::EventSignalBase *,std::allocator<Wt::EventSignalBase *>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(1394,33): warning C4251: "Wt::WWidget::jsignals_": "std::vector<Wt::EventSignalBase *,std::allocator<Wt::EventSignalBase *>>" должен иметь dll-интерфейс для использования клиентами "Wt::WWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(1352,16):
-   см. объявление "std::list<Wt::EventSignalBase *,std::allocator<Wt::EventSignalBase *>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::EventSignalBase *,std::allocator<Wt::EventSignalBase *>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(1394,33): warning C4251: Wt::WWidget::jsignals_: class "std::vector<Wt::EventSignalBase *,std::allocator<Wt::EventSignalBase *>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(410,15): warning C4251: "Wt::WWebWidget::elementTagName_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WWebWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(1394,8):
-   см. объявление "std::vector<Wt::EventSignalBase *,std::allocator<Wt::EventSignalBase *>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(410,15): warning C4251: Wt::WWebWidget::elementTagName_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWebWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(413,32): warning C4251: "Wt::WWebWidget::AllChangeFlags": "std::bitset<39>" должен иметь dll-интерфейс для использования клиентами "Wt::WWebWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<39>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(413,32): warning C4251: Wt::WWebWidget::AllChangeFlags: class "std::bitset<39>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWebWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(421,19): warning C4251: "Wt::WWebWidget::flags_": "std::bitset<39>" должен иметь dll-интерфейс для использования клиентами "Wt::WWebWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(413,21):
-   см. объявление "std::bitset<39>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<39>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(421,19): warning C4251: Wt::WWebWidget::flags_: class "std::bitset<39>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWebWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(422,28): warning C4251: "Wt::WWebWidget::width_": "std::unique_ptr<Wt::WLength,std::default_delete<Wt::WLength>>" должен иметь dll-интерфейс для использования клиентами "Wt::WWebWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(413,21):
-   см. объявление "std::bitset<39>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WLength,std::default_delete<Wt::WLength>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(422,28): warning C4251: Wt::WWebWidget::width_: class "std::unique_ptr<Wt::WLength,std::default_delete<Wt::WLength>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWebWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(423,28): warning C4251: "Wt::WWebWidget::height_": "std::unique_ptr<Wt::WLength,std::default_delete<Wt::WLength>>" должен иметь dll-интерфейс для использования клиентами "Wt::WWebWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(422,8):
-   см. объявление "std::unique_ptr<Wt::WLength,std::default_delete<Wt::WLength>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WLength,std::default_delete<Wt::WLength>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(423,28): warning C4251: Wt::WWebWidget::height_: class "std::unique_ptr<Wt::WLength,std::default_delete<Wt::WLength>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWebWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(430,32): warning C4251: "Wt::WWebWidget::id_": "std::unique_ptr<std::string,std::default_delete<std::string>>" должен иметь dll-интерфейс для использования клиентами "Wt::WWebWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(422,8):
-   см. объявление "std::unique_ptr<Wt::WLength,std::default_delete<Wt::WLength>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<std::string,std::default_delete<std::string>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(430,32): warning C4251: Wt::WWebWidget::id_: class "std::unique_ptr<std::string,std::default_delete<std::string>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWebWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(448,34): warning C4251: "Wt::WWebWidget::transientImpl_": "std::unique_ptr<Wt::WWebWidget::TransientImpl,std::default_delete<Wt::WWebWidget::TransientImpl>>" должен иметь dll-интерфейс для использования клиентами "Wt::WWebWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(430,8):
-   см. объявление "std::unique_ptr<std::string,std::default_delete<std::string>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WWebWidget::TransientImpl,std::default_delete<Wt::WWebWidget::TransientImpl>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(448,34): warning C4251: Wt::WWebWidget::transientImpl_: class "std::unique_ptr<Wt::WWebWidget::TransientImpl,std::default_delete<Wt::WWebWidget::TransientImpl>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWebWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(464,31): warning C4251: "Wt::WWebWidget::layoutImpl_": "std::unique_ptr<Wt::WWebWidget::LayoutImpl,std::default_delete<Wt::WWebWidget::LayoutImpl>>" должен иметь dll-интерфейс для использования клиентами "Wt::WWebWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(448,8):
-   см. объявление "std::unique_ptr<Wt::WWebWidget::TransientImpl,std::default_delete<Wt::WWebWidget::TransientImpl>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WWebWidget::LayoutImpl,std::default_delete<Wt::WWebWidget::LayoutImpl>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(464,31): warning C4251: Wt::WWebWidget::layoutImpl_: class "std::unique_ptr<Wt::WWebWidget::LayoutImpl,std::default_delete<Wt::WWebWidget::LayoutImpl>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWebWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(477,37): warning C4251: "Wt::WWebWidget::lookImpl_": "std::unique_ptr<Wt::WWebWidget::LookImpl,std::default_delete<Wt::WWebWidget::LookImpl>>" должен иметь dll-интерфейс для использования клиентами "Wt::WWebWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(464,8):
-   см. объявление "std::unique_ptr<Wt::WWebWidget::LayoutImpl,std::default_delete<Wt::WWebWidget::LayoutImpl>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WWebWidget::LookImpl,std::default_delete<Wt::WWebWidget::LookImpl>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(477,37): warning C4251: Wt::WWebWidget::lookImpl_: class "std::unique_ptr<Wt::WWebWidget::LookImpl,std::default_delete<Wt::WWebWidget::LookImpl>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWebWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(529,30): warning C4251: "Wt::WWebWidget::otherImpl_": "std::unique_ptr<Wt::WWebWidget::OtherImpl,std::default_delete<Wt::WWebWidget::OtherImpl>>" должен иметь dll-интерфейс для использования клиентами "Wt::WWebWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(477,16):
-   см. объявление "std::unique_ptr<Wt::WWebWidget::LookImpl,std::default_delete<Wt::WWebWidget::LookImpl>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WWebWidget::OtherImpl,std::default_delete<Wt::WWebWidget::OtherImpl>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(529,30): warning C4251: Wt::WWebWidget::otherImpl_: class "std::unique_ptr<Wt::WWebWidget::OtherImpl,std::default_delete<Wt::WWebWidget::OtherImpl>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WWebWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WLink.h(174,15): warning C4251: "Wt::WLink::stringValue_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLink"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(529,8):
-   см. объявление "std::unique_ptr<Wt::WWebWidget::OtherImpl,std::default_delete<Wt::WWebWidget::OtherImpl>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLink.h(174,15): warning C4251: Wt::WLink::stringValue_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLink"
+C:\vcpkg\installed\x64-windows\include\Wt\WLink.h(175,30): warning C4251: "Wt::WLink::resource_": "std::shared_ptr<Wt::WResource>" должен иметь dll-интерфейс для использования клиентами "Wt::WLink"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(1565,7):
+       см. объявление "std::shared_ptr<Wt::WResource>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLink.h(175,30): warning C4251: Wt::WLink::resource_: class "std::shared_ptr<Wt::WResource>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLink"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(213,29): warning C4251: "Wt::WCssDecorationStyle::cursorImage_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssDecorationStyle"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WLink.h(75,20):
-   см. объявление "std::shared_ptr<Wt::WResource>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(213,29): warning C4251: Wt::WCssDecorationStyle::cursorImage_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssDecorationStyle"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(214,29): warning C4251: "Wt::WCssDecorationStyle::border_": "std::unique_ptr<Wt::WBorder,std::default_delete<Wt::WBorder>>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssDecorationStyle"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WBorder,std::default_delete<Wt::WBorder>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(214,29): warning C4251: Wt::WCssDecorationStyle::border_: class "std::unique_ptr<Wt::WBorder,std::default_delete<Wt::WBorder>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssDecorationStyle"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(218,29): warning C4251: "Wt::WCssDecorationStyle::backgroundImageRepeat_": "Wt::WFlags<Wt::Orientation>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssDecorationStyle"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(214,8):
-   см. объявление "std::unique_ptr<Wt::WBorder,std::default_delete<Wt::WBorder>>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WFlags.h(30,7):
+       см. объявление "Wt::WFlags<Wt::Orientation>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(218,29): warning C4251: Wt::WCssDecorationStyle::backgroundImageRepeat_: class "Wt::WFlags<Wt::Orientation>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssDecorationStyle"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(219,29): warning C4251: "Wt::WCssDecorationStyle::backgroundImageLocation_": "Wt::WFlags<Wt::Side>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssDecorationStyle"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WGlobal.h(351,1):
-   см. объявление "Wt::WFlags<Wt::Orientation>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WFlags.h(30,7):
+       см. объявление "Wt::WFlags<Wt::Side>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(219,29): warning C4251: Wt::WCssDecorationStyle::backgroundImageLocation_: class "Wt::WFlags<Wt::Side>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssDecorationStyle"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(221,29): warning C4251: "Wt::WCssDecorationStyle::textDecoration_": "Wt::WFlags<Wt::TextDecoration>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssDecorationStyle"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WGlobal.h(444,1):
-   см. объявление "Wt::WFlags<Wt::Side>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WFlags.h(30,7):
+       см. объявление "Wt::WFlags<Wt::TextDecoration>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(221,29): warning C4251: Wt::WCssDecorationStyle::textDecoration_: class "Wt::WFlags<Wt::TextDecoration>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssDecorationStyle"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(78,15): warning C4251: "Wt::WCssRule::selector_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssRule"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WCssDecorationStyle.h(199,26):
-   см. объявление "Wt::WFlags<Wt::TextDecoration>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(78,15): warning C4251: Wt::WCssRule::selector_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssRule"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(145,39): warning C4251: "Wt::WCssTemplateRule::widget_": "std::unique_ptr<Wt::WCssTemplateWidget,std::default_delete<Wt::WCssTemplateWidget>>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssTemplateRule"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WCssTemplateWidget,std::default_delete<Wt::WCssTemplateWidget>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(145,39): warning C4251: Wt::WCssTemplateRule::widget_: class "std::unique_ptr<Wt::WCssTemplateWidget,std::default_delete<Wt::WCssTemplateWidget>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssTemplateRule"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(292,12): warning C4251: "Wt::WCssStyleSheet::rules_": "std::vector<std::unique_ptr<Wt::WCssRule,std::default_delete<Wt::WCssRule>>,std::allocator<std::unique_ptr<Wt::WCssRule,std::default_delete<Wt::WCssRule>>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssStyleSheet"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(145,8):
-   см. объявление "std::unique_ptr<Wt::WCssTemplateWidget,std::default_delete<Wt::WCssTemplateWidget>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<std::unique_ptr<Wt::WCssRule,std::default_delete<Wt::WCssRule>>,std::allocator<std::unique_ptr<Wt::WCssRule,std::default_delete<Wt::WCssRule>>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(292,12): warning C4251: Wt::WCssStyleSheet::rules_: class "std::vector<std::unique_ptr<Wt::WCssRule,std::default_delete<Wt::WCssRule>>,std::allocator<std::unique_ptr<Wt::WCssRule,std::default_delete<Wt::WCssRule>>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssStyleSheet"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(293,27): warning C4251: "Wt::WCssStyleSheet::rulesAdded_": "std::vector<Wt::WCssRule *,std::allocator<Wt::WCssRule *>>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssStyleSheet"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(289,16):
-   см. объявление "std::vector<std::unique_ptr<Wt::WCssRule,std::default_delete<Wt::WCssRule>>,std::allocator<std::unique_ptr<Wt::WCssRule,std::default_delete<Wt::WCssRule>>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::WCssRule *,std::allocator<Wt::WCssRule *>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(293,27): warning C4251: Wt::WCssStyleSheet::rulesAdded_: class "std::vector<Wt::WCssRule *,std::allocator<Wt::WCssRule *>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssStyleSheet"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(295,11): warning C4251: "Wt::WCssStyleSheet::rulesModified_": "std::set<Wt::WCssRule *,std::less<Wt::WCssRule *>,std::allocator<Wt::WCssRule *>>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssStyleSheet"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(293,8):
-   см. объявление "std::vector<Wt::WCssRule *,std::allocator<Wt::WCssRule *>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\set(51,7):
+       см. объявление "std::set<Wt::WCssRule *,std::less<Wt::WCssRule *>,std::allocator<Wt::WCssRule *>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(295,11): warning C4251: Wt::WCssStyleSheet::rulesModified_: class "std::set<Wt::WCssRule *,std::less<Wt::WCssRule *>,std::allocator<Wt::WCssRule *>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssStyleSheet"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(296,28): warning C4251: "Wt::WCssStyleSheet::rulesRemoved_": "std::vector<std::string,std::allocator<std::string>>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssStyleSheet"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(290,16):
-   см. объявление "std::set<Wt::WCssRule *,std::less<Wt::WCssRule *>,std::allocator<Wt::WCssRule *>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<std::string,std::allocator<std::string>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(296,28): warning C4251: Wt::WCssStyleSheet::rulesRemoved_: class "std::vector<std::string,std::allocator<std::string>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssStyleSheet"
+C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(298,25): warning C4251: "Wt::WCssStyleSheet::defined_": "std::set<std::string,std::less<std::string>,std::allocator<std::string>>" должен иметь dll-интерфейс для использования клиентами "Wt::WCssStyleSheet"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(98,14):
-   см. объявление "std::vector<std::string,std::allocator<std::string>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\set(51,7):
+       см. объявление "std::set<std::string,std::less<std::string>,std::allocator<std::string>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(298,25): warning C4251: Wt::WCssStyleSheet::defined_: class "std::set<std::string,std::less<std::string>,std::allocator<std::string>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCssStyleSheet"
+C:\vcpkg\installed\x64-windows\include\Wt\WLocale.h(264,15): warning C4251: "Wt::WLocale::name_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLocale"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(298,8):
-   см. объявление "std::set<std::string,std::less<std::string>,std::allocator<std::string>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLocale.h(264,15): warning C4251: Wt::WLocale::name_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLocale"
+C:\vcpkg\installed\x64-windows\include\Wt\WLocale.h(265,12): warning C4251: "Wt::WLocale::decimalPoint_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLocale"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLocale.h(265,12): warning C4251: Wt::WLocale::decimalPoint_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLocale"
+C:\vcpkg\installed\x64-windows\include\Wt\WLocale.h(265,27): warning C4251: "Wt::WLocale::groupSeparator_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLocale"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLocale.h(265,27): warning C4251: Wt::WLocale::groupSeparator_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLocale"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(688,15): warning C4251: "Wt::WEnvironment::queryString_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(688,15): warning C4251: Wt::WEnvironment::queryString_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(691,22): warning C4251: "Wt::WEnvironment::parameters_": "std::map<std::string,Wt::Http::ParameterValues,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::Http::ParameterValues>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\map(72,7):
+       см. объявление "std::map<std::string,Wt::Http::ParameterValues,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::Http::ParameterValues>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(691,22): warning C4251: Wt::WEnvironment::parameters_: class "std::map<std::string,Wt::Http::ParameterValues,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::Http::ParameterValues>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(692,15): warning C4251: "Wt::WEnvironment::cookies_": "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(107,14):
-   см. объявление "std::map<std::string,Wt::Http::ParameterValues,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::Http::ParameterValues>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\map(72,7):
+       см. объявление "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(692,15): warning C4251: Wt::WEnvironment::cookies_: class "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(695,24): warning C4251: "Wt::WEnvironment::timeZoneOffset_": "std::chrono::duration<int,std::ratio<60,1>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(195,16):
-   см. объявление "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\__msvc_chrono.hpp(91,11):
+       см. объявление "std::chrono::duration<int,std::ratio<60,1>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(695,24): warning C4251: Wt::WEnvironment::timeZoneOffset_: class "std::chrono::duration<int,std::ratio<60,1>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(696,15): warning C4251: "Wt::WEnvironment::timeZoneName_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\__msvc_chrono.hpp(513,38):
-   см. объявление "std::chrono::duration<int,std::ratio<60,1>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(696,15): warning C4251: Wt::WEnvironment::timeZoneName_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(697,15): warning C4251: "Wt::WEnvironment::host_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(697,15): warning C4251: Wt::WEnvironment::host_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(698,15): warning C4251: "Wt::WEnvironment::userAgent_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(698,15): warning C4251: Wt::WEnvironment::userAgent_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(699,15): warning C4251: "Wt::WEnvironment::urlScheme_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(699,15): warning C4251: Wt::WEnvironment::urlScheme_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(700,15): warning C4251: "Wt::WEnvironment::referer_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(700,15): warning C4251: Wt::WEnvironment::referer_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(701,15): warning C4251: "Wt::WEnvironment::accept_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(701,15): warning C4251: Wt::WEnvironment::accept_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(702,15): warning C4251: "Wt::WEnvironment::serverSignature_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(702,15): warning C4251: Wt::WEnvironment::serverSignature_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(703,15): warning C4251: "Wt::WEnvironment::serverSoftware_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(703,15): warning C4251: Wt::WEnvironment::serverSoftware_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(704,15): warning C4251: "Wt::WEnvironment::serverAdmin_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(704,15): warning C4251: Wt::WEnvironment::serverAdmin_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(705,15): warning C4251: "Wt::WEnvironment::clientAddress_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(705,15): warning C4251: Wt::WEnvironment::clientAddress_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(706,15): warning C4251: "Wt::WEnvironment::internalPath_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(706,15): warning C4251: Wt::WEnvironment::internalPath_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(707,15): warning C4251: "Wt::WEnvironment::publicDeploymentPath_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(707,15): warning C4251: Wt::WEnvironment::publicDeploymentPath_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(708,15): warning C4251: "Wt::WEnvironment::redirectSecret_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(708,15): warning C4251: Wt::WEnvironment::redirectSecret_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(711,29): warning C4251: "Wt::WEnvironment::sslInfo_": "std::unique_ptr<Wt::WSslInfo,std::default_delete<Wt::WSslInfo>>" должен иметь dll-интерфейс для использования клиентами "Wt::WEnvironment"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WSslInfo,std::default_delete<Wt::WSslInfo>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WEnvironment.h(711,29): warning C4251: Wt::WEnvironment::sslInfo_: class "std::unique_ptr<Wt::WSslInfo,std::default_delete<Wt::WSslInfo>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WEnvironment"
+C:\vcpkg\installed\x64-windows\include\Wt\WMessageResourceBundle.h(165,52): warning C4251: "Wt::WMessageResourceBundle::messageResources_": "std::vector<std::unique_ptr<Wt::WMessageResources,std::default_delete<Wt::WMessageResources>>,std::allocator<std::unique_ptr<Wt::WMessageResources,std::default_delete<Wt::WMessageResources>>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WMessageResourceBundle"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(471,16):
-   см. объявление "std::unique_ptr<Wt::WSslInfo,std::default_delete<Wt::WSslInfo>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<std::unique_ptr<Wt::WMessageResources,std::default_delete<Wt::WMessageResources>>,std::allocator<std::unique_ptr<Wt::WMessageResources,std::default_delete<Wt::WMessageResources>>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WMessageResourceBundle.h(165,52): warning C4251: Wt::WMessageResourceBundle::messageResources_: class "std::vector<std::unique_ptr<Wt::WMessageResources,std::default_delete<Wt::WMessageResources>>,std::allocator<std::unique_ptr<Wt::WMessageResources,std::default_delete<Wt::WMessageResources>>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WMessageResourceBundle"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(1406,45): warning C4251: "Wt::WApplication::UpdateLock::impl_": "std::unique_ptr<Wt::UpdateLockImpl,std::default_delete<Wt::UpdateLockImpl>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication::UpdateLock"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WMessageResourceBundle.h(165,8):
-   см. объявление "std::vector<std::unique_ptr<Wt::WMessageResources,std::default_delete<Wt::WMessageResources>>,std::allocator<std::unique_ptr<Wt::WMessageResources,std::default_delete<Wt::WMessageResources>>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::UpdateLockImpl,std::default_delete<Wt::UpdateLockImpl>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(1406,45): warning C4251: Wt::WApplication::UpdateLock::impl_: class "std::unique_ptr<Wt::UpdateLockImpl,std::default_delete<Wt::UpdateLockImpl>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication::UpdateLock"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2336,23): warning C4251: "Wt::WApplication::requestTooLarge_": "Wt::Signal<int64_t>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(1406,18):
-   см. объявление "std::unique_ptr<Wt::UpdateLockImpl,std::default_delete<Wt::UpdateLockImpl>>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(230,7):
+       см. объявление "Wt::Signal<int64_t>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2336,23): warning C4251: Wt::WApplication::requestTooLarge_: class "Wt::Signal<int64_t>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2337,12): warning C4251: "Wt::WApplication::unsuspended_": "Wt::Signal<>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(1952,3):
-   см. объявление "Wt::Signal<int64_t>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(230,7):
+       см. объявление "Wt::Signal<>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2337,12): warning C4251: Wt::WApplication::unsuspended_: class "Wt::Signal<>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2379,29): warning C4251: "Wt::WApplication::weakSession_": "std::weak_ptr<Wt::WebSession>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(98,3):
-   см. объявление "Wt::Signal<>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3136,7):
+       см. объявление "std::weak_ptr<Wt::WebSession>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2379,29): warning C4251: Wt::WApplication::weakSession_: class "std::weak_ptr<Wt::WebSession>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2383,37): warning C4251: "Wt::WApplication::domRoot_": "std::unique_ptr<Wt::WContainerWidget,std::default_delete<Wt::WContainerWidget>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2379,8):
-   см. объявление "std::weak_ptr<Wt::WebSession>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WContainerWidget,std::default_delete<Wt::WContainerWidget>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2383,37): warning C4251: Wt::WApplication::domRoot_: class "std::unique_ptr<Wt::WContainerWidget,std::default_delete<Wt::WContainerWidget>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2386,37): warning C4251: "Wt::WApplication::domRoot2_": "std::unique_ptr<Wt::WContainerWidget,std::default_delete<Wt::WContainerWidget>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2383,8):
-   см. объявление "std::unique_ptr<Wt::WContainerWidget,std::default_delete<Wt::WContainerWidget>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WContainerWidget,std::default_delete<Wt::WContainerWidget>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2386,37): warning C4251: Wt::WApplication::domRoot2_: class "std::unique_ptr<Wt::WContainerWidget,std::default_delete<Wt::WContainerWidget>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2388,46): warning C4251: "Wt::WApplication::localizedStrings_": "std::unique_ptr<Wt::WCombinedLocalizedStrings,std::default_delete<Wt::WCombinedLocalizedStrings>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2383,8):
-   см. объявление "std::unique_ptr<Wt::WContainerWidget,std::default_delete<Wt::WContainerWidget>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WCombinedLocalizedStrings,std::default_delete<Wt::WCombinedLocalizedStrings>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2388,46): warning C4251: Wt::WApplication::localizedStrings_: class "std::unique_ptr<Wt::WCombinedLocalizedStrings,std::default_delete<Wt::WCombinedLocalizedStrings>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2390,15): warning C4251: "Wt::WApplication::renderedInternalPath_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2388,8):
-   см. объявление "std::unique_ptr<Wt::WCombinedLocalizedStrings,std::default_delete<Wt::WCombinedLocalizedStrings>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2390,15): warning C4251: Wt::WApplication::renderedInternalPath_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2390,38): warning C4251: "Wt::WApplication::newInternalPath_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2390,38): warning C4251: Wt::WApplication::newInternalPath_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2391,23): warning C4251: "Wt::WApplication::internalPathChanged_": "Wt::Signal<std::string>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(230,7):
+       см. объявление "Wt::Signal<std::string>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2391,23): warning C4251: Wt::WApplication::internalPathChanged_: class "Wt::Signal<std::string>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2391,45): warning C4251: "Wt::WApplication::internalPathInvalid_": "Wt::Signal<std::string>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(1032,3):
-   см. объявление "Wt::Signal<std::string>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(230,7):
+       см. объявление "Wt::Signal<std::string>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2391,45): warning C4251: Wt::WApplication::internalPathInvalid_: class "Wt::Signal<std::string>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2398,15): warning C4251: "Wt::WApplication::javaScriptClass_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(1032,3):
-   см. объявление "Wt::Signal<std::string>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2398,15): warning C4251: Wt::WApplication::javaScriptClass_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2401,30): warning C4251: "Wt::WApplication::onePixelGifR_": "std::unique_ptr<Wt::WResource,std::default_delete<Wt::WResource>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WResource,std::default_delete<Wt::WResource>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2401,30): warning C4251: Wt::WApplication::onePixelGifR_: class "std::unique_ptr<Wt::WResource,std::default_delete<Wt::WResource>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2405,15): warning C4251: "Wt::WApplication::htmlClass_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2401,8):
-   см. объявление "std::unique_ptr<Wt::WResource,std::default_delete<Wt::WResource>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2405,15): warning C4251: Wt::WApplication::htmlClass_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2405,27): warning C4251: "Wt::WApplication::bodyClass_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2405,27): warning C4251: Wt::WApplication::bodyClass_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2410,15): warning C4251: "Wt::WApplication::focusId_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2410,15): warning C4251: Wt::WApplication::focusId_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2413,48): warning C4251: "Wt::WApplication::htmlAttributes_": "std::unordered_map<std::string,std::string,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,std::string>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\unordered_map(61,7):
+       см. объявление "std::unordered_map<std::string,std::string,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,std::string>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2413,48): warning C4251: Wt::WApplication::htmlAttributes_: class "std::unordered_map<std::string,std::string,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,std::string>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2414,48): warning C4251: "Wt::WApplication::bodyAttributes_": "std::unordered_map<std::string,std::string,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,std::string>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2413,8):
-   см. объявление "std::unordered_map<std::string,std::string,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,std::string>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\unordered_map(61,7):
+       см. объявление "std::unordered_map<std::string,std::string,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,std::string>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2414,48): warning C4251: Wt::WApplication::bodyAttributes_: class "std::unordered_map<std::string,std::string,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,std::string>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2417,30): warning C4251: "Wt::WApplication::scriptLibraries_": "std::vector<Wt::WApplication::ScriptLibrary,std::allocator<Wt::WApplication::ScriptLibrary>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2413,8):
-   см. объявление "std::unordered_map<std::string,std::string,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,std::string>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::WApplication::ScriptLibrary,std::allocator<Wt::WApplication::ScriptLibrary>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2417,30): warning C4251: Wt::WApplication::scriptLibraries_: class "std::vector<Wt::WApplication::ScriptLibrary,std::allocator<Wt::WApplication::ScriptLibrary>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2420,27): warning C4251: "Wt::WApplication::theme_": "std::shared_ptr<Wt::WTheme>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2417,8):
-   см. объявление "std::vector<Wt::WApplication::ScriptLibrary,std::allocator<Wt::WApplication::ScriptLibrary>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(1565,7):
+       см. объявление "std::shared_ptr<Wt::WTheme>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2420,27): warning C4251: Wt::WApplication::theme_: class "std::shared_ptr<Wt::WTheme>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2421,37): warning C4251: "Wt::WApplication::styleSheets_": "std::vector<Wt::WLinkedCssStyleSheet,std::allocator<Wt::WLinkedCssStyleSheet>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(393,28):
-   см. объявление "std::shared_ptr<Wt::WTheme>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::WLinkedCssStyleSheet,std::allocator<Wt::WLinkedCssStyleSheet>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2421,37): warning C4251: Wt::WApplication::styleSheets_: class "std::vector<Wt::WLinkedCssStyleSheet,std::allocator<Wt::WLinkedCssStyleSheet>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2422,37): warning C4251: "Wt::WApplication::styleSheetsToRemove_": "std::vector<Wt::WLinkedCssStyleSheet,std::allocator<Wt::WLinkedCssStyleSheet>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2421,8):
-   см. объявление "std::vector<Wt::WLinkedCssStyleSheet,std::allocator<Wt::WLinkedCssStyleSheet>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::WLinkedCssStyleSheet,std::allocator<Wt::WLinkedCssStyleSheet>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2422,37): warning C4251: Wt::WApplication::styleSheetsToRemove_: class "std::vector<Wt::WLinkedCssStyleSheet,std::allocator<Wt::WLinkedCssStyleSheet>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2426,27): warning C4251: "Wt::WApplication::metaHeaders_": "std::vector<Wt::MetaHeader,std::allocator<Wt::MetaHeader>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2421,8):
-   см. объявление "std::vector<Wt::WLinkedCssStyleSheet,std::allocator<Wt::WLinkedCssStyleSheet>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::MetaHeader,std::allocator<Wt::MetaHeader>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2426,27): warning C4251: Wt::WApplication::metaHeaders_: class "std::vector<Wt::MetaHeader,std::allocator<Wt::MetaHeader>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2427,25): warning C4251: "Wt::WApplication::metaLinks_": "std::vector<Wt::WApplication::MetaLink,std::allocator<Wt::WApplication::MetaLink>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2426,8):
-   см. объявление "std::vector<Wt::MetaHeader,std::allocator<Wt::MetaHeader>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::WApplication::MetaLink,std::allocator<Wt::WApplication::MetaLink>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2427,25): warning C4251: Wt::WApplication::metaLinks_: class "std::vector<Wt::WApplication::MetaLink,std::allocator<Wt::WApplication::MetaLink>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2429,13): warning C4251: "Wt::WApplication::exposedSignals_": "std::map<std::string,Wt::EventSignalBase *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::EventSignalBase *>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2427,8):
-   см. объявление "std::vector<Wt::WApplication::MetaLink,std::allocator<Wt::WApplication::MetaLink>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\map(72,7):
+       см. объявление "std::map<std::string,Wt::EventSignalBase *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::EventSignalBase *>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2429,13): warning C4251: Wt::WApplication::exposedSignals_: class "std::map<std::string,Wt::EventSignalBase *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::EventSignalBase *>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2430,15): warning C4251: "Wt::WApplication::exposedResources_": "std::map<std::string,Wt::WResource *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::WResource *>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2366,16):
-   см. объявление "std::map<std::string,Wt::EventSignalBase *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::EventSignalBase *>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\map(72,7):
+       см. объявление "std::map<std::string,Wt::WResource *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::WResource *>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2430,15): warning C4251: Wt::WApplication::exposedResources_: class "std::map<std::string,Wt::WResource *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::WResource *>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2432,45): warning C4251: "Wt::WApplication::exposedWebSocketResources_": "std::map<Wt::WResource *,Wt::WWebSocketResource *,std::less<Wt::WResource *>,std::allocator<std::pair<Wt::WResource *const ,Wt::WWebSocketResource *>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2367,16):
-   см. объявление "std::map<std::string,Wt::WResource *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::WResource *>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\map(72,7):
+       см. объявление "std::map<Wt::WResource *,Wt::WWebSocketResource *,std::less<Wt::WResource *>,std::allocator<std::pair<Wt::WResource *const ,Wt::WWebSocketResource *>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2432,45): warning C4251: Wt::WApplication::exposedWebSocketResources_: class "std::map<Wt::WResource *,Wt::WWebSocketResource *,std::less<Wt::WResource *>,std::allocator<std::pair<Wt::WResource *const ,Wt::WWebSocketResource *>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2434,13): warning C4251: "Wt::WApplication::encodedObjects_": "std::map<std::string,Wt::WObject *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::WObject *>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2432,8):
-   см. объявление "std::map<Wt::WResource *,Wt::WWebSocketResource *,std::less<Wt::WResource *>,std::allocator<std::pair<Wt::WResource *const ,Wt::WWebSocketResource *>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\map(72,7):
+       см. объявление "std::map<std::string,Wt::WObject *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::WObject *>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2434,13): warning C4251: Wt::WApplication::encodedObjects_: class "std::map<std::string,Wt::WObject *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::WObject *>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2436,25): warning C4251: "Wt::WApplication::justRemovedSignals_": "std::set<std::string,std::less<std::string>,std::allocator<std::string>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(304,16):
-   см. объявление "std::map<std::string,Wt::WObject *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::WObject *>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\set(51,7):
+       см. объявление "std::set<std::string,std::less<std::string>,std::allocator<std::string>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2436,25): warning C4251: Wt::WApplication::justRemovedSignals_: class "std::set<std::string,std::less<std::string>,std::allocator<std::string>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2440,15): warning C4251: "Wt::WApplication::afterLoadJavaScript_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WCssStyleSheet.h(298,8):
-   см. объявление "std::set<std::string,std::less<std::string>,std::allocator<std::string>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2440,15): warning C4251: Wt::WApplication::afterLoadJavaScript_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2440,37): warning C4251: "Wt::WApplication::beforeLoadJavaScript_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2440,37): warning C4251: Wt::WApplication::beforeLoadJavaScript_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2442,15): warning C4251: "Wt::WApplication::autoJavaScript_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2442,15): warning C4251: Wt::WApplication::autoJavaScript_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2446,36): warning C4251: "Wt::WApplication::javaScriptPreamble_": "std::vector<Wt::WJavaScriptPreamble,std::allocator<Wt::WJavaScriptPreamble>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::WJavaScriptPreamble,std::allocator<Wt::WJavaScriptPreamble>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2446,36): warning C4251: Wt::WApplication::javaScriptPreamble_: class "std::vector<Wt::WJavaScriptPreamble,std::allocator<Wt::WJavaScriptPreamble>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2451,26): warning C4251: "Wt::WApplication::javaScriptLoaded_": "std::set<const char *,std::less<const char *>,std::allocator<const char *>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2446,8):
-   см. объявление "std::vector<Wt::WJavaScriptPreamble,std::allocator<Wt::WJavaScriptPreamble>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\set(51,7):
+       см. объявление "std::set<const char *,std::less<const char *>,std::allocator<const char *>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2451,26): warning C4251: Wt::WApplication::javaScriptLoaded_: class "std::set<const char *,std::less<const char *>,std::allocator<const char *>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2454,17): warning C4251: "Wt::WApplication::showLoadingIndicator_": "Wt::EventSignal<Wt::NoClass>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2451,8):
-   см. объявление "std::set<const char *,std::less<const char *>,std::allocator<const char *>>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(557,7):
+       см. объявление "Wt::EventSignal<Wt::NoClass>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2454,17): warning C4251: Wt::WApplication::showLoadingIndicator_: class "Wt::EventSignal<Wt::NoClass>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2454,40): warning C4251: "Wt::WApplication::hideLoadingIndicator_": "Wt::EventSignal<Wt::NoClass>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(276,3):
-   см. объявление "Wt::EventSignal<Wt::NoClass>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(557,7):
+       см. объявление "Wt::EventSignal<Wt::NoClass>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2454,40): warning C4251: Wt::WApplication::hideLoadingIndicator_: class "Wt::EventSignal<Wt::NoClass>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2455,13): warning C4251: "Wt::WApplication::unloaded_": "Wt::JSignal<>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(276,3):
-   см. объявление "Wt::EventSignal<Wt::NoClass>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WJavaScript.h(115,7):
+       см. объявление "Wt::JSignal<>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2455,13): warning C4251: Wt::WApplication::unloaded_: class "Wt::JSignal<>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2456,13): warning C4251: "Wt::WApplication::idleTimeout_": "Wt::JSignal<>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(471,5):
-   см. объявление "Wt::JSignal<>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WJavaScript.h(115,7):
+       см. объявление "Wt::JSignal<>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2456,13): warning C4251: Wt::WApplication::idleTimeout_: class "Wt::JSignal<>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2460,27): warning C4251: "Wt::WApplication::addedCookies_": "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWebWidget.h(471,5):
-   см. объявление "Wt::JSignal<>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\map(72,7):
+       см. объявление "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2460,27): warning C4251: Wt::WApplication::addedCookies_: class "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2544,42): warning C4251: "Wt::WApplication::serverSideFontMetrics_": "std::unique_ptr<Wt::ServerSideFontMetrics,std::default_delete<Wt::ServerSideFontMetrics>>" должен иметь dll-интерфейс для использования клиентами "Wt::WApplication"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\Http\Request.h(195,16):
-   см. объявление "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::ServerSideFontMetrics,std::default_delete<Wt::ServerSideFontMetrics>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2544,42): warning C4251: Wt::WApplication::serverSideFontMetrics_: class "std::unique_ptr<Wt::ServerSideFontMetrics,std::default_delete<Wt::ServerSideFontMetrics>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WApplication"
+C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(362,28): warning C4251: "Wt::WInteractWidget::noDefault": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WInteractWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WApplication.h(2544,8):
-   см. объявление "std::unique_ptr<Wt::ServerSideFontMetrics,std::default_delete<Wt::ServerSideFontMetrics>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(362,28): warning C4251: Wt::WInteractWidget::noDefault: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WInteractWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(371,26): warning C4251: "Wt::WInteractWidget::dragSlot_": "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами "Wt::WInteractWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(371,26): warning C4251: Wt::WInteractWidget::dragSlot_: class "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WInteractWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(372,26): warning C4251: "Wt::WInteractWidget::dragTouchSlot_": "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами "Wt::WInteractWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(371,8):
-   см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(372,26): warning C4251: Wt::WInteractWidget::dragTouchSlot_: class "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WInteractWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(373,26): warning C4251: "Wt::WInteractWidget::dragTouchEndSlot_": "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами "Wt::WInteractWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(371,8):
-   см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(373,26): warning C4251: Wt::WInteractWidget::dragTouchEndSlot_: class "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WInteractWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(540,18): warning C4251: "Wt::WContainerWidget::flags_": "std::bitset<8>" должен иметь dll-интерфейс для использования клиентами "Wt::WContainerWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(371,8):
-   см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<8>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(540,18): warning C4251: Wt::WContainerWidget::flags_: class "std::bitset<8>" должен иметь dll-интерфейс для использования клиентами class "Wt::WContainerWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(541,25): warning C4251: "Wt::WContainerWidget::contentAlignment_": "Wt::WFlags<Wt::AlignmentFlag>" должен иметь dll-интерфейс для использования клиентами "Wt::WContainerWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(1391,8):
-   см. объявление "std::bitset<8>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WFlags.h(30,7):
+       см. объявление "Wt::WFlags<Wt::AlignmentFlag>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(541,25): warning C4251: Wt::WContainerWidget::contentAlignment_: class "Wt::WFlags<Wt::AlignmentFlag>" должен иметь dll-интерфейс для использования клиентами class "Wt::WContainerWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(544,26): warning C4251: "Wt::WContainerWidget::children_": "std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>" должен иметь dll-интерфейс для использования клиентами "Wt::WContainerWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WGlobal.h(517,1):
-   см. объявление "Wt::WFlags<Wt::AlignmentFlag>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(544,26): warning C4251: Wt::WContainerWidget::children_: class "std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WContainerWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(545,28): warning C4251: "Wt::WContainerWidget::layout_": "std::unique_ptr<Wt::WLayout,std::default_delete<Wt::WLayout>>" должен иметь dll-интерфейс для использования клиентами "Wt::WContainerWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(84,16):
-   см. объявление "std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WLayout,std::default_delete<Wt::WLayout>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(545,28): warning C4251: Wt::WContainerWidget::layout_: class "std::unique_ptr<Wt::WLayout,std::default_delete<Wt::WLayout>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WContainerWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(547,44): warning C4251: "Wt::WContainerWidget::addedChildren_": "std::unique_ptr<std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>,std::default_delete<std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>>>" должен иметь dll-интерфейс для использования клиентами "Wt::WContainerWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(157,23):
-   см. объявление "std::unique_ptr<Wt::WLayout,std::default_delete<Wt::WLayout>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>,std::default_delete<std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(547,44): warning C4251: Wt::WContainerWidget::addedChildren_: class "std::unique_ptr<std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>,std::default_delete<std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WContainerWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WLayout.h(220,32): warning C4251: "Wt::WLayout::impl_": "std::unique_ptr<Wt::WLayoutImpl,std::default_delete<Wt::WLayoutImpl>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLayout"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WContainerWidget.h(547,8):
-   см. объявление "std::unique_ptr<std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>,std::default_delete<std::vector<Wt::WWidget *,std::allocator<Wt::WWidget *>>>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WLayoutImpl,std::default_delete<Wt::WLayoutImpl>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLayout.h(220,32): warning C4251: Wt::WLayout::impl_: class "std::unique_ptr<Wt::WLayoutImpl,std::default_delete<Wt::WLayoutImpl>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLayout"
+C:\vcpkg\installed\x64-windows\include\Wt\WGridLayout.h(462,14): warning C4251: "Wt::WGridLayout::grid_": "Wt::Impl::Grid" должен иметь dll-интерфейс для использования клиентами "Wt::WGridLayout"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WLayout.h(210,21):
-   см. объявление "std::unique_ptr<Wt::WLayoutImpl,std::default_delete<Wt::WLayoutImpl>>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WGridLayout.h(19,8):
+       см. объявление "Wt::Impl::Grid"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WGridLayout.h(462,14): warning C4251: Wt::WGridLayout::grid_: struct "Wt::Impl::Grid" должен иметь dll-интерфейс для использования клиентами class "Wt::WGridLayout"
+C:\vcpkg\installed\x64-windows\include\Wt\WBoxLayout.h(396,14): warning C4251: "Wt::WBoxLayout::grid_": "Wt::Impl::Grid" должен иметь dll-интерфейс для использования клиентами "Wt::WBoxLayout"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WGridLayout.h(19,8):
-   см. объявление "Wt::Impl::Grid"
+      C:\vcpkg\installed\x64-windows\include\Wt\WGridLayout.h(19,8):
+       см. объявление "Wt::Impl::Grid"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WBoxLayout.h(396,14): warning C4251: Wt::WBoxLayout::grid_: struct "Wt::Impl::Grid" должен иметь dll-интерфейс для использования клиентами class "Wt::WBoxLayout"
+C:\vcpkg\installed\x64-windows\include\Wt\WValidator.h(198,30): warning C4251: "Wt::WValidator::formWidgets_": "std::vector<Wt::WFormWidget *,std::allocator<Wt::WFormWidget *>>" должен иметь dll-интерфейс для использования клиентами "Wt::WValidator"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WGridLayout.h(19,8):
-   см. объявление "Wt::Impl::Grid"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::WFormWidget *,std::allocator<Wt::WFormWidget *>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WValidator.h(198,30): warning C4251: Wt::WValidator::formWidgets_: class "std::vector<Wt::WFormWidget *,std::allocator<Wt::WFormWidget *>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WValidator"
+C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(156,31): warning C4251: "Wt::WFormWidget::validator_": "std::shared_ptr<Wt::WValidator>" должен иметь dll-интерфейс для использования клиентами "Wt::WFormWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WValidator.h(198,8):
-   см. объявление "std::vector<Wt::WFormWidget *,std::allocator<Wt::WFormWidget *>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(1565,7):
+       см. объявление "std::shared_ptr<Wt::WValidator>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(156,31): warning C4251: Wt::WFormWidget::validator_: class "std::shared_ptr<Wt::WValidator>" должен иметь dll-интерфейс для использования клиентами class "Wt::WFormWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(157,26): warning C4251: "Wt::WFormWidget::validateJs_": "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами "Wt::WFormWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(82,32):
-   см. объявление "std::shared_ptr<Wt::WValidator>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(157,26): warning C4251: Wt::WFormWidget::validateJs_: class "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WFormWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(157,39): warning C4251: "Wt::WFormWidget::filterInput_": "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами "Wt::WFormWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(371,8):
-   см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(157,39): warning C4251: Wt::WFormWidget::filterInput_: class "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WFormWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(157,53): warning C4251: "Wt::WFormWidget::removeEmptyText_": "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами "Wt::WFormWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(371,8):
-   см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(157,53): warning C4251: Wt::WFormWidget::removeEmptyText_: class "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WFormWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(188,18): warning C4251: "Wt::WFormWidget::flags_": "std::bitset<6>" должен иметь dll-интерфейс для использования клиентами "Wt::WFormWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(371,8):
-   см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<6>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(188,18): warning C4251: Wt::WFormWidget::flags_: class "std::bitset<6>" должен иметь dll-интерфейс для использования клиентами class "Wt::WFormWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(189,30): warning C4251: "Wt::WFormWidget::validated_": "Wt::Signal<Wt::WValidator::Result>" должен иметь dll-интерфейс для использования клиентами "Wt::WFormWidget"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(188,8):
-   см. объявление "std::bitset<6>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(230,7):
+       см. объявление "Wt::Signal<Wt::WValidator::Result>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(189,30): warning C4251: Wt::WFormWidget::validated_: class "Wt::Signal<Wt::WValidator::Result>" должен иметь dll-интерфейс для использования клиентами class "Wt::WFormWidget"
+C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(245,39): warning C4251: "Wt::WComboBox::model_": "std::shared_ptr<Wt::WAbstractItemModel>" должен иметь dll-интерфейс для использования клиентами "Wt::WComboBox"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WFormWidget.h(143,3):
-   см. объявление "Wt::Signal<Wt::WValidator::Result>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(1565,7):
+       см. объявление "std::shared_ptr<Wt::WAbstractItemModel>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(245,39): warning C4251: Wt::WComboBox::model_: class "std::shared_ptr<Wt::WAbstractItemModel>" должен иметь dll-интерфейс для использования клиентами class "Wt::WComboBox"
+C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(255,40): warning C4251: "Wt::WComboBox::modelConnections_": "std::vector<Wt::Signals::connection,std::allocator<Wt::Signals::connection>>" должен иметь dll-интерфейс для использования клиентами "Wt::WComboBox"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(150,28):
-   см. объявление "std::shared_ptr<Wt::WAbstractItemModel>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(442,7):
+       см. объявление "std::vector<Wt::Signals::connection,std::allocator<Wt::Signals::connection>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(255,40): warning C4251: Wt::WComboBox::modelConnections_: class "std::vector<Wt::Signals::connection,std::allocator<Wt::Signals::connection>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WComboBox"
+C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(257,15): warning C4251: "Wt::WComboBox::activated_": "Wt::Signal<int>" должен иметь dll-интерфейс для использования клиентами "Wt::WComboBox"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(255,8):
-   см. объявление "std::vector<Wt::Signals::connection,std::allocator<Wt::Signals::connection>>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(230,7):
+       см. объявление "Wt::Signal<int>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(257,15): warning C4251: Wt::WComboBox::activated_: class "Wt::Signal<int>" должен иметь dll-интерфейс для использования клиентами class "Wt::WComboBox"
+C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(258,19): warning C4251: "Wt::WComboBox::sactivated_": "Wt::Signal<Wt::WString>" должен иметь dll-интерфейс для использования клиентами "Wt::WComboBox"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(216,3):
-   см. объявление "Wt::Signal<int>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(230,7):
+       см. объявление "Wt::Signal<Wt::WString>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(258,19): warning C4251: Wt::WComboBox::sactivated_: class "Wt::Signal<Wt::WString>" должен иметь dll-интерфейс для использования клиентами class "Wt::WComboBox"
+C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(65,41): warning C4251: "Wt::WSlider::NoTicks": "Wt::WFlags<Wt::WSlider::TickPosition>" должен иметь dll-интерфейс для использования клиентами "Wt::WSlider"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(224,3):
-   см. объявление "Wt::Signal<Wt::WString>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WFlags.h(30,7):
+       см. объявление "Wt::WFlags<Wt::WSlider::TickPosition>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(65,41): warning C4251: Wt::WSlider::NoTicks: class "Wt::WFlags<Wt::WSlider::TickPosition>" должен иметь dll-интерфейс для использования клиентами class "Wt::WSlider"
+C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(68,41): warning C4251: "Wt::WSlider::TicksBothSides": "Wt::WFlags<Wt::WSlider::TickPosition>" должен иметь dll-интерфейс для использования клиентами "Wt::WSlider"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(65,20):
-   см. объявление "Wt::WFlags<Wt::WSlider::TickPosition>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WFlags.h(30,7):
+       см. объявление "Wt::WFlags<Wt::WSlider::TickPosition>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(68,41): warning C4251: Wt::WSlider::TicksBothSides: class "Wt::WFlags<Wt::WSlider::TickPosition>" должен иметь dll-интерфейс для использования клиентами class "Wt::WSlider"
+C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(332,24): warning C4251: "Wt::WSlider::tickPosition_": "Wt::WFlags<Wt::WSlider::TickPosition>" должен иметь dll-интерфейс для использования клиентами "Wt::WSlider"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(65,20):
-   см. объявление "Wt::WFlags<Wt::WSlider::TickPosition>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WFlags.h(30,7):
+       см. объявление "Wt::WFlags<Wt::WSlider::TickPosition>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(332,24): warning C4251: Wt::WSlider::tickPosition_: class "Wt::WFlags<Wt::WSlider::TickPosition>" должен иметь dll-интерфейс для использования клиентами class "Wt::WSlider"
+C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(341,24): warning C4251: "Wt::WSlider::valueChanged_": "Wt::Signal<int>" должен иметь dll-интерфейс для использования клиентами "Wt::WSlider"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(65,20):
-   см. объявление "Wt::WFlags<Wt::WSlider::TickPosition>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WSignal.h(230,7):
+       см. объявление "Wt::Signal<int>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(341,24): warning C4251: Wt::WSlider::valueChanged_: class "Wt::Signal<int>" должен иметь dll-интерфейс для использования клиентами class "Wt::WSlider"
+C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(342,24): warning C4251: "Wt::WSlider::sliderMoved_": "Wt::JSignal<int>" должен иметь dll-интерфейс для использования клиентами "Wt::WSlider"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WComboBox.h(216,3):
-   см. объявление "Wt::Signal<int>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WJavaScript.h(115,7):
+       см. объявление "Wt::JSignal<int>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(342,24): warning C4251: Wt::WSlider::sliderMoved_: class "Wt::JSignal<int>" должен иметь dll-интерфейс для использования клиентами class "Wt::WSlider"
+C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(344,34): warning C4251: "Wt::WSlider::paintedSlider_": "std::unique_ptr<Wt::PaintedSlider,std::default_delete<Wt::PaintedSlider>>" должен иметь dll-интерфейс для использования клиентами "Wt::WSlider"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(269,3):
-   см. объявление "Wt::JSignal<int>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::PaintedSlider,std::default_delete<Wt::PaintedSlider>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(344,34): warning C4251: Wt::WSlider::paintedSlider_: class "std::unique_ptr<Wt::PaintedSlider,std::default_delete<Wt::PaintedSlider>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WSlider"
+C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(345,29): warning C4251: "Wt::WSlider::tickList_": "std::unique_ptr<Wt::TickList,std::default_delete<Wt::TickList>>" должен иметь dll-интерфейс для использования клиентами "Wt::WSlider"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(344,8):
-   см. объявление "std::unique_ptr<Wt::PaintedSlider,std::default_delete<Wt::PaintedSlider>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::TickList,std::default_delete<Wt::TickList>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(345,29): warning C4251: Wt::WSlider::tickList_: class "std::unique_ptr<Wt::TickList,std::default_delete<Wt::TickList>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WSlider"
+C:\vcpkg\installed\x64-windows\include\Wt\WText.h(284,12): warning C4251: "Wt::WText::text_": "Wt::WText::RichText" должен иметь dll-интерфейс для использования клиентами "Wt::WText"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WSlider.h(345,8):
-   см. объявление "std::unique_ptr<Wt::TickList,std::default_delete<Wt::TickList>>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WText.h(272,10):
+       см. объявление "Wt::WText::RichText"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WText.h(284,12): warning C4251: Wt::WText::text_: struct "Wt::WText::RichText" должен иметь dll-интерфейс для использования клиентами class "Wt::WText"
+C:\vcpkg\installed\x64-windows\include\Wt\WText.h(296,18): warning C4251: "Wt::WText::flags_": "std::bitset<9>" должен иметь dll-интерфейс для использования клиентами "Wt::WText"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WText.h(272,10):
-   см. объявление "Wt::WText::RichText"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<9>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WText.h(296,18): warning C4251: Wt::WText::flags_: class "std::bitset<9>" должен иметь dll-интерфейс для использования клиентами class "Wt::WText"
+C:\vcpkg\installed\x64-windows\include\Wt\WAbstractToggleButton.h(193,19): warning C4251: "Wt::WAbstractToggleButton::text_": "Wt::WText::RichText" должен иметь dll-интерфейс для использования клиентами "Wt::WAbstractToggleButton"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WText.h(296,8):
-   см. объявление "std::bitset<9>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WText.h(272,10):
+       см. объявление "Wt::WText::RichText"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WAbstractToggleButton.h(193,19): warning C4251: Wt::WAbstractToggleButton::text_: struct "Wt::WText::RichText" должен иметь dll-интерфейс для использования клиентами class "Wt::WAbstractToggleButton"
+C:\vcpkg\installed\x64-windows\include\Wt\WAbstractToggleButton.h(201,18): warning C4251: "Wt::WAbstractToggleButton::flags_": "std::bitset<5>" должен иметь dll-интерфейс для использования клиентами "Wt::WAbstractToggleButton"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WText.h(272,10):
-   см. объявление "Wt::WText::RichText"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<5>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WAbstractToggleButton.h(201,18): warning C4251: Wt::WAbstractToggleButton::flags_: class "std::bitset<5>" должен иметь dll-интерфейс для использования клиентами class "Wt::WAbstractToggleButton"
+C:\vcpkg\installed\x64-windows\include\Wt\WCheckBox.h(139,26): warning C4251: "Wt::WCheckBox::jslot_": "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами "Wt::WCheckBox"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WAbstractToggleButton.h(201,8):
-   см. объявление "std::bitset<5>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WCheckBox.h(139,26): warning C4251: Wt::WCheckBox::jslot_: class "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WCheckBox"
+C:\vcpkg\installed\x64-windows\include\Wt\WLabel.h(149,30): warning C4251: "Wt::WLabel::buddy_": "Wt::Core::observing_ptr<Wt::WFormWidget>" должен иметь dll-интерфейс для использования клиентами "Wt::WLabel"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WInteractWidget.h(371,8):
-   см. объявление "std::unique_ptr<Wt::JSlot,std::default_delete<Wt::JSlot>>"
+      C:\vcpkg\installed\x64-windows\include\Wt\Core\observing_ptr.hpp(43,7):
+       см. объявление "Wt::Core::observing_ptr<Wt::WFormWidget>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLabel.h(149,30): warning C4251: Wt::WLabel::buddy_: class "Wt::Core::observing_ptr<Wt::WFormWidget>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLabel"
+C:\vcpkg\installed\x64-windows\include\Wt\WLabel.h(150,26): warning C4251: "Wt::WLabel::text_": "std::unique_ptr<Wt::WText,std::default_delete<Wt::WText>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLabel"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WLabel.h(149,3):
-   см. объявление "Wt::Core::observing_ptr<Wt::WFormWidget>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WText,std::default_delete<Wt::WText>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLabel.h(150,26): warning C4251: Wt::WLabel::text_: class "std::unique_ptr<Wt::WText,std::default_delete<Wt::WText>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLabel"
+C:\vcpkg\installed\x64-windows\include\Wt\WLabel.h(151,27): warning C4251: "Wt::WLabel::image_": "std::unique_ptr<Wt::WImage,std::default_delete<Wt::WImage>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLabel"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WLabel.h(150,8):
-   см. объявление "std::unique_ptr<Wt::WText,std::default_delete<Wt::WText>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WImage,std::default_delete<Wt::WImage>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WLabel.h(151,27): warning C4251: Wt::WLabel::image_: class "std::unique_ptr<Wt::WImage,std::default_delete<Wt::WImage>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WLabel"
+C:\vcpkg\installed\x64-windows\include\Wt\WImage.h(227,36): warning C4251: "Wt::WImage::map_": "std::unique_ptr<Wt::Impl::MapWidget,std::default_delete<Wt::Impl::MapWidget>>" должен иметь dll-интерфейс для использования клиентами "Wt::WImage"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WLabel.h(69,15):
-   см. объявление "std::unique_ptr<Wt::WImage,std::default_delete<Wt::WImage>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::Impl::MapWidget,std::default_delete<Wt::Impl::MapWidget>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WImage.h(227,36): warning C4251: Wt::WImage::map_: class "std::unique_ptr<Wt::Impl::MapWidget,std::default_delete<Wt::Impl::MapWidget>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WImage"
+C:\vcpkg\installed\x64-windows\include\Wt\WImage.h(228,18): warning C4251: "Wt::WImage::flags_": "std::bitset<3>" должен иметь dll-интерфейс для использования клиентами "Wt::WImage"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WImage.h(227,8):
-   см. объявление "std::unique_ptr<Wt::Impl::MapWidget,std::default_delete<Wt::Impl::MapWidget>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<3>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WImage.h(228,18): warning C4251: Wt::WImage::flags_: class "std::bitset<3>" должен иметь dll-интерфейс для использования клиентами class "Wt::WImage"
+C:\vcpkg\installed\x64-windows\include\Wt\WImage.h(229,15): warning C4251: "Wt::WImage::targetJS_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WImage"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WImage.h(228,8):
-   см. объявление "std::bitset<3>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WImage.h(229,15): warning C4251: Wt::WImage::targetJS_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WImage"
+C:\vcpkg\installed\x64-windows\include\Wt\WAnchor.h(208,24): warning C4251: "Wt::WAnchor::text_": "Wt::Core::observing_ptr<Wt::WText>" должен иметь dll-интерфейс для использования клиентами "Wt::WAnchor"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
-   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+      C:\vcpkg\installed\x64-windows\include\Wt\Core\observing_ptr.hpp(43,7):
+       см. объявление "Wt::Core::observing_ptr<Wt::WText>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WAnchor.h(208,24): warning C4251: Wt::WAnchor::text_: class "Wt::Core::observing_ptr<Wt::WText>" должен иметь dll-интерфейс для использования клиентами class "Wt::WAnchor"
+C:\vcpkg\installed\x64-windows\include\Wt\WAnchor.h(209,25): warning C4251: "Wt::WAnchor::image_": "Wt::Core::observing_ptr<Wt::WImage>" должен иметь dll-интерфейс для использования клиентами "Wt::WAnchor"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WAnchor.h(208,3):
-   см. объявление "Wt::Core::observing_ptr<Wt::WText>"
+      C:\vcpkg\installed\x64-windows\include\Wt\Core\observing_ptr.hpp(43,7):
+       см. объявление "Wt::Core::observing_ptr<Wt::WImage>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WAnchor.h(209,25): warning C4251: Wt::WAnchor::image_: class "Wt::Core::observing_ptr<Wt::WImage>" должен иметь dll-интерфейс для использования клиентами class "Wt::WAnchor"
+C:\vcpkg\installed\x64-windows\include\Wt\WAnchor.h(210,18): warning C4251: "Wt::WAnchor::flags_": "std::bitset<2>" должен иметь dll-интерфейс для использования клиентами "Wt::WAnchor"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WAnchor.h(209,3):
-   см. объявление "Wt::Core::observing_ptr<Wt::WImage>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<2>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WAnchor.h(210,18): warning C4251: Wt::WAnchor::flags_: class "std::bitset<2>" должен иметь dll-интерфейс для использования клиентами class "Wt::WAnchor"
+C:\vcpkg\installed\x64-windows\include\Wt\WPushButton.h(275,19): warning C4251: "Wt::WPushButton::text_": "Wt::WText::RichText" должен иметь dll-интерфейс для использования клиентами "Wt::WPushButton"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WAnchor.h(210,8):
-   см. объявление "std::bitset<2>"
+      C:\vcpkg\installed\x64-windows\include\Wt\WText.h(272,10):
+       см. объявление "Wt::WText::RichText"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WPushButton.h(275,19): warning C4251: Wt::WPushButton::text_: struct "Wt::WText::RichText" должен иметь dll-интерфейс для использования клиентами class "Wt::WPushButton"
+C:\vcpkg\installed\x64-windows\include\Wt\WPushButton.h(278,18): warning C4251: "Wt::WPushButton::flags_": "std::bitset<8>" должен иметь dll-интерфейс для использования клиентами "Wt::WPushButton"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WText.h(272,10):
-   см. объявление "Wt::WText::RichText"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<8>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WPushButton.h(278,18): warning C4251: Wt::WPushButton::flags_: class "std::bitset<8>" должен иметь dll-интерфейс для использования клиентами class "Wt::WPushButton"
+C:\vcpkg\installed\x64-windows\include\Wt\WPushButton.h(279,31): warning C4251: "Wt::WPushButton::popupMenu_": "std::unique_ptr<Wt::WPopupMenu,std::default_delete<Wt::WPopupMenu>>" должен иметь dll-интерфейс для использования клиентами "Wt::WPushButton"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WWidget.h(1391,8):
-   см. объявление "std::bitset<8>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(3347,7):
+       см. объявление "std::unique_ptr<Wt::WPopupMenu,std::default_delete<Wt::WPopupMenu>>"
   
-C:\vcpkg\installed\x64-windows\include\Wt\WPushButton.h(279,31): warning C4251: Wt::WPushButton::popupMenu_: class "std::unique_ptr<Wt::WPopupMenu,std::default_delete<Wt::WPopupMenu>>" должен иметь dll-интерфейс для использования клиентами class "Wt::WPushButton"
+C:\vcpkg\installed\x64-windows\include\Wt\WLineEdit.h(329,18): warning C4251: "Wt::WLineEdit::flags_": "std::bitset<5>" должен иметь dll-интерфейс для использования клиентами "Wt::WLineEdit"
   (компиляция исходного файла "src/LedApp.cpp")
-  C:\vcpkg\installed\x64-windows\include\Wt\WPushButton.h(227,21):
-   см. объявление "std::unique_ptr<Wt::WPopupMenu,std::default_delete<Wt::WPopupMenu>>"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\bitset(72,7):
+       см. объявление "std::bitset<5>"
   
+C:\vcpkg\installed\x64-windows\include\Wt\WLineEdit.h(331,28): warning C4251: "Wt::WLineEdit::SKIPPABLE_MASK_CHARS": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLineEdit"
+  (компиляция исходного файла "src/LedApp.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\vcpkg\installed\x64-windows\include\Wt\WLineEdit.h(334,16): warning C4251: "Wt::WLineEdit::mask_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLineEdit"
+  (компиляция исходного файла "src/LedApp.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\vcpkg\installed\x64-windows\include\Wt\WLineEdit.h(336,18): warning C4251: "Wt::WLineEdit::inputMask_": "std::basic_string<char32_t,std::char_traits<char32_t>,std::allocator<char32_t>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLineEdit"
+  (компиляция исходного файла "src/LedApp.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char32_t,std::char_traits<char32_t>,std::allocator<char32_t>>"
+  
+C:\vcpkg\installed\x64-windows\include\Wt\WLineEdit.h(337,18): warning C4251: "Wt::WLineEdit::raw_": "std::basic_string<char32_t,std::char_traits<char32_t>,std::allocator<char32_t>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLineEdit"
+  (компиляция исходного файла "src/LedApp.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char32_t,std::char_traits<char32_t>,std::allocator<char32_t>>"
+  
+C:\vcpkg\installed\x64-windows\include\Wt\WLineEdit.h(344,25): warning C4251: "Wt::WLineEdit::inputMaskFlags_": "Wt::WFlags<Wt::InputMaskFlag>" должен иметь dll-интерфейс для использования клиентами "Wt::WLineEdit"
+  (компиляция исходного файла "src/LedApp.cpp")
+      C:\vcpkg\installed\x64-windows\include\Wt\WFlags.h(30,7):
+       см. объявление "Wt::WFlags<Wt::InputMaskFlag>"
+  
+C:\vcpkg\installed\x64-windows\include\Wt\WLineEdit.h(345,16): warning C4251: "Wt::WLineEdit::case_": "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами "Wt::WLineEdit"
+  (компиляция исходного файла "src/LedApp.cpp")
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
+       см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\DoctorProf\Soft\LightControl\Web\Web\src\LedApp.cpp(94,64): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\DoctorProf\Soft\LightControl\Web\Web\src\LedApp.cpp(181,17): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
   Web.vcxproj -> C:\DoctorProf\Soft\LightControl\Web\x64\Debug\Web.exe
   "pwsh.exe" не является внутренней или внешней
   командой, исполняемой программой или пакетным файлом.

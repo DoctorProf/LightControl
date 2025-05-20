@@ -4,7 +4,7 @@ RequestHandler::RequestHandler(QObject *parent)
     : QObject(parent)
 {
     network_manager = new QNetworkAccessManager(this);
-    base_url = "http://127.0.0.1:80";
+    base_url = "http://127.0.0.1:5000";
     connect(network_manager, &QNetworkAccessManager::finished, this, &RequestHandler::onReplyFinished);
     endpoints.insert(QString("/getSettings"), [this](QNetworkReply* reply)
     {
@@ -25,6 +25,20 @@ RequestHandler::RequestHandler(QObject *parent)
         if (reply->operation() == QNetworkAccessManager::GetOperation)
         {
             handleGetModes(reply);
+        }
+    });
+    endpoints.insert(QString("/getModeParams"), [this](QNetworkReply* reply)
+    {
+        if (reply->operation() == QNetworkAccessManager::GetOperation)
+        {
+            handleGetModeParams(reply);
+        }
+    });
+    endpoints.insert(QString("/setModeParams"), [this](QNetworkReply* reply)
+    {
+        if (reply->operation() == QNetworkAccessManager::GetOperation)
+        {
+            handleSetModeParams(reply);
         }
     });
 }
@@ -59,7 +73,22 @@ void RequestHandler::getModes()
     QNetworkRequest request(url);
     network_manager->get(request);
 }
-
+void RequestHandler::getModeParams()
+{
+    QUrl url(base_url + "/getModeParams");
+    QNetworkRequest request(url);
+    network_manager->get(request);
+}
+void RequestHandler::setModeParams(QString parameter_name, QString internal_param, QString value)
+{
+    QUrl url(base_url + "/setModeParams");
+    QUrlQuery query;
+    query.addQueryItem("parameter_name", parameter_name);
+    query.addQueryItem(internal_param, value);
+    url.setQuery(query);
+    QNetworkRequest request(url);
+    network_manager->get(request);
+}
 void RequestHandler::handleGetSettings(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError)
@@ -80,6 +109,21 @@ void RequestHandler::handleGetModes(QNetworkReply *reply)
     if (reply->error() == QNetworkReply::NoError)
     {
         emit modesReceived(network_utils::extractJsonObj(reply));
+        emit responseMessage(network_utils::extractResponseMessage(reply));
+    }
+}
+void RequestHandler::handleGetModeParams(QNetworkReply *reply)
+{
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        emit paramsModeReceived(network_utils::extractJsonObj(reply));
+        emit responseMessage(network_utils::extractResponseMessage(reply));
+    }
+}
+void RequestHandler::handleSetModeParams(QNetworkReply *reply)
+{
+    if (reply->error() == QNetworkReply::NoError)
+    {
         emit responseMessage(network_utils::extractResponseMessage(reply));
     }
 }

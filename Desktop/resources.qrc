@@ -6,7 +6,5 @@
         <file>Layouts/main.qml</file>
         <file>Layouts/Snackbar.qml</file>
         <file>Layouts/MainPage.qml</file>
-        <file>Layouts/HsvColorDialog.qml</file>
-        <file>Layouts/ColorPicker.qml</file>
     </qresource>
 </RCC>

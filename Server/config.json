@@ -1,11 +1,11 @@
 {
     "client": {
-        "address": "http://192.168.1.30:1000"
+        "address": "192.168.1.30"
     },
     "led": {
-        "brightness": 128,
+        "brightness": 255,
         "led_count": 300,
-        "mode_name": "rainbow",
+        "mode_name": "run",
         "state": 1
     }
 }

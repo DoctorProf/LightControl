@@ -1,0 +1,20 @@
+{
+    "color": {
+        "type": "color",
+        "value": "#2b18ff"
+    },
+    "length": {
+        "max": 300,
+        "min": 1,
+        "step": 1,
+        "type": "float",
+        "value": 140.0
+    },
+    "speed": {
+        "max": 10.0,
+        "min": 0.0,
+        "step": 1,
+        "type": "float",
+        "value": 2.0
+    }
+}

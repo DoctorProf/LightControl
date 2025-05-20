@@ -1,16 +1,16 @@
 {
     "speed": {
-        "max": 50.0,
+        "max": 10.0,
         "min": 0.0,
         "step": 1,
         "type": "float",
-        "value": 5
+        "value": 10.0
     },
     "wave_lenght": {
         "max": 5.0,
-        "min": 0.0,
-        "step": 0.1,
+        "min": 0.5,
+        "step": 0.5,
         "type": "float",
-        "value": 1.0
+        "value": 5.0
     }
 }

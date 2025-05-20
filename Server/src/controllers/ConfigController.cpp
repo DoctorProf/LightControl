@@ -109,20 +109,23 @@ std::vector<std::string> ConfigController::getModesNames()
 	std::vector<std::string> modes_list;
 	std::string modes_dir = "modes";
 
-	if (!fs::exists(modes_dir))
-	{
+	if (!fs::exists(modes_dir)) {
 		std::cerr << "Directory 'modes' not found!" << std::endl;
 		return modes_list;
 	}
 
-	for (auto& entry : fs::directory_iterator(modes_dir))
-	{
-		if (entry.is_regular_file())
-		{
-			std::string filename = entry.path().stem().string();
-			modes_list.push_back(filename);
+	for (const auto& entry : fs::directory_iterator(modes_dir)) {
+		if (entry.is_regular_file()) {
+			std::string ext = entry.path().extension().string();
+			std::transform(ext.begin(), ext.end(), ext.begin(), ::tolower);
+
+			if (ext == ".dll") {
+				std::string filename = entry.path().stem().string();
+				modes_list.push_back(filename);
+			}
 		}
 	}
+
 	return modes_list;
 }
 json ConfigController::getSettings()

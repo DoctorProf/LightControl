@@ -4,12 +4,11 @@
 #include <chrono>
 #include <atomic>
 #include <algorithm>
-#include <chrono>
 #include "include/controllers/ModeController.h"
 
 void apiThread(crow::SimpleApp& app)
 {
-	app.multithreaded().run();
+	app.port(5000).multithreaded().run();
 }
 int main()
 {
@@ -18,6 +17,7 @@ int main()
 
 	Client client(ConfigController::getInstance()->getAddressClient());
 	crow::SimpleApp app;
+
 	Api api(app);
 
 	std::thread api_thread(&apiThread, std::ref(app));
@@ -56,6 +56,7 @@ int main()
 			{
 				mode_controller.loadMode(ConfigController::getInstance()->getModeName());
 				mode_controller.setLedCount(led_count);
+				mode_controller.setParameters(ConfigController::getInstance()->getModeParams().dump().c_str());
 				type = mode_controller.getTypeMode();
 				break;
 			}

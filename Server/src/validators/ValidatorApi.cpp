@@ -150,13 +150,14 @@ json validator_api::setModeParameter(std::string parameter_name, std::string int
 		{
 			response["status"] = "Error";
 			response["description"] = "Invalid hex value";
+			return response;
 		}
 		response["status"] = "Success";
 		response["description"] = std::format("{}, {} set to {}", parameter_name, internal_param, parameter);
 		ConfigController::getInstance()->updateParamsMode(parameter_name, internal_param, parameter);
 		return response;
 	}
-	int value = isInvalidParameterFloat(parameter);
+	float value = isInvalidParameterFloat(parameter);
 	auto data = ConfigController::getInstance()->getModeParams()[parameter_name];
 	float min = data.value("min", 0.0);
 	float max = data.value("max", 0.0);
