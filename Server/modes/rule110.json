@@ -1,0 +1,15 @@
+{
+    "color": {
+        "screen_name": "Цвет",
+        "type": "color",
+        "value": "#ff34c2"
+    },
+    "speed": {
+        "max": 100.0,
+        "min": 0.0,
+        "screen_name": "Скорость",
+        "step": 1,
+        "type": "float",
+        "value": 0.0
+    }
+}

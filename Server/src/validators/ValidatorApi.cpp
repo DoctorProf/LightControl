@@ -26,11 +26,12 @@ int validator_api::isInvalidParameterInt(char* value)
 		return -1;
 	}
 }
-int validator_api::isInvalidParameterFloat(char* value)
+float validator_api::isInvalidParameterFloat(char* value)
 {
 	try
 	{
-		return std::stof(value);
+		float float_value = std::round(std::stof(value) * 100.0f) / 100.0f;
+		return float_value;
 	}
 	catch (const std::exception&)
 	{
@@ -38,6 +39,10 @@ int validator_api::isInvalidParameterFloat(char* value)
 	}
 }
 bool validator_api::checkRange(int value, int min, int max)
+{
+	return !(value < min || value > max);
+}
+bool validator_api::checkRange(float value, float min, float max)
 {
 	return !(value < min || value > max);
 }
@@ -144,7 +149,7 @@ json validator_api::setModeParameter(std::string parameter_name, std::string int
 		response["description"] = "Missing parameter";
 		return response;
 	}
-	if (parameter_name == "color")
+	if (ConfigController::getInstance()->getModeParams()[parameter_name]["type"].get<std::string>() == "color")
 	{
 		if (!checkCorrectHex(parameter))
 		{
