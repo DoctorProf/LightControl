@@ -170,7 +170,7 @@
 
 **Важно:**
 - Ровно два параметра должны быть переданы.
-- Первый — имя режима (`fire=...`), второй — внутреннее имя параметра.
+- Первый — имя режима (`parameter_name=...`), второй — внутреннее имя параметра.
 
 **Ответ:**
 
@@ -227,7 +227,7 @@ client.Post("/setLedColors", color_data, "text/plain");
 
 ```bash
 curl "http://localhost:18080/setSettings?enable=1"
-curl "http://localhost:18080/setModeParams?static=color&color=%23FF0000"
+curl "http://localhost:18080/setModeParams?parameter_name=color&value=%23FF0000"
 ```
 
 ### Python (requests)
