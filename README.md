@@ -226,7 +226,7 @@ client.Post("/setLedColors", color_data, "text/plain");
 ### Curl
 
 ```bash
-curl "http://localhost:18080/setSettings?enable=1"
+curl "http://localhost:18080/setSettings?state=1"
 curl "http://localhost:18080/setModeParams?parameter_name=color&value=%23FF0000"
 ```
 
