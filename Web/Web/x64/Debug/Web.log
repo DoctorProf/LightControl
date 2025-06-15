@@ -922,8 +922,8 @@ C:\vcpkg\installed\x64-windows\include\Wt\WLineEdit.h(345,16): warning C4251: "W
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(541,7):
        см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
   
-C:\DoctorProf\Soft\LightControl\Web\Web\src\LedApp.cpp(94,64): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\DoctorProf\Soft\LightControl\Web\Web\src\LedApp.cpp(181,17): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\DoctorProf\Soft\LightControl\Web\Web\src\LedApp.cpp(95,64): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\DoctorProf\Soft\LightControl\Web\Web\src\LedApp.cpp(195,17): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
   Web.vcxproj -> C:\DoctorProf\Soft\LightControl\Web\x64\Debug\Web.exe
   "pwsh.exe" не является внутренней или внешней
   командой, исполняемой программой или пакетным файлом.

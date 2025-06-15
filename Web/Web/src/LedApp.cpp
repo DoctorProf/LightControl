@@ -5,11 +5,11 @@ server(std::make_unique<Server>("127.0.0.1", 5000))
 {
 	setTheme(std::make_shared<Wt::WBootstrap5Theme>());
 
-	useStyleSheet("/resources/themes/bootstrap/5/bootstrap.min.css");
-	require("/resources/themes/bootstrap/5/bootstrap.bundle.min.js");
+	useStyleSheet("./resources/themes/bootstrap/5/bootstrap.min.css");
+	require("./resources/themes/bootstrap/5/bootstrap.bundle.min.js");
 
 	auto version = std::to_string(time(nullptr));
-	useStyleSheet("/resources/styles.css?v=" + version);
+	useStyleSheet("./resources/styles.css?v=" + version);
 
 	setTitle("LED Controller");
 	setRoot();
@@ -150,7 +150,7 @@ std::unique_ptr<Wt::WContainerWidget> LedApp::createPropertyControl(
 
 	return container;
 }
-std::unique_ptr<Wt::WContainerWidget> LedApp::createColorControl(Wt::WString screen_name, std::string value)
+std::unique_ptr<Wt::WContainerWidget> LedApp::createColorControl(Wt::WString screen_name, std::string name, std::string value)
 {
 	auto container = std::make_unique<Wt::WContainerWidget>();
 	container->addStyleClass("color-control mb-4 p-3 bg-dark rounded");
@@ -171,7 +171,7 @@ std::unique_ptr<Wt::WContainerWidget> LedApp::createColorControl(Wt::WString scr
 		Wt::WColor new_color = color_picker->color();
 		std::string color_value = new_color.cssText();
 		value_text->setText(color_value);
-		server->setModeParams("color", "value", color_value);
+		server->setModeParams(name, "value", color_value);
 		});
 
 	return container;
@@ -217,7 +217,7 @@ void LedApp::createControlsProperties()
 			if (type == "color")
 			{
 				std::string value = param_data["value"];
-				properties_layout->addWidget(std::move(createColorControl(screen_name, param_data["value"].get<std::string>())), 1, Wt::AlignmentFlag::Center);
+				properties_layout->addWidget(std::move(createColorControl(screen_name, param_name, param_data["value"].get<std::string>())), 1, Wt::AlignmentFlag::Center);
 			}
 			else if (type == "float")
 			{

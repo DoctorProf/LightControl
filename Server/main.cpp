@@ -1,23 +1,21 @@
 #include "include/api/Api.h"
 #include "include/network/Client.h"
+#include "include/controllers/ModeController.h"
 #include <thread>
 #include <chrono>
-#include <atomic>
 #include <algorithm>
-#include "include/controllers/ModeController.h"
 
 void apiThread(crow::SimpleApp& app)
 {
-	app.port(5000).multithreaded().run();
+	app.port(ConfigController::getInstance()->getServerPort()).multithreaded().run();
 }
 int main()
 {
 	ConfigController::getInstance()->readConfig();
 	ConfigController::getInstance()->loadData();
 
-	Client client(ConfigController::getInstance()->getAddressClient());
+	Client client;
 	crow::SimpleApp app;
-
 	Api api(app);
 
 	std::thread api_thread(&apiThread, std::ref(app));

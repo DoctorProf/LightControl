@@ -7,9 +7,7 @@
 #include <QMap>
 #include <functional>
 
-//template <typename... Args>
 class RequestHandler;
-//using handler = void (RequestHandler::*)(QNetworkReply*);
 using handler = std::function<void(QNetworkReply*)>;
 
 class RequestHandler : public QObject

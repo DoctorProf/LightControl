@@ -10,7 +10,7 @@
         "screen_name": "Длина",
         "step": 1,
         "type": "float",
-        "value": 1.0
+        "value": 0.0
     },
     "speed": {
         "max": 10.0,

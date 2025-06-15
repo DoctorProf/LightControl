@@ -1,5 +1,4 @@
-#ifndef COLOR_DIALOG_HELPER_H
-#define COLOR_DIALOG_HELPER_H
+#pragma once
 
 #include <QObject>
 #include <QColorDialog>
@@ -16,5 +15,3 @@ public:
         return color.isValid() ? color.name() : initial;
     }
 };
-
-#endif // COLOR_DIALOG_HELPER_H

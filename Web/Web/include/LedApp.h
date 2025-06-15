@@ -28,7 +28,7 @@ private:
 	void setupBrightnessSlider();
 	void setupPowerSwitch();
 	std::unique_ptr<Wt::WContainerWidget> createPropertyControl(Wt::WString screen_name, std::string name, float min, float max, float step, float value);
-	std::unique_ptr<Wt::WContainerWidget> createColorControl(Wt::WString screen_name, std::string value);
+	std::unique_ptr<Wt::WContainerWidget> createColorControl(Wt::WString screen_name, std::string name, std::string value);
 
 	void setValuesToControls();
 

@@ -1,0 +1,12 @@
+{
+    "color_end": {
+        "screen_name": "Цвет конца",
+        "type": "color",
+        "value": "#5500ff"
+    },
+    "color_start": {
+        "screen_name": "Цвет начала",
+        "type": "color",
+        "value": "#ffff00"
+    }
+}

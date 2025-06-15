@@ -54,7 +54,10 @@ void ConfigController::updateParameter(std::string param_name)
 }
 void ConfigController::loadData()
 {
+	subnet_prefix = config["network"]["subnet_prefix"];
+	server_port = config["network"]["server_port"];
 	brightness = config["led"]["brightness"];
+	led_count = config["led"]["led_count"];
 	mode_name = config["led"]["mode_name"];
 	state = config["led"]["state"];
 	path_mode_params = "modes/" + mode_name + ".json";
@@ -138,15 +141,20 @@ json ConfigController::getModeParams()
 	std::lock_guard<std::mutex> lock(config_mutex);
 	return mode_params;
 }
-std::string ConfigController::getAddressClient()
+std::string ConfigController::getSubnetPrefix()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
-	return config["client"]["address"];
+	return subnet_prefix;
+}
+int ConfigController::getServerPort()
+{
+	std::lock_guard<std::mutex> lock(config_mutex);
+	return server_port;
 }
 int ConfigController::getLedCount()
 {
 	std::lock_guard<std::mutex> lock(config_mutex);
-	return config["led"]["led_count"];
+	return led_count;
 }
 int ConfigController::getBrightness()
 {

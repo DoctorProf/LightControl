@@ -16,13 +16,15 @@ private:
 	static ConfigController* instance;
 
 	json config;
-
+	std::string subnet_prefix;
+	int server_port;
 	int led_count;
 	int brightness;
 	std::string mode_name;
 	int state;
 	json mode_params;
 	std::string path_mode_params;
+
 	int is_changed;
 	int* change_handler = nullptr;
 
@@ -50,7 +52,8 @@ public:
 
 	std::vector<std::string> getModesNames();
 
-	std::string getAddressClient();
+	std::string getSubnetPrefix();
+	int getServerPort();
 	int getLedCount();
 	int getBrightness();
 	std::string getModeName();

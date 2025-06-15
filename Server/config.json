@@ -1,11 +1,12 @@
 {
-    "client": {
-        "address": "192.168.1.30"
-    },
-    "led": {
-        "brightness": 252,
-        "led_count": 300,
-        "mode_name": "blast",
-        "state": 1
-    }
+  "network": {
+    "subnet_prefix": "192.168.62.",
+    "server_port": 5000
+  },
+  "led": {
+    "brightness": 128,
+    "led_count": 300,
+    "mode_name": "static",
+    "state": 0
+  }
 }
